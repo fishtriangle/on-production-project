@@ -2,7 +2,6 @@
   height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
   background: var(--inverted-bg-color);
-
   position: relative;
   display: flex;
   flex-direction: column;
@@ -16,7 +15,6 @@
 .toggleBtn {
   margin-left: auto;
   align-self: end;
-
   margin-right: 5px;
   margin-top: 5px;
 }
