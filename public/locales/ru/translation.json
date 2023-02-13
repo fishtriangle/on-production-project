@@ -2,5 +2,7 @@
   "Test translation": "Тестовый перевод",
   "Language": "English",
   "Main page": "Главная страница",
-  "Page not found": "Страница не найдена"
+  "Page not found": "Страница не найдена",
+  "Unexpected error happened": "Произошла непредвиденная ошибка",
+  "Refresh page": "Перезагрузить страницу"
 }
