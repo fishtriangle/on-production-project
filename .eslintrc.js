@@ -43,17 +43,25 @@ module.exports = {
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'react/require-default-props': 'off',
-    'react/jsx-props-no-spreading': 'warn',
+    'react/jsx-props-no-spreading': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'react/react-in-jsx-scope': 'off',
     'no-underscore-dangle': 'off',
     'no-shadow': 'off',
-    'i18next/no-literal-string': ['error', { markupOnly: true }],
-    'max-len': ['error', { ignoreComments: true }],
+    'i18next/no-literal-string': ['error'],
+    'max-len': ['error', { ignoreComments: true, code: 120 }],
   },
   globals: {
     __IS_DEV__: true,
     React: true,
   },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+  ],
 };
