@@ -8,10 +8,14 @@ import classes from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
   className?: string;
+  customTheme?: Theme;
 }
 
-export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
+export function ThemeSwitcher({ className, customTheme = Theme.LIGHT }: ThemeSwitcherProps) {
   const { theme, toggleTheme } = useTheme();
+  if (theme === customTheme) {
+    toggleTheme();
+  }
 
   return (
     <Button

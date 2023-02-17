@@ -1,7 +1,8 @@
 import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
 import { BuildOptions } from './types/config';
+import { buildScssLoader } from './loaders/buildScssLoader';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const babelLoader = {
@@ -40,33 +41,9 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
-  const scssLoader = {
-    test: /\.s[ac]ss$/i,
-    use: [
-      // Creates `style` nodes from JS strings
-      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      // Translates CSS into CommonJS
-      {
-        loader: 'css-loader',
-        options: {
-          modules: {
-            auto: /\.module\.\w+$/i,
-            localIdentName: isDev
-              ? '[path][name]__[local]'
-              : '[hash:base64:8]',
-          },
-        },
-      },
-      // Compiles Sass to CSS
-      'sass-loader',
-    ],
-  };
+  const scssLoader = buildScssLoader(isDev);
 
-  const svgLoader = {
-    test: /\.svg$/i,
-    issuer: /\.[jt]sx?$/,
-    use: '@svgr/webpack',
-  };
+  const svgLoader = buildSvgLoader();
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff2?)$/i,
