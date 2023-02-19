@@ -21,13 +21,19 @@ jobs:
         run: npm ci
       - name: build production
         run: npm run build:prod
+        if: always()
       - name: lint ts
         run: npm run lint:ts
+        if: always()
       - name: lint scss
         run: npm run lint:scss
+        if: always()
       - name: test unit
+        if: always()
         run: npm run test:unit
       - name: build storybook
+        if: always()
         run: npm run storybook:build
       - name: test screenshots
         run: npm run test:ui:ci
+        if: always()

@@ -1,9 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import classes from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
@@ -13,13 +13,16 @@ interface ThemeSwitcherProps {
 
 export function ThemeSwitcher({ className, customTheme = Theme.LIGHT }: ThemeSwitcherProps) {
   const { theme, toggleTheme } = useTheme();
-  if (theme === customTheme) {
-    toggleTheme();
-  }
+
+  useEffect(() => {
+    if (theme === customTheme) {
+      toggleTheme();
+    }
+  }, []);
 
   return (
     <Button
-      theme={ThemeButton.CLEAR}
+      theme={ButtonTheme.CLEAR}
       className={classNames(
         classes.ThemeSwitcher,
         { [classes.switched]: theme === Theme.LIGHT },
