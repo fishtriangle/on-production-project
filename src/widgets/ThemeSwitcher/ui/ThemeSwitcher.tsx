@@ -18,7 +18,7 @@ export function ThemeSwitcher({ className, customTheme = Theme.LIGHT }: ThemeSwi
     if (theme === customTheme) {
       toggleTheme();
     }
-  }, []);
+  }, [customTheme, theme, toggleTheme]);
 
   return (
     <Button

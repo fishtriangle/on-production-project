@@ -6,5 +6,7 @@
   "Page not found": "Page not found",
   "Unexpected error happened": "Unexpected error happened",
   "Refresh page": "Refresh page",
-  "('Toggle')": "('Toggle')"
+  "('Toggle')": "('Toggle')",
+  "('Sign in')": "('Sign in')",
+  "('Lorem')": "('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, atque consequatur corporis culpa debitis dolor eaque enim eveniet id ipsa officia omnis quasi qui repudiandae sapiente sequi temporibus voluptatem voluptatibus.')"
 }
