@@ -8,5 +8,7 @@
   "Refresh page": "Перезагрузить страницу",
   "('Toggle')": "('Переключить')",
   "('Sign in')": "('Sign in')",
-  "('Lorem')": "('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, atque consequatur corporis culpa debitis dolor eaque enim eveniet id ipsa officia omnis quasi qui repudiandae sapiente sequi temporibus voluptatem voluptatibus.')"
+  "('Lorem')": "('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, atque consequatur corporis culpa debitis dolor eaque enim eveniet id ipsa officia omnis quasi qui repudiandae sapiente sequi temporibus voluptatem voluptatibus.')",
+  "('increment')": "('увеличение')",
+  "('decrement')": "('уменьшение')"
 }
