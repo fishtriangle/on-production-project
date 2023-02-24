@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, { useEffect } from 'react';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
@@ -18,7 +19,7 @@ export function ThemeSwitcher({ className, customTheme = Theme.LIGHT }: ThemeSwi
     if (theme === customTheme) {
       toggleTheme();
     }
-  }, [customTheme, theme, toggleTheme]);
+  }, []);
 
   return (
     <Button
