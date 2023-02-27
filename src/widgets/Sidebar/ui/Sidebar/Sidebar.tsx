@@ -39,7 +39,7 @@ export function Sidebar({ className }: SidebarProps) {
             className={classes.link}
           >
             <HomeIcon className={classes.listIcon} />
-            <span className={classes.listTitle}>{t('Main')}</span>
+            <span className={classes.listTitle}>{t('Main page')}</span>
           </AppLink>
         </div>
 
@@ -50,7 +50,7 @@ export function Sidebar({ className }: SidebarProps) {
             className={classes.link}
           >
             <AboutIcon className={classes.listIcon} />
-            <span className={classes.listTitle}>{t('About')}</span>
+            <span className={classes.listTitle}>{t('About page')}</span>
           </AppLink>
         </div>
       </div>

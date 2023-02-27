@@ -3,6 +3,7 @@
   "Language": "Русский",
   "LanguageShort": "Рус",
   "Main page": "Main page",
+  "About page": "About",
   "Page not found": "Page not found",
   "Unexpected error happened": "Unexpected error happened",
   "Refresh page": "Refresh page",
@@ -13,5 +14,9 @@
   "('decrement')": "('decrement')",
   "('Log in')": "('Log in')",
   "('Input username')": "('Input username')",
-  "('Input password')": "('Input password')"
+  "('Input password')": "('Input password')",
+  "('Auth form')": "('Auth form')",
+  "ErrorLoadUserDataError!": "Error: load user data error!",
+  "ErrorInvalidNameOrPassword!": "Error: invalid name or password!",
+  "('Log out')": "('Log out')"
 }
