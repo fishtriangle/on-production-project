@@ -1,3 +1,3 @@
-import { IStateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from 'app/providers/StoreProvider';
 
-export const getLoginState = (state: IStateSchema) => state?.loginForm;
+export const getLoginState = (state: StateSchema) => state?.loginForm;
