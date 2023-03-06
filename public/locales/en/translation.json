@@ -18,5 +18,6 @@
   "('Auth form')": "('Auth form')",
   "ErrorLoadUserDataError!": "Error: load user data error!",
   "ErrorInvalidNameOrPassword!": "Error: invalid name or password!",
-  "('Log out')": "('Log out')"
+  "('Log out')": "('Log out')",
+  "Profile page": "Profile page"
 }

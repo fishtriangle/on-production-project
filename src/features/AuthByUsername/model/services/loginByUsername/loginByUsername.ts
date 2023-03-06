@@ -26,10 +26,20 @@ export const loginByUsername = createAsyncThunk<IUser, LoginByUsernameProps, {re
       thunkAPI.dispatch(userActions.setAuthData(response.data));
 
       return response.data;
-    } catch (e) {
+    } catch (e: unknown) {
+      if (axios.isAxiosError(e)) {
+        if (e.response && e.response.status === 403) {
+          // eslint-disable-next-line no-console
+          console.log('Error: ', LoginErrors.INCORRECT_DATA, '\n', e);
+          return thunkAPI.rejectWithValue(LoginErrors.INCORRECT_DATA);
+        }
+        // eslint-disable-next-line no-console
+        console.log('Error: ', LoginErrors.SERVER_ERROR, '\n', e);
+        return thunkAPI.rejectWithValue(LoginErrors.SERVER_ERROR);
+      }
       // eslint-disable-next-line no-console
-      console.log(e);
-      return thunkAPI.rejectWithValue(LoginErrors.INCORRECT_DATA);
+      console.log('Error: ', LoginErrors.UNKNOWN_ERROR, '\n', e);
+      return thunkAPI.rejectWithValue(LoginErrors.UNKNOWN_ERROR);
     }
   },
 );

@@ -1,6 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
@@ -12,13 +11,14 @@ interface ThemeSwitcherProps {
   customTheme?: Theme;
 }
 
-export function ThemeSwitcher({ className, customTheme = Theme.LIGHT }: ThemeSwitcherProps) {
+export const ThemeSwitcher = memo(({ className, customTheme = Theme.LIGHT }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     if (theme === customTheme) {
       toggleTheme();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -34,4 +34,4 @@ export function ThemeSwitcher({ className, customTheme = Theme.LIGHT }: ThemeSwi
       {theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon fill="#00ff00" />}
     </Button>
   );
-}
+});

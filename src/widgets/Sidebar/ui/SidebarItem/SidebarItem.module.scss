@@ -1,0 +1,41 @@
+.listItem {
+  margin-top: 10px;
+  display: flex;
+  justify-content: start;
+}
+
+.link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-right: 13px;
+  flex-grow: 1;
+}
+
+.listTitle {
+  margin-left: 10px;
+  opacity: 1;
+}
+
+.listIcon {
+  width: 24px;
+  height: 24px;
+
+  path {
+    stroke: var(--inverted-secondary-color);
+  }
+}
+
+.collapsed {
+  .listItem {
+    justify-content: end;
+  }
+
+  .link {
+    flex-direction: row-reverse;
+  }
+
+  .listTitle {
+    opacity: 0;
+  }
+}

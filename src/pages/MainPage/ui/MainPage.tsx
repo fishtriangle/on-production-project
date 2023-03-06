@@ -1,7 +1,7 @@
-import React from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-function MainPage() {
+const MainPage = memo(() => {
   const { t } = useTranslation();
 
   return (
@@ -9,6 +9,6 @@ function MainPage() {
       {t('Main page')}
     </div>
   );
-}
+});
 
 export default MainPage;

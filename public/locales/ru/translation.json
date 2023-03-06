@@ -7,9 +7,9 @@
   "Page not found": "Страница не найдена",
   "Unexpected error happened": "Произошла непредвиденная ошибка",
   "Refresh page": "Перезагрузить страницу",
-  "('Toggle')": "('Переключить')",
+  "Toggle": "('Переключить')",
   "Sign in": "Войти",
-  "('Lorem')": "('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, atque consequatur corporis culpa debitis dolor eaque enim eveniet id ipsa officia omnis quasi qui repudiandae sapiente sequi temporibus voluptatem voluptatibus.')",
+  "Lorem": "('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, atque consequatur corporis culpa debitis dolor eaque enim eveniet id ipsa officia omnis quasi qui repudiandae sapiente sequi temporibus voluptatem voluptatibus.')",
   "('increment')": "('увеличение')",
   "('decrement')": "('уменьшение')",
   "Log in": "Подтвердить",
@@ -18,6 +18,6 @@
   "Auth form": "Форма авторизации",
   "ErrorLoadUserDataError!": "Ошибка: не возможно загрузить информацию о пользователе!",
   "ErrorInvalidNameOrPassword!": "Ошибка: не правильное имя или пароль!",
-  "('Log out')": "('Log out')",
-  "('ErrorInvalidNameOrPassword!')": "('ErrorInvalidNameOrPassword!')"
+  "Log out": "Выйти",
+  "Profile page": "Профиль пользователя"
 }

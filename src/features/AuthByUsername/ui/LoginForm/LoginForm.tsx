@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -7,6 +7,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
@@ -19,15 +20,16 @@ import classes from './LoginForm.module.scss';
 export interface LoginFormProps {
   className?: string;
   isFocused?: boolean;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
-const LoginForm = memo(({ className, isFocused }: LoginFormProps) => {
+const LoginForm = memo(({ className, isFocused, onSuccess }: LoginFormProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
@@ -42,11 +44,30 @@ const LoginForm = memo(({ className, isFocused }: LoginFormProps) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onLoginClick = useCallback(() => {
-    // @ts-ignore
-    // TODO: add dispatch type
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+  const onLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+    return result;
+  }, [dispatch, onSuccess, password, username]);
+
+  const onKeyDown = useCallback((event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      onLoginClick();
+    }
+  }, [onLoginClick]);
+
+  useEffect(
+    () => {
+      window.addEventListener('keydown', onKeyDown);
+
+      return () => {
+        window.removeEventListener('keydown', onKeyDown);
+      };
+    },
+    [onKeyDown],
+  );
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>

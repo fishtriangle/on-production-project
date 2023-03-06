@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -12,7 +12,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export function Navbar({ className }: NavbarProps) {
+export const Navbar = memo(({ className }: NavbarProps) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -63,4 +63,4 @@ export function Navbar({ className }: NavbarProps) {
       )}
     </div>
   );
-}
+});
