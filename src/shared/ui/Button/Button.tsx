@@ -1,10 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
   ButtonHTMLAttributes, memo, ReactNode,
 } from 'react';
 import classes from './Button.module.scss';
 
 export enum ButtonTheme {
+  PRIMAL= 'primal',
   CLEAR = 'clear',
   CLEAR_INVERTED = 'clearInverted',
   OUTLINE = 'outline',
@@ -31,14 +32,14 @@ export const Button = memo((props: ButtonProps) => {
   const {
     className,
     children,
-    theme,
+    theme = ButtonTheme.PRIMAL,
     square,
     size = ButtonSize.M,
     disabled,
     ...otherProps
   } = props;
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [classes[theme]]: true,
     [classes.square]: square,
     [classes[size]]: true,

@@ -24,7 +24,7 @@ export const Input = memo((props: InputProps) => {
     ...otherProps
   } = props;
 
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
   const [pointerPosition, setPointerPosition] = useState(0);
@@ -32,7 +32,7 @@ export const Input = memo((props: InputProps) => {
   useEffect(() => {
     if (autofocus) {
       setIsFocused(true);
-      inputRef.current.focus();
+      inputRef?.current?.focus();
     }
   }, [autofocus]);
 
