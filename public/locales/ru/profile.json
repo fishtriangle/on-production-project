@@ -2,5 +2,15 @@
   "Profile": "Профиль",
   "Edit": "Edit",
   "Your name": "Your name",
-  "Your lastname": "Your lastname"
+  "Your lastname": "Your lastname",
+  "Profile loading error!": "Profile loading error!",
+  "Try to reload page": "Try to reload page",
+  "Save": "Save",
+  "Cancel": "Cancel",
+  "Your birth year": "Your birth year",
+  "Your city": "Your city",
+  "Your username": "Your username",
+  "Link to your avatar image": "Link to your avatar image",
+  "avatar": "avatar",
+  "Choose currency": "Choose currency"
 }

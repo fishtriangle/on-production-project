@@ -19,5 +19,7 @@
   "ErrorLoadUserDataError!": "Ошибка: не возможно загрузить информацию о пользователе!",
   "ErrorInvalidNameOrPassword!": "Ошибка: не правильное имя или пароль!",
   "Log out": "Выйти",
-  "Profile page": "Профиль пользователя"
+  "Profile page": "Профиль пользователя",
+  "Choose currency": "Choose currency",
+  "Choose country": "Choose country"
 }

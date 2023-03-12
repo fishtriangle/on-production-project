@@ -19,5 +19,7 @@
   "ErrorLoadUserDataError!": "Error: load user data error!",
   "ErrorInvalidNameOrPassword!": "Error: invalid name or password!",
   "('Log out')": "('Log out')",
-  "Profile page": "Profile page"
+  "Profile page": "Profile page",
+  "Choose currency": "Choose currency",
+  "Choose country": "Choose country"
 }

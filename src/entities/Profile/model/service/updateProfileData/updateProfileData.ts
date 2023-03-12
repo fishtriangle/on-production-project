@@ -3,18 +3,24 @@ import axios from 'axios';
 
 import { ThunkConfig } from 'app/providers/StoreProvider';
 
+import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { Profile } from '../../types/profile';
 
-export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
-  'profile/fetchProfileData',
+export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+  'profile/updateProfileData',
   async (_, thunkAPI) => {
     const {
       rejectWithValue,
       extra: { api },
+      getState,
     } = thunkAPI;
+
+    const formData = getProfileForm(getState());
+
     try {
-      const response = await api.get<Profile>(
+      const response = await api.put<Profile>(
         '/profile',
+        formData,
       );
 
       return response.data;
