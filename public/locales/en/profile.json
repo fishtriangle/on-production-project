@@ -12,5 +12,13 @@
   "Your username": "Your username",
   "Link to your avatar image": "Link to your avatar image",
   "avatar": "avatar",
-  "Choose currency": "Choose currency"
+  "Choose currency": "Choose currency",
+  "Incorrect user name": "Error: incorrect user name!",
+  "Incorrect lastname": "Error: incorrect lastname!",
+  "Incorrect birthyear": "Error: incorrect birthyear! It should contain four digits.",
+  "Incorrect country": "Error: incorrect country!",
+  "Incorrect data": "Error: incorrect data!",
+  "Server error": "Error: server error!",
+  "No data to validate": "No data to validate!",
+  "Unknown error": "Unknown error!"
 }

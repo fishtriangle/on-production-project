@@ -3,7 +3,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { LoginErrors } from '../../types/loginSchema';
 import { loginByUsername } from './loginByUsername';
 
-describe('loginByUsername.ts.test', () => {
+describe('loginByUsername.test', () => {
   // let dispatch: Dispatch;
   // let getState: () => StateSchema;
   //

@@ -4,6 +4,10 @@ export type {
 } from './model/types/profile';
 
 export {
+  ValidateProfileErrors,
+} from './model/types/profile';
+
+export {
   profileReducer,
   profileActions,
 } from './model/slice/profileSlice';
@@ -18,3 +22,4 @@ export { getProfileError } from './model/selectors/getProfileError/getProfileErr
 export { getProfileData } from './model/selectors/getProfileData/getProfileData';
 export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
 export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
+export { getProfileValidationErrors } from './model/selectors/getProfileValidationErrors/getProfileValidationErrors';
