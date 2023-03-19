@@ -53,7 +53,7 @@ server.use((req, res, next) => {
 server.use(router);
 
 // запуск сервера
-server.listen(8000, () => {
+server.listen(8888, () => {
   // eslint-disable-next-line no-console
-  console.log('server is running on 8000 port');
+  console.log('server is running on 8888 port');
 });

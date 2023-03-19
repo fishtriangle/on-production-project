@@ -1,5 +1,5 @@
-import React, { Suspense, useEffect } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import React, { Suspense, useEffect, useState } from 'react';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
@@ -13,17 +13,25 @@ function App() {
   const dispatch = useDispatch();
   const isInitiated = useSelector(getUserIsInitiated);
 
+  const [collapsed, setCollapsed] = useState(false);
+
   useEffect(() => {
     dispatch(userActions.initAuthData());
   }, [dispatch]);
+
+  const mods: Mods = {
+    'content-bar_collapsed': collapsed,
+  };
 
   return (
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback={<PageLoader />}>
         <Navbar />
         <div className="content-page">
-          <Sidebar />
-          {isInitiated && <AppRouter />}
+          <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
+          <div className={classNames('content-bar', mods)}>
+            {isInitiated && <AppRouter />}
+          </div>
         </div>
       </Suspense>
     </div>

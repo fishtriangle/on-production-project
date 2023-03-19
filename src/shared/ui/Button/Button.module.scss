@@ -1,6 +1,11 @@
 .Button {
   cursor: pointer;
   padding: 6px 20px;
+  color: var(--primary-color);
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 .clear,

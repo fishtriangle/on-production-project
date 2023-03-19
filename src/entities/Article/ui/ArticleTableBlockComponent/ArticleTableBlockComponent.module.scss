@@ -1,0 +1,9 @@
+.ArticleTableBlockComponent {
+  width: 100%;
+
+  td {
+    border: 1px solid var(--primary-color);
+    padding: 3px;
+    text-align: center;
+  }
+}

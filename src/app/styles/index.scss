@@ -17,9 +17,24 @@
 
 .content-page {
   display: flex;
+  position: relative;
+}
+
+.content-bar {
+  width: calc(100% - var(--sidebar-width));
+  position: absolute;
+  left: var(--sidebar-width);
+  transition: transform 300ms;
+}
+
+.content-bar_collapsed {
+  left: calc(var(--sidebar-width) + var(--sidebar-width-collapsed));
+  width: calc(100% - calc(var(--sidebar-width) + var(--sidebar-width-collapsed)));
 }
 
 .page-wrapper {
   flex-grow: 1;
-  padding: 20px;
+  padding: 20px 20px 20px 45px;
+  height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
 }

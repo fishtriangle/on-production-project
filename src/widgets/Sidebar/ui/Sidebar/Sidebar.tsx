@@ -1,4 +1,6 @@
-import { memo, useCallback, useState } from 'react';
+import {
+  Dispatch, memo, SetStateAction, useCallback,
+} from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
@@ -11,14 +13,16 @@ import classes from './Sidebar.module.scss';
 
 interface SidebarProps {
   className?: string;
+  collapsed: boolean;
+  setCollapsed?: Dispatch<SetStateAction<boolean>>;
 }
 
-export const Sidebar = memo(({ className }: SidebarProps) => {
-  const [collapsed, setCollapsed] = useState(false);
-
+export const Sidebar = memo(({ className, setCollapsed, collapsed }: SidebarProps) => {
   const handleToggle = useCallback(() => {
-    setCollapsed((prev) => !prev);
-  }, []);
+    if (setCollapsed) {
+      setCollapsed((prev) => !prev);
+    }
+  }, [setCollapsed]);
 
   return (
     <div
