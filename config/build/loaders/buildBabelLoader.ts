@@ -1,4 +1,4 @@
-export function buildBabelLoader(isDev: boolean) {
+export function buildBabelLoader() {
   return {
     test: /\.[jt]sx?$/,
     exclude: /node_modules/,
@@ -14,7 +14,6 @@ export function buildBabelLoader(isDev: boolean) {
               keyAsDefaultValue: true,
             },
           ],
-          isDev && require.resolve('react-refresh/babel'),
         ].filter(Boolean),
       },
     },
