@@ -1,0 +1,11 @@
+.AddNewComment {
+  display: flex;
+  padding: 20px;
+  border: 1px solid var(--primary-color);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input {
+  flex-grow: 1;
+}

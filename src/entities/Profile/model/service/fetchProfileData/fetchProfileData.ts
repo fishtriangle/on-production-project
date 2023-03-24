@@ -5,16 +5,24 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 
 import { Profile } from '../../types/profile';
 
-export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+export const fetchProfileData = createAsyncThunk<
+  Profile,
+  string | undefined,
+  ThunkConfig<string>
+>(
   'profile/fetchProfileData',
-  async (_, thunkAPI) => {
+  async (profileId, thunkAPI) => {
     const {
       rejectWithValue,
       extra: { api },
     } = thunkAPI;
     try {
+      if (!profileId) {
+        return rejectWithValue('No profile ID');
+      }
+
       const response = await api.get<Profile>(
-        '/profile',
+        `/profile/${profileId}`,
       );
 
       if (!response.data) {

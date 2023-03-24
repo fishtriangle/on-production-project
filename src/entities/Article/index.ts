@@ -2,6 +2,8 @@ export {
   ArticleDetails,
 } from './ui/ArticleDetails/ArticleDetails';
 
+export { getArticleDetailsData } from './model/selectors/getArticleDetails';
+
 export type {
   Article,
 } from './model/types/article';

@@ -28,6 +28,7 @@ export const loginByUsername = createAsyncThunk<
       const response = await api.post<User>(
         '/login',
         authData,
+        {},
       );
 
       if (!response.data) {

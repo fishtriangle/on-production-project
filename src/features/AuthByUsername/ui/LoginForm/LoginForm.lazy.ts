@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { LoginFormProps } from 'features/AuthByUsername/ui/LoginForm/LoginForm';
+import { LoginFormProps } from './LoginForm';
 
 const LoginFormLazy = React.lazy<FC<LoginFormProps>>(() => import('./LoginForm'));
 

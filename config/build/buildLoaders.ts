@@ -6,7 +6,7 @@ import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-  const babelLoader = buildBabelLoader(isDev);
+  const babelLoader = buildBabelLoader();
 
   const tsLoader = {
     test: /\.[jt]sx?$/,

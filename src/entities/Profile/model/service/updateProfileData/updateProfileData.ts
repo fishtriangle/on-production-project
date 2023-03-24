@@ -7,7 +7,11 @@ import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { Profile, ValidateProfileErrors } from '../../types/profile';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
-export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<ValidateProfileErrors[]>>(
+export const updateProfileData = createAsyncThunk<
+  Profile,
+  void,
+  ThunkConfig<ValidateProfileErrors[]>
+>(
   'profile/updateProfileData',
   async (_, thunkAPI) => {
     const {
@@ -26,7 +30,7 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<Val
 
     try {
       const response = await api.put<Profile>(
-        '/profile',
+        `profile/${formData?.id}`,
         formData,
       );
 
