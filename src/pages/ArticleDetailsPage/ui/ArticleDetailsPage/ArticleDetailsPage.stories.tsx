@@ -109,5 +109,17 @@ Primary.decorators = [
     articleDetails: {
       data: article,
     },
+    articleDetailsComments: {
+      isLoading: false,
+      error: undefined,
+      ids: ['1'],
+      entities: {
+        1: {
+          id: '1',
+          user: { id: '1', username: 'User 1' },
+          text: 'Comment 1',
+        },
+      },
+    },
   }),
 ];

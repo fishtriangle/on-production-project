@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import React, { memo, Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
@@ -12,6 +12,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddNewComment } from 'features/AddNewComment';
 
+import { PageLoader } from 'widgets/PageLoader';
 import {
   fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -61,20 +62,22 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(classes.ArticleDetailsPage, mods, [className])}>
-        <ArticleDetails id={id} />
-        <Text title={t('Comments')} className={classes.commentTitle} />
-        <AddNewComment onSendComment={onSendComment} />
-        {!commentsError && (
-          <CommentList
-            comments={comments}
-            isLoading={commentsIsLoading}
-          />
-        )}
-        {commentsError && (
-          <Text theme={TextTheme.ERROR} title={t('Comments loading error!')} />
-        ) }
-      </div>
+      <Suspense fallback={<PageLoader />}>
+        <div className={classNames(classes.ArticleDetailsPage, mods, [className])}>
+          <ArticleDetails id={id} />
+          <Text title={t('Comments')} className={classes.commentTitle} />
+          <AddNewComment onSendComment={onSendComment} />
+          {!commentsError && (
+            <CommentList
+              comments={comments}
+              isLoading={commentsIsLoading}
+            />
+          )}
+          {commentsError && (
+            <Text theme={TextTheme.ERROR} title={t('Comments loading error!')} />
+          ) }
+        </div>
+      </Suspense>
     </DynamicModuleLoader>
   );
 };

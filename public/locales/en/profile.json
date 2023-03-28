@@ -20,5 +20,6 @@
   "Incorrect data": "Error: incorrect data!",
   "Server error": "Error: server error!",
   "No data to validate": "No data to validate!",
-  "Unknown error": "Unknown error!"
+  "Unknown error": "Unknown error!",
+  "error": "error"
 }
