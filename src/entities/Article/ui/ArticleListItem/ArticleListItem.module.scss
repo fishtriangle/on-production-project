@@ -1,0 +1,120 @@
+.ArticleListItem {
+  display: block;
+}
+
+.LIST {
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+  }
+
+  .username {
+    margin-left: 8px;
+  }
+
+  .date {
+    margin-left: auto;
+  }
+
+  .title {
+    margin-top: 8px;
+  }
+
+  .image {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    margin: 16px 0;
+  }
+
+  .textBlock {
+    max-height: 200px;
+    overflow-y: hidden;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+  }
+
+  .views {
+    margin-left: auto;
+  }
+}
+
+.TABLE {
+  width: 230px;
+  opacity: 1;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+
+  .imageWrapper {
+    width: 200px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: end;
+  }
+
+  .image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .date {
+    margin-top: 0;
+    opacity: 0;
+    transition: all 0.2s ease-in;
+  }
+
+  .infoWrapper {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .types {
+    p {
+      width: 120px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .views {
+    margin-left: auto;
+    margin-right: 8px;
+  }
+
+  .title {
+    margin-top: 8px;
+
+    p {
+      width: 200px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &:hover {
+    opacity: 0.9;
+    transform: scale(1.04);
+
+    .date {
+      opacity: 1;
+    }
+  }
+}

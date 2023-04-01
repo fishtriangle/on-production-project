@@ -1,0 +1,18 @@
+.ArticleList {
+  display: block;
+}
+
+.LIST {
+  .card {
+    margin: 0 0 30px;
+  }
+}
+
+.TABLE {
+  display: flex;
+  flex-wrap: wrap;
+
+  .card {
+    margin: 0 30px 30px 0;
+  }
+}

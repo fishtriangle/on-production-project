@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import React, { memo, Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
@@ -11,11 +11,11 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddNewComment } from 'features/AddNewComment';
-
 import { PageLoader } from 'widgets/PageLoader';
-import {
-  fetchCommentsByArticleId,
-} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/getComments';
 import classes from './ArticleDetailsPage.module.scss';
@@ -32,6 +32,7 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article-details');
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const { id } = useParams<{id: string}>();
 
@@ -45,6 +46,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     },
     [dispatch],
   );
+
+  const onBackToListClick = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -64,6 +69,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Suspense fallback={<PageLoader />}>
         <div className={classNames(classes.ArticleDetailsPage, mods, [className])}>
+          <Button theme={ButtonTheme.OUTLINE} onClick={onBackToListClick}>
+            {t('Back to article list')}
+          </Button>
           <ArticleDetails id={id} />
           <Text title={t('Comments')} className={classes.commentTitle} />
           <AddNewComment onSendComment={onSendComment} />

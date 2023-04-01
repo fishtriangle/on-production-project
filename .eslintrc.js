@@ -51,6 +51,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-undef': 'off',
     'react/jsx-no-useless-fragment': 'off',
+    'react/no-array-index-key': 'off',
   },
   globals: {
     __IS_DEV__: true,
