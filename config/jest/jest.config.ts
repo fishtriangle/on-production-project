@@ -69,7 +69,7 @@ export default {
   // The root directory that Jest should scan for tests and modules within
   rootDir: '../../',
 
-  // A list of paths to modules that run some code to configure or set up the testing framework before each test
+  // A list.svg of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
@@ -81,7 +81,7 @@ export default {
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
 
-  // A list of reporter names that Jest uses when writing coverage reports
+  // A list.svg of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
   //   "json",
   //   "text",
@@ -152,7 +152,7 @@ export default {
   // Automatically restore mock state and implementation before every test
   // restoreMocks: false,
 
-  // A list of paths to directories that Jest should use to search for files in
+  // A list.svg of paths to directories that Jest should use to search for files in
   // roots: [
   //   '<rootDir>',
   // ],
@@ -166,7 +166,7 @@ export default {
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
 
-  // A list of paths to snapshot serializer modules Jest should use for snapshot testing
+  // A list.svg of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
 
   // Options that will be passed to the testEnvironment

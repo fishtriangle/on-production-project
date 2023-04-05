@@ -1,0 +1,11 @@
+.ArticleViewSelector {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.active {
+  path {
+    fill: var(--secondary-color);
+  }
+}

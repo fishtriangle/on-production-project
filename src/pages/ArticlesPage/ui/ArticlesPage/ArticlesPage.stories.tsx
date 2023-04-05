@@ -1,5 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { articleMock } from 'shared/lib/mock/mock';
 import ArticlesPage from './ArticlesPage';
 
 export default {
@@ -14,3 +16,16 @@ const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {.
 
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.decorators = [
+  StoreDecorator({
+    articlesPage: {
+      isLoading: false,
+      view: 'LIST',
+      ids: ['1', '2'],
+      entities: {
+        1: articleMock,
+        2: articleMock,
+      },
+    },
+  }),
+];
