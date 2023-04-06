@@ -15,6 +15,7 @@ import { PageLoader } from 'widgets/PageLoader';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
+import { Page } from 'shared/ui/Page/Page';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/getComments';
@@ -59,16 +60,16 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   if (!id) {
     return (
-      <div className={classNames(classes.ArticleDetailsPage, mods, [className])}>
+      <Page className={classNames(classes.ArticleDetailsPage, mods, [className])}>
         {t('Article not found')}
-      </div>
+      </Page>
     );
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Suspense fallback={<PageLoader />}>
-        <div className={classNames(classes.ArticleDetailsPage, mods, [className])}>
+        <Page className={classNames(classes.ArticleDetailsPage, mods, [className])}>
           <Button theme={ButtonTheme.OUTLINE} onClick={onBackToListClick}>
             {t('Back to article list')}
           </Button>
@@ -84,7 +85,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           {commentsError && (
             <Text theme={TextTheme.ERROR} title={t('Comments loading error!')} />
           ) }
-        </div>
+        </Page>
       </Suspense>
     </DynamicModuleLoader>
   );
