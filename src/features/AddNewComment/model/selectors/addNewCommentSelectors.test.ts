@@ -16,7 +16,7 @@ describe('getAddNewCommentText.test', () => {
 
   test('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getAddNewCommentText(state as StateSchema)).toBe(undefined);
+    expect(getAddNewCommentText(state as StateSchema)).toBe('');
   });
 });
 

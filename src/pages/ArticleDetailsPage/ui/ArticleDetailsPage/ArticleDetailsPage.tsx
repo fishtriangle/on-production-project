@@ -15,7 +15,7 @@ import { PageLoader } from 'widgets/PageLoader';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/ui/Page/Page';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/getComments';
