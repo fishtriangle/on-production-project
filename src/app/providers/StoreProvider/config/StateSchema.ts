@@ -6,10 +6,6 @@ import {
 } from '@reduxjs/toolkit';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { To } from 'history';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { NavigateOptions } from 'react-router';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddNewCommentSchema } from 'features/AddNewComment';
@@ -42,7 +38,6 @@ export interface StoreWithReducerManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArguments {
   api: AxiosInstance;
-  navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {

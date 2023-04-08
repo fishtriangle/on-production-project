@@ -4,17 +4,12 @@ import {
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { To } from 'history';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { NavigateOptions } from 'react-router';
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArguments } from './StateSchema';
 
 export function createReduxStore(
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
-  navigate?: (to: To, options?: NavigateOptions) => void,
 ) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
@@ -26,7 +21,6 @@ export function createReduxStore(
 
   const extraArg: ThunkExtraArguments = {
     api: $api,
-    navigate,
   };
 
   const store = configureStore({
