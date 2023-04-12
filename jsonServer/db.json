@@ -116,7 +116,7 @@
       "subtitle": "Задачи на собеседованиях. Ruby",
       "image": "https://www.syu-katu.net/wp-content/uploads/2019/08/ruby.jpg",
       "views": 997,
-      "createdAt": "26.12.2022",
+      "createdAt": "22.11.2022",
       "userId": "1",
       "type": [
         "JavaScript"
@@ -151,7 +151,7 @@
       "subtitle": "Задачи на собеседованиях. Python",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png",
       "views": 10658,
-      "createdAt": "26.12.2022",
+      "createdAt": "07.09.2022",
       "userId": "1",
       "type": [
         "JavaScript"
@@ -185,11 +185,11 @@
       "title": "And something else",
       "subtitle": "Продолжение следует",
       "image": "https://www.syu-katu.net/wp-content/uploads/2019/08/ruby.jpg",
-      "views": 997,
-      "createdAt": "26.12.2022",
+      "views": 5436,
+      "createdAt": "20.03.2022",
       "userId": "1",
       "type": [
-        "JavaScript"
+        "Economics"
       ],
       "blocks": [
         {
@@ -220,11 +220,11 @@
       "title": "Computer news",
       "subtitle": "Не забудем про ПК",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png",
-      "views": 10658,
-      "createdAt": "26.12.2022",
+      "views": 568,
+      "createdAt": "15.12.2021",
       "userId": "1",
       "type": [
-        "JavaScript"
+        "Science"
       ],
       "blocks": [
         {
@@ -255,8 +255,8 @@
       "title": "Cloud news",
       "subtitle": "И еще про облака",
       "image": "https://www.syu-katu.net/wp-content/uploads/2019/08/ruby.jpg",
-      "views": 997,
-      "createdAt": "26.12.2022",
+      "views": 2997,
+      "createdAt": "19.11.2022",
       "userId": "1",
       "type": [
         "JavaScript"
@@ -290,8 +290,8 @@
       "title": "Tired news",
       "subtitle": "Усталые новости",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png",
-      "views": 10658,
-      "createdAt": "26.12.2022",
+      "views": 106580,
+      "createdAt": "04.10.2021",
       "userId": "1",
       "type": [
         "JavaScript"
@@ -325,11 +325,11 @@
       "title": "Next news",
       "subtitle": "И еще чуть-чуть",
       "image": "https://www.syu-katu.net/wp-content/uploads/2019/08/ruby.jpg",
-      "views": 997,
-      "createdAt": "26.12.2022",
+      "views": 257,
+      "createdAt": "15.08.2021",
       "userId": "1",
       "type": [
-        "JavaScript"
+        "Economics"
       ],
       "blocks": [
         {
@@ -360,11 +360,11 @@
       "title": "React news",
       "subtitle": "Добавим еще реакта",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png",
-      "views": 10658,
-      "createdAt": "26.12.2022",
+      "views": 8754,
+      "createdAt": "28.03.2022",
       "userId": "1",
       "type": [
-        "JavaScript"
+        "Economics"
       ],
       "blocks": [
         {
@@ -395,8 +395,8 @@
       "title": "Past news",
       "subtitle": "Очень старые новости",
       "image": "https://www.syu-katu.net/wp-content/uploads/2019/08/ruby.jpg",
-      "views": 997,
-      "createdAt": "26.12.2022",
+      "views": 8765,
+      "createdAt": "04.04.2021",
       "userId": "1",
       "type": [
         "JavaScript"
@@ -430,11 +430,11 @@
       "title": "News Else",
       "subtitle": "Что-то еще",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png",
-      "views": 10658,
-      "createdAt": "26.12.2022",
+      "views": 458,
+      "createdAt": "25.12.2020",
       "userId": "1",
       "type": [
-        "JavaScript"
+        "Economics"
       ],
       "blocks": [
         {
@@ -465,11 +465,11 @@
       "title": "Another news",
       "subtitle": "Другой пример статьи",
       "image": "https://www.syu-katu.net/wp-content/uploads/2019/08/ruby.jpg",
-      "views": 997,
-      "createdAt": "26.12.2022",
+      "views": 1997,
+      "createdAt": "23.12.2019",
       "userId": "1",
       "type": [
-        "JavaScript"
+        "Science"
       ],
       "blocks": [
         {
@@ -500,8 +500,8 @@
       "title": "Example news",
       "subtitle": "Пример статьи 1",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png",
-      "views": 10658,
-      "createdAt": "26.12.2022",
+      "views": 7881,
+      "createdAt": "12.12.2018",
       "userId": "1",
       "type": [
         "JavaScript"

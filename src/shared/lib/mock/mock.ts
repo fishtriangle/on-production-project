@@ -13,7 +13,7 @@ export const articleMock = {
     avatar: 'https://avatars.githubusercontent.com/u/66234622?v=4',
   },
   type: [
-    ArticleType.IT,
+    ArticleType.JS,
     ArticleType.ECONOMICS,
     ArticleType.SCIENCE,
   ],

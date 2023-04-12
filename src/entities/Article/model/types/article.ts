@@ -7,6 +7,8 @@ export enum ArticleBlockType {
   TABLE = 'TABLE',
 }
 
+export type ArticleSortField = 'createdAt' | 'views' | 'title';
+
 type Row = string[];
 
 export interface ArticleBlockBase {
@@ -41,9 +43,10 @@ export type ArticleBlock = ArticleTextBlock
   | ArticleTableBlock;
 
 export enum ArticleType {
-  IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS',
+  ALL = 'ALL',
+  JS = 'JavaScript',
+  SCIENCE = 'Science',
+  ECONOMICS = 'Economics',
 }
 
 export type ArticleView = 'LIST' | 'TABLE';

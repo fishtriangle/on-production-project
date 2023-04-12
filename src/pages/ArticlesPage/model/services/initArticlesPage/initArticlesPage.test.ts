@@ -6,6 +6,8 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 jest.mock('../fetchArticlesList/fetchArticlesList');
 jest.mock('../../slices/articlesPageSlice');
 
+const searchParamsMock = new URLSearchParams('?sort=createdAt&order=asc&search=&type=ALL');
+
 describe('initArticlesPage.test', () => {
   test('success asyncThunk call', async () => {
     const thunk = new TestAsyncThunk(initArticlesPage, {
@@ -20,12 +22,10 @@ describe('initArticlesPage.test', () => {
       },
     });
 
-    await thunk.callThunk();
+    await thunk.callThunk(searchParamsMock);
 
-    expect(thunk.dispatch).toBeCalledTimes(4);
-    expect(fetchArticlesList).toBeCalledWith({
-      page: 1,
-    });
+    expect(thunk.dispatch).toBeCalledTimes(8);
+    expect(fetchArticlesList).toBeCalledWith({});
   });
 
   test('initState n fetchArticleList should not be called because isInitiated true', async () => {
@@ -41,7 +41,7 @@ describe('initArticlesPage.test', () => {
       },
     });
 
-    await thunk.callThunk();
+    await thunk.callThunk(searchParamsMock);
 
     expect(thunk.dispatch).toBeCalledTimes(2);
     expect(articlesPageActions.initState).not.toBeCalled();

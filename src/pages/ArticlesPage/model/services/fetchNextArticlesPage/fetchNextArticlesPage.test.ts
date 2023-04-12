@@ -20,9 +20,7 @@ describe('fetchNextArticlesPage.test', () => {
     await thunk.callThunk();
 
     expect(thunk.dispatch).toBeCalledTimes(4);
-    expect(fetchArticlesList).toBeCalledWith({
-      page: 3,
-    });
+    expect(fetchArticlesList).toBeCalledWith({});
   });
 
   test('fetchArticleList should not be called because hasMore false', async () => {
