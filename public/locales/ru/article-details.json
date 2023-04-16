@@ -3,5 +3,7 @@
   "Error!": "Ошибка!",
   "Comments": "Комментарии",
   "Comments loading error!": "Ошибка загрузки комментариев!",
-  "Back to article list": "Назад к списку статей"
+  "Back to article list": "Назад к списку статей",
+  "Recommendations": "Recommendations",
+  "Recommendations loading error!": "Recommendations loading error!"
 }

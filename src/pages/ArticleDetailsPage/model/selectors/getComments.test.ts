@@ -6,8 +6,10 @@ import { StateSchema } from 'app/providers/StoreProvider'; import {
 describe('getArticleCommentsError.test', () => {
   test('should return error', () => {
     const state: DeepPartial<StateSchema> = {
-      articleDetailsComments: {
-        error: 'ArticleDetailsCommentsErrors.INCORRECT_DATA',
+      articleDetailsPage: {
+        comments: {
+          error: 'ArticleDetailsCommentsErrors.INCORRECT_DATA',
+        },
       },
     };
     expect(getArticleCommentsError(state as StateSchema)).toEqual('ArticleDetailsCommentsErrors.INCORRECT_DATA');
@@ -22,8 +24,10 @@ describe('getArticleCommentsError.test', () => {
 describe('getArticleCommentsIsLoading.test', () => {
   test('should return true', () => {
     const state: DeepPartial<StateSchema> = {
-      articleDetailsComments: {
-        isLoading: true,
+      articleDetailsPage: {
+        comments: {
+          isLoading: true,
+        },
       },
     };
     expect(getArticleCommentsIsLoading(state as StateSchema)).toBe(true);

@@ -4,8 +4,8 @@ import React, { memo, Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ArticleDetails } from 'entities/Article';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { ArticleDetails, ArticleList } from 'entities/Article';
+import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -14,20 +14,31 @@ import { AddNewComment } from 'features/AddNewComment';
 import { PageLoader } from 'widgets/PageLoader';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-
 import { Page } from 'widgets/Page/ui/Page/Page';
+
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
+import {
+  fetchArticleRecommendations,
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/getComments';
 import classes from './ArticleDetailsPage.module.scss';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+import {
+  getArticleRecommendations,
+} from '../../model/slices/articleDetailsPageRecommendationsSlice';
+import {
+  getArticlePageRecommendationsError,
+  getArticlePageRecommendationsIsLoading,
+} from '../../model/selectors/getRecommendations';
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
@@ -40,6 +51,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const commentsError = useSelector(getArticleCommentsError);
+  const recommendations = useSelector(getArticleRecommendations.selectAll);
+  const recommendationsIsLoading = useSelector(getArticlePageRecommendationsIsLoading);
+  const recommendationsError = useSelector(getArticlePageRecommendationsError);
 
   const onSendComment = useCallback(
     (text: string) => {
@@ -54,6 +68,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchArticleRecommendations());
   });
 
   const mods: Mods = {};
@@ -74,7 +89,27 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             {t('Back to article list')}
           </Button>
           <ArticleDetails id={id} />
-          <Text title={t('Comments')} className={classes.commentTitle} />
+          <Text
+            size={TextSize.L}
+            title={t('Recommendations')}
+            className={classes.recommendationsTitle}
+          />
+          {!recommendationsError && (
+            <ArticleList
+              articles={recommendations}
+              isLoading={recommendationsIsLoading}
+              className={classes.recommendations}
+              target="_blank"
+            />
+          )}
+          {recommendationsError && (
+            <Text theme={TextTheme.ERROR} title={t('Recommendations loading error!')} />
+          )}
+          <Text
+            size={TextSize.L}
+            title={t('Comments')}
+            className={classes.commentTitle}
+          />
           <AddNewComment onSendComment={onSendComment} />
           {!commentsError && (
             <CommentList

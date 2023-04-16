@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
@@ -10,7 +10,7 @@ import { Card } from 'shared/ui/Card/Card';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
-import { useNavigate } from 'react-router-dom';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import classes from './ArticleListItem.module.scss';
@@ -22,11 +22,15 @@ interface ArticleListItemProps {
   className?: string;
   article: Article;
   view: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItem = memo(({ className, article, view }: ArticleListItemProps) => {
+export const ArticleListItem = memo((props: ArticleListItemProps) => {
+  const {
+    className, article, view, target,
+  } = props;
+
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   const mods: Mods = {};
 
@@ -39,10 +43,6 @@ export const ArticleListItem = memo(({ className, article, view }: ArticleListIt
   );
 
   // const [isHover, bindHover] = useHover();
-
-  const onOpenArticle = useCallback(() => {
-    navigate(RoutePath.articleDetails + article.id);
-  }, [article.id, navigate]);
 
   if (view === 'LIST') {
     const textBlock = article.blocks
@@ -65,9 +65,11 @@ export const ArticleListItem = memo(({ className, article, view }: ArticleListIt
             <ArticleTextBlockComponent block={textBlock} className={classes.textBlock} />
           )}
           <div className={classes.footer}>
-            <Button onClick={onOpenArticle} theme={ButtonTheme.OUTLINE}>
-              {t('Read more...')}
-            </Button>
+            <AppLink to={RoutePath.articleDetails + article.id}>
+              <Button theme={ButtonTheme.OUTLINE}>
+                {t('Read more...')}
+              </Button>
+            </AppLink>
             {views}
           </div>
         </Card>
@@ -76,11 +78,13 @@ export const ArticleListItem = memo(({ className, article, view }: ArticleListIt
   }
 
   return (
-    <div
+    <AppLink
+      target={target}
       /* {...bindHover} */
+      to={RoutePath.articleDetails + article.id}
       className={classNames(classes.ArticleListItem, mods, [className, classes[view]])}
     >
-      <Card onClick={onOpenArticle}>
+      <Card className={classes.card}>
         <div className={classes.imageWrapper}>
           <img src={article.image} className={classes.image} alt={article.title} />
           <Text text={article.createdAt} className={classes.date} />
@@ -91,6 +95,6 @@ export const ArticleListItem = memo(({ className, article, view }: ArticleListIt
         </div>
         <Text text={article.title} className={classes.title} />
       </Card>
-    </div>
+    </AppLink>
   );
 });

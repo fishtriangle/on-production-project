@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
@@ -14,6 +14,7 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) => new Array(view === 'TABLE' ? 9 : 3)
@@ -28,6 +29,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     articles,
     isLoading,
     view = 'TABLE',
+    target,
   } = props;
 
   const { t } = useTranslation();
@@ -35,7 +37,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const mods: Mods = {};
 
   const renderArticle = (article: Article) => (
-    <ArticleListItem article={article} view={view} key={article.id} className={classes.card} />
+    <ArticleListItem
+      target={target}
+      article={article}
+      view={view}
+      key={article.id}
+      className={classes.card}
+    />
   );
 
   if (!isLoading && articles.length === 0) {

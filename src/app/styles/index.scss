@@ -31,3 +31,18 @@
   left: calc(var(--sidebar-width) + var(--sidebar-width-collapsed));
   width: calc(100% - calc(var(--sidebar-width) + var(--sidebar-width-collapsed)));
 }
+
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--bg-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--inverted-primary-colorprimary-color);
+  border-radius: 20px;
+  border: 2px solid var(--primary-color);
+}
