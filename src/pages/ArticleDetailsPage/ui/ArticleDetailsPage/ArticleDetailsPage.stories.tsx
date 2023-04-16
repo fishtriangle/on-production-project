@@ -8,7 +8,7 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 const article: Article = articleMock;
 
 export default {
-  title: 'pages/ArticleDetailsPage',
+  title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
   component: ArticleDetailsPage,
   parameters: {
     router: {

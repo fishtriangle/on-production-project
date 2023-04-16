@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import React, { memo, Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
@@ -12,11 +12,12 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddNewComment } from 'features/AddNewComment';
 import { PageLoader } from 'widgets/PageLoader';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/ui/Page/Page';
 
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
+import { articleDetailsPageReducer } from '../../model/slices';
+import {
+  ArticleDetailsPageHeader,
+} from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import {
   fetchArticleRecommendations,
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
@@ -44,7 +45,6 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article-details');
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const { id } = useParams<{id: string}>();
 
@@ -61,10 +61,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     },
     [dispatch],
   );
-
-  const onBackToListClick = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -85,9 +81,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Suspense fallback={<PageLoader />}>
         <Page className={classNames(classes.ArticleDetailsPage, mods, [className])}>
-          <Button theme={ButtonTheme.OUTLINE} onClick={onBackToListClick}>
-            {t('Back to article list')}
-          </Button>
+          <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
           <Text
             size={TextSize.L}
