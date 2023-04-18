@@ -4,7 +4,6 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import AvatarImg from 'shared/assets/tests/avatar.png';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -27,7 +26,6 @@ Primary.args = {
     first: 'James',
     city: 'Moscow',
     currency: Currency.RUB,
-    avatar: AvatarImg,
   },
 };
 
@@ -41,7 +39,6 @@ PrimaryDark.args = {
     first: 'James',
     city: 'Moscow',
     currency: Currency.RUB,
-    avatar: AvatarImg,
   },
 };
 PrimaryDark.decorators = [
