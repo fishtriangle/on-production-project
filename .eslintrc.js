@@ -13,7 +13,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'fish-triangle-eslint-plugin'],
   rules: {
     indent: [2, 2],
     'react/jsx-indent': [2, 2, {
@@ -52,6 +52,7 @@ module.exports = {
     'no-undef': 'off',
     'react/jsx-no-useless-fragment': 'off',
     'react/no-array-index-key': 'off',
+    'fish-triangle-eslint-plugin/dependency-path-checker': 'error',
   },
   globals: {
     __IS_DEV__: true,

@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { Article } from 'entities/Article';
 import { articleMock } from 'shared/lib/mock/mock';
+import { Article } from '../../types/article';
 import { fetchArticleById } from './fetchArticleById';
 
 const article: Article = articleMock;

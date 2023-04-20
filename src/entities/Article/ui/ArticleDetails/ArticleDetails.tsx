@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { fetchArticleById } from 'entities/Article/model/service/fetchArticleById/fetchArticleById';
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
@@ -15,6 +14,7 @@ import EyeIcon from 'shared/assets/icons/eye-icon.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-icon.svg';
 
 import { Icon } from 'shared/ui/Icon/Icon';
+import { fetchArticleById } from '../../model/service/fetchArticleById/fetchArticleById';
 import {
   getArticleDetailsData,
   getArticleDetailsError,

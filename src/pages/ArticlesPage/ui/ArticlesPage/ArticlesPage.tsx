@@ -10,8 +10,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Page } from 'widgets/Page/ui/Page/Page';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 
-import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import { getQueryParams } from 'shared/lib/url/getQueryParams/getQueryParams';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import classes from './ArticlesPage.module.scss';
 import { articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';

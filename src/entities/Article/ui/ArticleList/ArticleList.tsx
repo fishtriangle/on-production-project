@@ -3,11 +3,11 @@ import {
 } from 'react';
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { Text } from 'shared/ui/Text/Text';
 
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import classes from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
