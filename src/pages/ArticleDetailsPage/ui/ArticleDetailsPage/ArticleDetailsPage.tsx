@@ -14,6 +14,7 @@ import { AddNewComment } from 'features/AddNewComment';
 import { PageLoader } from 'widgets/PageLoader';
 import { Page } from 'widgets/Page/ui/Page/Page';
 
+import { VStack } from 'shared/ui/Stack';
 import { articleDetailsPageReducer } from '../../model/slices';
 import {
   ArticleDetailsPageHeader,
@@ -81,39 +82,44 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Suspense fallback={<PageLoader />}>
         <Page className={classNames(classes.ArticleDetailsPage, mods, [className])}>
-          <ArticleDetailsPageHeader />
-          <ArticleDetails id={id} />
-          <Text
-            size={TextSize.L}
-            title={t('Recommendations')}
-            className={classes.recommendationsTitle}
-          />
-          {!recommendationsError && (
-            <ArticleList
-              articles={recommendations}
-              isLoading={recommendationsIsLoading}
-              className={classes.recommendations}
-              target="_blank"
+          <VStack gap="16" maxWidth>
+            <ArticleDetailsPageHeader />
+            <ArticleDetails id={id} />
+            <Text
+              size={TextSize.L}
+              title={t('Recommendations')}
+              className={classes.recommendationsTitle}
             />
-          )}
-          {recommendationsError && (
-            <Text theme={TextTheme.ERROR} title={t('Recommendations loading error!')} />
-          )}
-          <Text
-            size={TextSize.L}
-            title={t('Comments')}
-            className={classes.commentTitle}
-          />
-          <AddNewComment onSendComment={onSendComment} />
-          {!commentsError && (
-            <CommentList
-              comments={comments}
-              isLoading={commentsIsLoading}
+            {!recommendationsError && (
+              <div className={classes.recommendationsBody}>
+                <ArticleList
+                  articles={recommendations}
+                  isLoading={recommendationsIsLoading}
+                  className={classes.recommendations}
+                  target="_blank"
+                />
+              </div>
+            )}
+            {recommendationsError && (
+              <Text theme={TextTheme.ERROR} title={t('Recommendations loading error!')} />
+            )}
+            <Text
+              size={TextSize.L}
+              title={t('Comments')}
+              className={classes.commentTitle}
             />
-          )}
-          {commentsError && (
-            <Text theme={TextTheme.ERROR} title={t('Comments loading error!')} />
-          ) }
+            <AddNewComment onSendComment={onSendComment} />
+            {!commentsError && (
+              <CommentList
+                comments={comments}
+                isLoading={commentsIsLoading}
+              />
+            )}
+            {commentsError && (
+              <Text theme={TextTheme.ERROR} title={t('Comments loading error!')} />
+            ) }
+          </VStack>
+
         </Page>
       </Suspense>
     </DynamicModuleLoader>

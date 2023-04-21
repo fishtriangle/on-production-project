@@ -8,6 +8,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
+import { HStack } from 'shared/ui/Stack';
 import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
 import {
   // getAddNewCommentError,
@@ -46,7 +47,7 @@ const AddNewComment = memo((props: AddNewCommentProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(classes.AddNewComment, mods, [className])}>
+      <HStack justify="between" maxWidth className={classNames(classes.AddNewComment, mods, [className])}>
         <Input
           className={classes.input}
           placeholder={t('Input comment here')}
@@ -59,7 +60,7 @@ const AddNewComment = memo((props: AddNewCommentProps) => {
         >
           {t('Send')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 });

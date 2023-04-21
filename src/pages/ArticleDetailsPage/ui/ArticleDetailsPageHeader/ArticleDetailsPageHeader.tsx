@@ -8,7 +8,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { getArticleDetailsData } from 'entities/Article';
 
-import classes from './ArticleDetailsPageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/getArticle';
 
 interface ArticleDetailsPageHeaderProps {
@@ -32,19 +32,18 @@ export const ArticleDetailsPageHeader = memo(({ className }: ArticleDetailsPageH
   }, [article?.id, navigate]);
 
   return (
-    <div className={classNames(classes.ArticleDetailsPageHeader, mods, [className])}>
+    <HStack maxWidth justify="between" className={classNames('', mods, [className])}>
       <Button theme={ButtonTheme.OUTLINE} onClick={onBackToListClick}>
         {t('Back to article list')}
       </Button>
       {canEdit && (
         <Button
-          className={classes.editButton}
           theme={ButtonTheme.OUTLINE}
           onClick={onEditArticle}
         >
           {t('Edit')}
         </Button>
       )}
-    </div>
+    </HStack>
   );
 });

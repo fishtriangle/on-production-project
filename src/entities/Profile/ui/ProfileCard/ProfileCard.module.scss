@@ -3,32 +3,12 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
-.body {
-  margin-bottom: 10px;
-}
-
-.input {
-  margin-top: 10px;
-}
-
 .loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 300px;
 }
 
 .error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: 2px solid var(--red-light);
-}
-
-.avatarWrapper {
-  display: flex;
-  width: 100%;
-  justify-content: center;
 }
 
 .editing {

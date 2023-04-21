@@ -8,6 +8,7 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import classes from './Sidebar.module.scss';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
@@ -45,9 +46,9 @@ export const Sidebar = memo(({ className, setCollapsed, collapsed }: SidebarProp
         [className],
       )}
     >
-      <div className={classes.list}>
+      <VStack gap="8" className={classes.list} align={collapsed ? 'end' : 'start'}>
         {itemsList}
-      </div>
+      </VStack>
 
       <Button
         data-testid="sidebar-toggle"
