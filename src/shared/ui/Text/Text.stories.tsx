@@ -78,3 +78,17 @@ SizeLDark.args = {
   size: TextSize.L,
 };
 SizeLDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SizeM = Template.bind({});
+SizeM.args = {
+  title: 'Title',
+  text: 'Text text text',
+  size: TextSize.M,
+};
+
+export const SizeS = Template.bind({});
+SizeS.args = {
+  title: 'Title',
+  text: 'Text text text',
+  size: TextSize.S,
+};
