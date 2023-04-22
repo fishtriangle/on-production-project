@@ -1,8 +1,7 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
 import { memo, useCallback } from 'react';
-import classes from './CurrencySelect.module.scss';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Currency } from '../../model/types/currency';
 
 interface CurrencySelectProps {
@@ -41,13 +40,24 @@ export const CurrencySelect = memo(({
   }, [onChange]);
 
   return (
-    <Select
-      className={classNames(classes.CurrencySelect, mods, [className])}
-      label={t('Choose currency')}
-      options={options}
-      value={value}
+    <ListBox
       onChange={onChangeHandler}
-      readonly={readonly}
+      value={value}
+      className={classNames('', mods, [className])}
+      label={t('Choose currency')}
+      defaultValue={t('Currency is not selected')}
+      items={options}
+      unavailable={readonly}
+      direction="up"
     />
+
+  // <Select
+  //   className={classNames(classes.CurrencySelect, mods, [className])}
+  //   label={t('Choose currency')}
+  //   options={options}
+  //   value={value}
+  //   onChange={onChangeHandler}
+  //   readonly={readonly}
+  // />
   );
 });

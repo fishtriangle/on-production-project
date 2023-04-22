@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Flex } from './Flex';
 
 export default {
-  title: 'shared/Flex/Flex',
+  title: 'shared/Stack/Flex',
   component: Flex,
   argTypes: {
     backgroundColor: { control: 'color' },

@@ -1,8 +1,7 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
 import { memo, useCallback } from 'react';
-import classes from './CountrySelect.module.scss';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
@@ -41,13 +40,24 @@ export const CountrySelect = memo(({
   }, [onChange]);
 
   return (
-    <Select
-      className={classNames(classes.CountrySelect, mods, [className])}
-      label={t('Choose country')}
-      options={options}
-      value={value}
+    <ListBox
       onChange={onChangeHandler}
-      readonly={readonly}
+      value={value}
+      className={classNames('', mods, [className])}
+      label={t('Choose country')}
+      defaultValue={t('Country is not selected')}
+      items={options}
+      unavailable={readonly}
+      direction="up"
     />
+
+  // <Select
+  //   className={classNames(classes.CountrySelect, mods, [className])}
+  //   label={t('Choose country')}
+  //   options={options}
+  //   value={value}
+  //   onChange={onChangeHandler}
+  //   readonly={readonly}
+  // />
   );
 });

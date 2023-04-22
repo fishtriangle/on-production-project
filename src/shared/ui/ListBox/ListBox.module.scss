@@ -1,0 +1,40 @@
+.ListBox {
+  position: relative;
+  display: inline;
+}
+
+.trigger {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.options {
+  position: absolute;
+  z-index: 1000;
+  right: 0;
+  background: var(--listbox-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--listbox-bg);
+  min-width: 30%;
+}
+
+.item {
+  padding: 8px 16px;
+  text-align: end;
+}
+
+.active {
+  background: var(--inverted-primary-color);
+}
+
+.disabled,
+.unavailable {
+  opacity: 0.7;
+}
+
+.optionUp {
+  bottom: 100%;
+}
