@@ -48,7 +48,7 @@ export const CurrencySelect = memo(({
       defaultValue={t('Currency is not selected')}
       items={options}
       unavailable={readonly}
-      direction="up"
+      direction="up right"
     />
 
   // <Select

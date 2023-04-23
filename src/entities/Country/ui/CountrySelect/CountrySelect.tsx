@@ -48,7 +48,7 @@ export const CountrySelect = memo(({
       defaultValue={t('Country is not selected')}
       items={options}
       unavailable={readonly}
-      direction="up"
+      direction="up right"
     />
 
   // <Select
