@@ -74,73 +74,77 @@ export const ProfileCard = (props: ProfileCardProps) => {
     );
   }
 
-  return (
-    <VStack gap="16" maxWidth className={classNames(classes.ProfileCard, mods, [className])}>
-      {data?.avatar && (
-        <HStack justify="center" maxWidth className={classes.avatarWrapper}>
-          <Avatar
-            src={data?.avatar}
-            alt={data?.username}
-            size={120}
-          />
-        </HStack>
-      )}
-      <Input
-        value={data?.first}
-        placeholder={t('Your name')}
-        className={classes.input}
-        onChange={onChangeFirstname}
-        readonly={readonly}
-        autofocus={!readonly}
-      />
-      <Input
-        value={data?.lastname}
-        placeholder={t('Your lastname')}
-        className={classes.input}
-        onChange={onChangeLastname}
-        readonly={readonly}
-      />
-      <Input
-        value={data?.birthYear}
-        placeholder={t('Your birth year')}
-        className={classes.input}
-        onChange={onChangeBirthyear}
-        readonly={readonly}
-      />
-      <Input
-        value={data?.city}
-        placeholder={t('Your city')}
-        className={classes.input}
-        onChange={onChangeCity}
-        readonly={readonly}
-      />
-      <Input
-        value={data?.username}
-        placeholder={t('Your username')}
-        className={classes.input}
-        onChange={onChangeUsername}
-        readonly={readonly}
-      />
-      <Input
-        value={data?.avatar}
-        placeholder={t('Link to your avatar image')}
-        className={classes.input}
-        onChange={onChangeAvatar}
-        readonly={readonly}
-      />
-      <CurrencySelect
-        value={data?.currency}
-        onChange={onChangeCurrency}
-        readonly={readonly}
-        className={classes.input}
-      />
-      <CountrySelect
-        value={data?.country}
-        onChange={onChangeCountry}
-        readonly={readonly}
-        className={classes.input}
-      />
+  if (data) {
+    return (
+      <VStack gap="16" maxWidth className={classNames(classes.ProfileCard, mods, [className])}>
+        {data?.avatar && (
+          <HStack justify="center" maxWidth className={classes.avatarWrapper}>
+            <Avatar
+              src={data?.avatar}
+              alt={data?.username}
+              size={120}
+            />
+          </HStack>
+        )}
+        <Input
+          value={data?.first}
+          placeholder={t('Your name')}
+          className={classes.input}
+          onChange={onChangeFirstname}
+          readonly={readonly}
+          autofocus={!readonly}
+        />
+        <Input
+          value={data?.lastname}
+          placeholder={t('Your lastname')}
+          className={classes.input}
+          onChange={onChangeLastname}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.birthYear}
+          placeholder={t('Your birth year')}
+          className={classes.input}
+          onChange={onChangeBirthyear}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.city}
+          placeholder={t('Your city')}
+          className={classes.input}
+          onChange={onChangeCity}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.username}
+          placeholder={t('Your username')}
+          className={classes.input}
+          onChange={onChangeUsername}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.avatar}
+          placeholder={t('Link to your avatar image')}
+          className={classes.input}
+          onChange={onChangeAvatar}
+          readonly={readonly}
+        />
+        <CurrencySelect
+          value={data?.currency}
+          onChange={onChangeCurrency}
+          readonly={readonly}
+          className={classes.input}
+        />
+        <CountrySelect
+          value={data?.country}
+          onChange={onChangeCountry}
+          readonly={readonly}
+          className={classes.input}
+        />
 
-    </VStack>
-  );
+      </VStack>
+    );
+  }
+
+  return null;
 };

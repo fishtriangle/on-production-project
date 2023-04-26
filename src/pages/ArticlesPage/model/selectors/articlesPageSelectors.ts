@@ -8,7 +8,7 @@ export const getArticlesPageNum = (state: StateSchema) => state.articlesPage?.pa
 export const getArticlesPageLimit = (state: StateSchema) => state.articlesPage?.limit || 9;
 export const getArticlesPageHasMore = (state: StateSchema) => state.articlesPage?.hasMore;
 export const getArticlesPageIsInitiated = (state: StateSchema) => state.articlesPage?._isInitiated || false;
-export const getArticlesPageSort = (state: StateSchema) => state.articlesPage?.sort ?? 'createdAt';
+export const getArticlesPageSort = (state: StateSchema) => state.articlesPage?.sort ?? '';
 export const getArticlesPageSearch = (state: StateSchema) => state.articlesPage?.search ?? '';
 export const getArticlesPageOrder = (state: StateSchema) => state.articlesPage?.order ?? 'asc';
 export const getArticlesPageType = (state: StateSchema) => state.articlesPage?.type ?? ArticleType.ALL;

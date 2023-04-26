@@ -1,5 +1,6 @@
 .ArticleDetails {
-  min-height: 100%;
+  display: block;
+  margin-bottom: 32px;
 }
 
 .avatar {
@@ -9,4 +10,12 @@
 .icon {
   width: 18px;
   height: 18px;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.block {
+  margin-bottom: 16px;
 }

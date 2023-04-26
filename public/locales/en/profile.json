@@ -21,5 +21,6 @@
   "Server error": "Error: server error!",
   "No data to validate": "No data to validate!",
   "Unknown error": "Unknown error!",
-  "error": "error"
+  "error": "error",
+  "Error! No profile found": "Error! No profile found"
 }

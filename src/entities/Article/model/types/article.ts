@@ -7,7 +7,7 @@ export enum ArticleBlockType {
   TABLE = 'TABLE',
 }
 
-export type ArticleSortField = 'createdAt' | 'views' | 'title';
+export type ArticleSortField = 'createdAt' | 'views' | 'title' | '';
 
 type Row = string[];
 

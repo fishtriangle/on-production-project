@@ -32,6 +32,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   ], [t]);
 
   const sortFieldOptions = useMemo<SelectOptions<ArticleSortField>[]>(() => [
+    { value: '', content: t('Without sort') },
     { value: 'createdAt', content: t('CreatedAt') },
     { value: 'views', content: t('Views') },
     { value: 'title', content: t('Title') },

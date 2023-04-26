@@ -10,7 +10,7 @@ module.exports = async (layer, slice) => {
     await fs.writeFile(
       resolveRoot('src', layer, slice, 'index.ts'),
       `export { ${component} } from './ui/${component}/${component}';
-export { ${firstCharToUpperCase(schema)} } from './model/types/${schema}';`,
+export type { ${firstCharToUpperCase(schema)} } from './model/types/${schema}';`,
     );
   } catch (err) {
     console.error('Failed to create public api', '\n', err);

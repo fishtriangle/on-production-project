@@ -12,6 +12,9 @@
 .TABLE {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
   padding-top: 10px;
+
+  >div {
+    padding: 15px;
+  }
 }

@@ -48,15 +48,18 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
   const mods: Mods = useMemo(() => ({}), []);
 
-  const renderItems = useCallback((index: number, article: Article) => (
-    <ArticleListItem
-      target={target}
-      article={article}
-      view={view}
-      key={article.id}
-      className={classes.card}
-    />
-  ), [target, view]);
+  const renderItems = useCallback(
+    (index: number, article) => (
+      <ArticleListItem
+        target={target}
+        article={article}
+        view={view}
+        key={article.id}
+        className={classes.card}
+      />
+    ),
+    [target, view],
+  );
 
   const Footer = useCallback(() => (
     <div
@@ -89,24 +92,28 @@ export const ArticleList = memo((props: ArticleListProps) => {
     );
   }
 
-  return (
-    <VirtuosoGrid
-      // useWindowScroll
-      style={{ margin: '10px 0 0 0' }}
-      data={articles}
-      // overscan={200}
-      itemContent={renderItems}
-      listClassName={classNames(classes.ArticleList, mods, [className, classes[view]])}
-      components={{ Footer }}
-      endReached={onScrollEnd}
-    />
+  if (articles) {
+    return (
+      <VirtuosoGrid
+        // useWindowScroll
+        style={{ margin: '10px 0 0 0' }}
+        data={articles}
+        // overscan={200}
+        itemContent={renderItems}
+        listClassName={classNames(classes.ArticleList, mods, [className, classes[view]])}
+        components={{ Footer }}
+        endReached={onScrollEnd}
+      />
 
-  // <div className={classNames(classes.ArticleList, mods, [className, classes[view]])}>
-  //   {articles.length > 0
-  //     ? articles.map(renderArticle)
-  //     : null}
-  //   {isLoading && getSkeletons(view)}
-  // </div>
+    // <div className={classNames(classes.ArticleList, mods, [className, classes[view]])}>
+    //   {articles.length > 0
+    //     ? articles.map(renderArticle)
+    //     : null}
+    //   {isLoading && getSkeletons(view)}
+    // </div>
 
-  );
+    );
+  }
+
+  return null;
 });

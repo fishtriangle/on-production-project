@@ -21,5 +21,6 @@
   "Server error": "Ошибка сервера!",
   "No data to validate": "Нет данных для проверки!",
   "Unknown error": "Неизвестная ошибка!",
-  "error": "ошибка"
+  "error": "ошибка",
+  "Error! No profile found": "Error! No profile found"
 }

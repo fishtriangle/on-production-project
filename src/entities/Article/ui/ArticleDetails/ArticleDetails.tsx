@@ -77,13 +77,13 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   if (isLoading) {
     content = (
-      <>
+      <VStack gap="16">
         <Skeleton width={200} height={200} border="50%" className={classes.avatar} />
         <Skeleton width={300} height={32} className={classes.title} />
         <Skeleton width={600} height={24} className={classes.skeleton} />
         <Skeleton width="100%" height={200} className={classes.skeleton} />
         <Skeleton width="100%" height={200} className={classes.skeleton} />
-      </>
+      </VStack>
     );
   } else if (error) {
     content = (
@@ -99,7 +99,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         <HStack justify="center" maxWidth className={classes.avatarWrapper}>
           <Avatar size={200} src={article?.image} className={classes.avatar} />
         </HStack>
-        <VStack gap="4" maxWidth>
+        <VStack gap="4" maxWidth className={classes.header}>
           <Text
             title={article?.title}
             text={article?.subtitle}
@@ -117,7 +117,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         </VStack>
 
         {article?.blocks.map((block) => (
-          <div key={block.id}>
+          <div key={block.id} className={classes.block}>
             {renderBlock(block)}
           </div>
         ))}

@@ -4,6 +4,8 @@
   "LanguageShort": "Рус",
   "Main page": "Main page",
   "About page": "About",
+  "Articles page": "Articles",
+  "Profile page": "Profile page",
   "Page not found": "Page not found",
   "Unexpected error happened": "Unexpected error happened",
   "Refresh page": "Refresh page",
@@ -19,7 +21,6 @@
   "ErrorLoadUserDataError!": "Error: load user data error!",
   "ErrorInvalidNameOrPassword!": "Error: invalid name or password!",
   "Log out": "Log out",
-  "Profile page": "Profile page",
   "Choose currency": "Choose currency",
   "Choose country": "Choose country",
   "Copy": "Copy",
@@ -45,5 +46,6 @@
   "Blog app": "Blog app",
   "Create article": "Create article",
   "Currency is not selected": "Currency is not selected",
-  "Country is not selected": "Country is not selected"
+  "Country is not selected": "Country is not selected",
+  "Without sort": "Without sort"
 }

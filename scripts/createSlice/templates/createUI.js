@@ -25,7 +25,7 @@ module.exports = async (layer, slice) => {
         componentTemplate(componentName),
       );
       await fs.writeFile(
-        resolveUIPath(componentName, `${componentName}.story.tsx`),
+        resolveUIPath(componentName, `${componentName}.stories.tsx`),
         storyTemplate(componentName),
       );
       await fs.writeFile(

@@ -5,6 +5,8 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
 import { pageReducer } from 'widgets/Page';
+import { rtkApi } from 'shared/api/rtkApi';
+import { setupListeners } from '@reduxjs/toolkit/query';
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArguments } from './StateSchema';
 
@@ -17,6 +19,7 @@ export function createReduxStore(
     counter: counterReducer,
     user: userReducer,
     page: pageReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -33,11 +36,13 @@ export function createReduxStore(
       thunk: {
         extraArgument: extraArg,
       },
-    }),
+    }).concat(rtkApi.middleware),
   });
 
   // @ts-ignore
   store.reducerManager = reducerManager;
+
+  setupListeners(store.dispatch);
 
   return store;
 }

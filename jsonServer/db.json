@@ -111,7 +111,7 @@
       ]
     },
     {
-      "id": "3",
+      "id": "2",
       "title": "Ruby news",
       "subtitle": "Задачи на собеседованиях. Ruby",
       "image": "https://www.syu-katu.net/wp-content/uploads/2019/08/ruby.jpg",
@@ -146,7 +146,7 @@
       ]
     },
     {
-      "id": "2",
+      "id": "3",
       "title": "Python news",
       "subtitle": "Задачи на собеседованиях. Python",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png",
@@ -181,7 +181,7 @@
       ]
     },
     {
-      "id": "12",
+      "id": "4",
       "title": "And something else",
       "subtitle": "Продолжение следует",
       "image": "https://www.syu-katu.net/wp-content/uploads/2019/08/ruby.jpg",
@@ -216,7 +216,7 @@
       ]
     },
     {
-      "id": "14",
+      "id": "5",
       "title": "Computer news",
       "subtitle": "Не забудем про ПК",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png",
@@ -251,7 +251,7 @@
       ]
     },
     {
-      "id": "11",
+      "id": "6",
       "title": "Cloud news",
       "subtitle": "И еще про облака",
       "image": "https://www.syu-katu.net/wp-content/uploads/2019/08/ruby.jpg",
@@ -286,7 +286,7 @@
       ]
     },
     {
-      "id": "10",
+      "id": "7",
       "title": "Tired news",
       "subtitle": "Усталые новости",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png",
@@ -321,7 +321,7 @@
       ]
     },
     {
-      "id": "9",
+      "id": "8",
       "title": "Next news",
       "subtitle": "И еще чуть-чуть",
       "image": "https://www.syu-katu.net/wp-content/uploads/2019/08/ruby.jpg",
@@ -356,7 +356,7 @@
       ]
     },
     {
-      "id": "8",
+      "id": "9",
       "title": "React news",
       "subtitle": "Добавим еще реакта",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png",
@@ -391,7 +391,7 @@
       ]
     },
     {
-      "id": "7",
+      "id": "10",
       "title": "Past news",
       "subtitle": "Очень старые новости",
       "image": "https://www.syu-katu.net/wp-content/uploads/2019/08/ruby.jpg",
@@ -426,7 +426,7 @@
       ]
     },
     {
-      "id": "6",
+      "id": "11",
       "title": "News Else",
       "subtitle": "Что-то еще",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png",
@@ -461,7 +461,7 @@
       ]
     },
     {
-      "id": "5",
+      "id": "12",
       "title": "Another news",
       "subtitle": "Другой пример статьи",
       "image": "https://www.syu-katu.net/wp-content/uploads/2019/08/ruby.jpg",
@@ -496,7 +496,7 @@
       ]
     },
     {
-      "id": "4",
+      "id": "13",
       "title": "Example news",
       "subtitle": "Пример статьи 1",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png",
