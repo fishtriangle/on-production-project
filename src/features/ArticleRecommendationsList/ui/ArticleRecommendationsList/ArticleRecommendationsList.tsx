@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 import { ArticleList } from 'entities/Article';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
+import { PageLoader } from 'widgets/PageLoader';
 import {
   useGetArticlesRecommendationsListQuery,
 } from '../../api/ArticleRecommendationsListApi';
@@ -18,6 +19,14 @@ export const ArticleRecommendationsList = memo(({ className }: ArticleRecommenda
 
   const mods: Mods = {};
 
+  if (isLoading || !articles) {
+    return (
+      <div className={classNames('', mods, [className])}>
+        <PageLoader />
+      </div>
+    );
+  }
+
   return (
     <div className={classNames('', mods, [className])}>
       <Text
@@ -32,6 +41,7 @@ export const ArticleRecommendationsList = memo(({ className }: ArticleRecommenda
             isLoading={isLoading}
             target="_blank"
             view="TABLE"
+            virtualized={false}
           />
         </div>
 

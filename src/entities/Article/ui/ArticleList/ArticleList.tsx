@@ -7,6 +7,7 @@ import { Text } from 'shared/ui/Text/Text';
 
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+import { HStack } from 'shared/ui/Stack';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import classes from './ArticleList.module.scss';
@@ -19,6 +20,7 @@ interface ArticleListProps {
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
   onScrollEnd?: () => void;
+  virtualized?: boolean;
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -42,6 +44,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     view = 'TABLE',
     target,
     onScrollEnd,
+    virtualized = true,
   } = props;
 
   const { t } = useTranslation();
@@ -77,6 +80,17 @@ export const ArticleList = memo((props: ArticleListProps) => {
     );
   }
 
+  if (!virtualized) {
+    return (
+      <HStack gap="32" className={classNames(classes.ArticleList, mods, [className, classes[view]])}>
+        {articles.length > 0
+          ? articles.map((article, index) => renderItems(index, article))
+          : null}
+        {isLoading && getSkeletons(view)}
+      </HStack>
+    );
+  }
+
   if (view === 'LIST') {
     return (
       <Virtuoso
@@ -104,14 +118,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
         components={{ Footer }}
         endReached={onScrollEnd}
       />
-
-    // <div className={classNames(classes.ArticleList, mods, [className, classes[view]])}>
-    //   {articles.length > 0
-    //     ? articles.map(renderArticle)
-    //     : null}
-    //   {isLoading && getSkeletons(view)}
-    // </div>
-
     );
   }
 
