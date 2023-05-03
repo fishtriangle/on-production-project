@@ -616,14 +616,21 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://avatars.githubusercontent.com/u/66234622?v=4"
     },
     {
       "id": "2",
       "username": "happyUser",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
+      "avatar": "https://sun6-23.userapi.com/s/v1/if1/OOhoHn_7BlxRjBnKROjlQG9OFgTbqOiMnVxSlD1M_J4kAPHPlTJqqiLmt_D65plnOmQZn1Q7.jpg?size=1080x1080&quality=96&crop=0,0,1080,1080&ava=1"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
       "avatar": "https://sun6-23.userapi.com/s/v1/if1/OOhoHn_7BlxRjBnKROjlQG9OFgTbqOiMnVxSlD1M_J4kAPHPlTJqqiLmt_D65plnOmQZn1Q7.jpg?size=1080x1080&quality=96&crop=0,0,1080,1080&ava=1"
     }
   ]

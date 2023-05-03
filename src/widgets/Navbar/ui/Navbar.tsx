@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+  getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -24,6 +26,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const [isAuthModal, setIsAuthModal] = useState(false);
 
   const authData = useSelector(getUserAuthData);
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);
@@ -36,6 +40,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const onLogOut = useCallback(() => {
     dispatch(userActions.logOut());
   }, [dispatch]);
+
+  const isAdminPanelAvailable = Boolean(isAdmin || isManager);
 
   if (authData) {
     return (
@@ -56,13 +62,18 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           direction="down right"
           className={classes.dropdown}
           items={[
-            {
+            ...(isAdminPanelAvailable ? [{
               value: '1',
+              content: t('Admin panel'),
+              href: RoutePath.adminPanel,
+            }] : []),
+            {
+              value: '2',
               content: t('Profile'),
               href: RoutePath.profile + authData.id,
             },
             {
-              value: '2',
+              value: '3',
               content: t('Log out'),
               onClick: onLogOut,
             },
