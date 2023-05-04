@@ -47,7 +47,7 @@ export const ArticleDetailsPageComments = memo(({ className, id }: ArticleDetail
 
   return (
     <Suspense fallback={<PageLoader />}>
-      <VStack gap="16" className={classNames('', mods, [className])}>
+      <VStack gap="16" maxWidth className={classNames('', mods, [className])}>
         <Text
           size={TextSize.L}
           title={t('Comments')}
