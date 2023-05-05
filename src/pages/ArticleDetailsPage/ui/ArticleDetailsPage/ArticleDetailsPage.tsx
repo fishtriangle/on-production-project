@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import React, { memo, Suspense } from 'react';
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
@@ -9,13 +8,9 @@ import { PageLoader } from 'widgets/PageLoader';
 import { Page } from 'widgets/Page/ui/Page/Page';
 import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 
-import {
-  ArticleDetailsPageComments,
-} from '../ArticleDetailsPageComments/ArticleDetailsPageComments';
+import { ArticleDetailsPageComments } from '../ArticleDetailsPageComments/ArticleDetailsPageComments';
 import { articleDetailsPageReducer } from '../../model/slices';
-import {
-  ArticleDetailsPageHeader,
-} from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import classes from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -27,19 +22,9 @@ const reducers: ReducersList = {
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
-  const { t } = useTranslation('article-details');
-
   const { id } = useParams<{id: string}>();
 
   const mods: Mods = {};
-
-  if (!id) {
-    return (
-      <Page className={classNames(classes.ArticleDetailsPage, mods, [className])}>
-        {t('Article not found')}
-      </Page>
-    );
-  }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

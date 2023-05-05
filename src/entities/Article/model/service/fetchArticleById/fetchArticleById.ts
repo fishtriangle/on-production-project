@@ -5,7 +5,7 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 
 import { Article } from '../../types/article';
 
-export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
+export const fetchArticleById = createAsyncThunk<Article, string | undefined, ThunkConfig<string>>(
   'article/fetchArticleById',
   async (articleId, thunkAPI) => {
     const {
@@ -13,6 +13,10 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<st
       extra: { api },
     } = thunkAPI;
     try {
+      if (!articleId) {
+        throw new Error('No article id detected');
+      }
+
       const response = await api.get<Article>(`/articles/${articleId}`, {
         params: {
           _expand: 'user',

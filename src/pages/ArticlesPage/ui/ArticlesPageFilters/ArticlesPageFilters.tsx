@@ -86,7 +86,7 @@ export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps
         <ArticleViewSelector view={view} onViewClick={onChangeView} />
       </div>
       <Card className={classes.search}>
-        <Input placeholder={t('Search')} onChange={onChangeSearch} value={search} />
+        <Input placeholder={t('Search') || ''} onChange={onChangeSearch} value={search} />
       </Card>
       <ArticleTypeTabs
         onChangeType={onChangeType}

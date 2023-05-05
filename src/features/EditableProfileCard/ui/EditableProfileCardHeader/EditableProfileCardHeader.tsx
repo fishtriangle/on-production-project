@@ -42,7 +42,7 @@ export const EditableProfileCardHeader = memo(({ className }: EditableProfileCar
 
   return (
     <HStack maxWidth justify="between" className={classNames('', {}, [className])}>
-      <Text title={t('Profile')} />
+      <Text title={t('Profile') ?? ''} />
       {isEditableProfile && (
         <>
           {readonly

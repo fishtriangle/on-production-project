@@ -50,7 +50,7 @@ const AddNewComment = memo((props: AddNewCommentProps) => {
       <HStack justify="between" maxWidth className={classNames(classes.AddNewComment, mods, [className])}>
         <Input
           className={classes.input}
-          placeholder={t('Input comment here')}
+          placeholder={t('Input comment here') ?? ''}
           value={text}
           onChange={onNewCommentTextChange}
         />

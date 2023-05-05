@@ -21,7 +21,7 @@ import {
 
 interface ArticleDetailsPageCommentsProps {
   className?: string;
-  id: string
+  id?: string
 }
 
 export const ArticleDetailsPageComments = memo(({ className, id }: ArticleDetailsPageCommentsProps) => {
@@ -50,7 +50,7 @@ export const ArticleDetailsPageComments = memo(({ className, id }: ArticleDetail
       <VStack gap="16" maxWidth className={classNames('', mods, [className])}>
         <Text
           size={TextSize.L}
-          title={t('Comments')}
+          title={t('Comments') ?? ''}
         />
         <AddNewComment onSendComment={onSendComment} />
         {!commentsError && (
@@ -60,7 +60,7 @@ export const ArticleDetailsPageComments = memo(({ className, id }: ArticleDetail
           />
         )}
         {commentsError && (
-          <Text theme={TextTheme.ERROR} title={t('Comments loading error!')} />
+          <Text theme={TextTheme.ERROR} title={t('Comments loading error!') ?? ''} />
         ) }
       </VStack>
     </Suspense>

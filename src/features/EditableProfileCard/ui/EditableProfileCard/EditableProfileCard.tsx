@@ -11,14 +11,10 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfileCard } from 'entities/Profile';
 
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import {
-  EditableProfileCardHeader,
-} from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
-import {
-  getProfileIsLoading,
-} from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import {
   getProfileValidationErrors,
@@ -28,7 +24,7 @@ import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 
 interface EditableProfileCardProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 const reducers: ReducersList = {
@@ -50,7 +46,9 @@ export const EditableProfileCard = memo(({ className, id }: EditableProfileCardP
   const validationErrors = useSelector(getProfileValidationErrors);
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData(id));
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
   });
 
   const onChangeFirstname = useCallback((value?: string) => {

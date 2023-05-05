@@ -9,7 +9,7 @@ export interface SelectOptions<T extends string> {
 
 interface SelectProps<T extends string> {
   className?: string;
-  label?: string;
+  label?: string | null;
   options?: SelectOptions<T>[];
   value?: T;
   onChange?: (value: T) => void;

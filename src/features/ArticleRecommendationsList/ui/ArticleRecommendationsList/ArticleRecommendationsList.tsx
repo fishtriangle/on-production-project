@@ -31,7 +31,7 @@ export const ArticleRecommendationsList = memo(({ className }: ArticleRecommenda
     <div className={classNames('', mods, [className])}>
       <Text
         size={TextSize.L}
-        title={t('Recommendations')}
+        title={t('Recommendations') ?? ''}
       />
 
       {!error && (
@@ -47,7 +47,7 @@ export const ArticleRecommendationsList = memo(({ className }: ArticleRecommenda
 
       )}
       {error && (
-        <Text theme={TextTheme.ERROR} title={t('Recommendations loading error!')} />
+        <Text theme={TextTheme.ERROR} title={t('Recommendations loading error!') ?? ''} />
       )}
     </div>
 

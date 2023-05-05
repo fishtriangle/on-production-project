@@ -52,7 +52,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const mods: Mods = useMemo(() => ({}), []);
 
   const renderItems = useCallback(
-    (index: number, article) => (
+    (index: number, article: Article) => (
       <ArticleListItem
         target={target}
         article={article}
@@ -75,7 +75,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   if (!isLoading && articles.length === 0) {
     return (
       <div className={classNames(classes.ArticleList, mods, [className, classes[view]])}>
-        <Text title={t('Articles not found')} />
+        <Text title={t('Articles not found') ?? ''} />
       </div>
     );
   }

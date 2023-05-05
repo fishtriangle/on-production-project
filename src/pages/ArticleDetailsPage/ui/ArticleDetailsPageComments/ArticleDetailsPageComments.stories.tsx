@@ -14,7 +14,9 @@ export default {
 const Template: ComponentStory<typeof ArticleDetailsPageComments> = (args) => <ArticleDetailsPageComments {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  id: '1',
+};
 Primary.decorators = [
   StoreDecorator({
     articleDetailsPage: {
