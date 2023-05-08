@@ -13,10 +13,7 @@ export type {
   Article, ArticleView, ArticleSortField,
 } from './model/types/article';
 
-export {
-  ArticleType,
-} from './model/types/article';
-
 export type {
   ArticleDetailsSchema,
 } from './model/types/articleDetailsSchema';
+export { ArticleType } from 'entities/Article/model/consts/ArticleConsts';

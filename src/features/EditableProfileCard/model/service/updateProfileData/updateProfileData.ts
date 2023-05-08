@@ -4,7 +4,7 @@ import axios from 'axios';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Profile } from 'entities/Profile';
 
-import { ValidateProfileErrors } from '../../types/EditableProfileCardSchema';
+import { ValidateProfileErrors } from '../../consts/EditableProfileCardConsts';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 

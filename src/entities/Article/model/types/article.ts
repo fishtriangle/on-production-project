@@ -1,11 +1,5 @@
 import { User } from 'entities/User';
-
-export enum ArticleBlockType {
-  TEXT = 'TEXT',
-  CODE = 'CODE',
-  IMAGE = 'IMAGE',
-  TABLE = 'TABLE',
-}
+import { ArticleBlockType, ArticleType } from '../consts/ArticleConsts';
 
 export type ArticleSortField = 'createdAt' | 'views' | 'title' | '';
 
@@ -41,13 +35,6 @@ export type ArticleBlock = ArticleTextBlock
   | ArticleImageBlock
   | ArticleCodeBlock
   | ArticleTableBlock;
-
-export enum ArticleType {
-  ALL = 'ALL',
-  JS = 'JavaScript',
-  SCIENCE = 'Science',
-  ECONOMICS = 'Economics',
-}
 
 export type ArticleView = 'LIST' | 'TABLE';
 

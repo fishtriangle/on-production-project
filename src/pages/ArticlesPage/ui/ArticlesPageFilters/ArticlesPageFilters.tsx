@@ -10,9 +10,10 @@ import {
 import { Input } from 'shared/ui/Input/Input';
 import { Card } from 'shared/ui/Card/Card';
 import { SortOrder } from 'shared/types';
-import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
+import { ArticleSortField } from 'entities/Article/model/types/article';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 
+import { ArticleType } from 'entities/Article/model/consts/ArticleConsts';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import {
