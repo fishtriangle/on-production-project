@@ -1,6 +1,14 @@
-export function buildBabelLoader() {
+import webpack from 'webpack';
+import { BuildOptions } from '../types/config';
+import babelPluginRemoveProps from '../../babel/babelPluginRemoveProps';
+
+interface BuildBabelLoaderProps extends BuildOptions {
+  isTsx?: boolean;
+}
+
+export function buildBabelLoader({ isTsx }: BuildBabelLoaderProps): webpack.RuleSetRule {
   return {
-    test: /\.[jt]sx?$/,
+    test: isTsx ? /\.[jt]sx?$/ : /\.[jt]s$/,
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
@@ -12,6 +20,17 @@ export function buildBabelLoader() {
             {
               locales: ['ru', 'en'],
               keyAsDefaultValue: true,
+            },
+          ],
+          [
+            '@babel/plugin-transform-typescript',
+            { isTSX: isTsx },
+          ],
+          '@babel/plugin-transform-runtime',
+          isTsx && [
+            babelPluginRemoveProps,
+            {
+              props: ['data-testid'],
             },
           ],
         ].filter(Boolean),
