@@ -7,7 +7,9 @@ interface IconProps {
   Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
 }
 
-export const Icon = memo(({ className, Svg }: IconProps) => {
+export const Icon = memo(({
+  className, Svg,
+}: IconProps) => {
   const mods: Mods = {};
 
   return (

@@ -4,6 +4,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { HStack } from 'shared/ui/Stack';
 import { DropdownDirection } from 'shared/types/ui';
 import classes from './ListBox.module.scss';
+import { mapDirectionClasses } from '../../styles/consts';
+import popupClasses from '../../styles/popups.module.scss';
 
 export interface ListBoxItem {
   value: string;
@@ -21,13 +23,6 @@ interface ListBoxProps {
   unavailable?: boolean;
   direction?: DropdownDirection;
 }
-
-const mapDirectionClasses: Record<DropdownDirection, string> = {
-  'up right': classes.optionUpRight,
-  'down right': classes.optionDownRight,
-  'up left': classes.optionUpLeft,
-  'down left': classes.optionDownLeft,
-};
 
 export const ListBox = (props: ListBoxProps) => {
   const {
@@ -47,14 +42,14 @@ export const ListBox = (props: ListBoxProps) => {
       )}
       <HListBox
         as="div"
-        className={classNames(classes.ListBox, { [classes.unavailable]: unavailable }, [className])}
+        className={classNames(classes.ListBox, { [classes.unavailable]: unavailable }, [className, popupClasses.popup])}
         value={value}
         onChange={onChange}
         disabled={unavailable}
       >
 
         <HListBox.Button
-          className={classes.trigger}
+          className={popupClasses.trigger}
           unselectable={unavailable ? 'on' : 'off'}
         >
           {/* <Button disabled={unavailable}> */}
@@ -73,9 +68,9 @@ export const ListBox = (props: ListBoxProps) => {
                 <li className={classNames(
                   classes.item,
                   {
-                    [classes.active]: active,
-                    [classes.selected]: selected,
-                    [classes.disabled]: item.disabled,
+                    [popupClasses.active]: active,
+                    [popupClasses.selected]: selected,
+                    [popupClasses.disabled]: item.disabled,
                   },
                   [],
                 )}

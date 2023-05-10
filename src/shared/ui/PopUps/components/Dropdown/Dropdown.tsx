@@ -4,6 +4,8 @@ import { Fragment, ReactNode } from 'react';
 import { DropdownDirection } from 'shared/types/ui';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import classes from './Dropdown.module.scss';
+import { mapDirectionClasses } from '../../styles/consts';
+import popupClasses from '../../styles/popups.module.scss';
 
 export interface DropdownItem {
   content: ReactNode;
@@ -20,13 +22,6 @@ interface DropdownProps {
   direction?: DropdownDirection;
 }
 
-const mapDirectionClasses: Record<DropdownDirection, string> = {
-  'up right': classes.optionUpRight,
-  'down right': classes.optionDownRight,
-  'up left': classes.optionUpLeft,
-  'down left': classes.optionDownLeft,
-};
-
 export function Dropdown(props: DropdownProps) {
   const {
     className, trigger, items, direction = 'down left',
@@ -37,8 +32,8 @@ export function Dropdown(props: DropdownProps) {
   ];
 
   return (
-    <Menu as="div" className={classNames(classes.Dropdown, {}, [className])}>
-      <Menu.Button className={classes.button}>
+    <Menu as="div" className={classNames(classes.Dropdown, {}, [className, popupClasses.popup])}>
+      <Menu.Button className={popupClasses.trigger}>
         {trigger}
       </Menu.Button>
       <Menu.Items className={classNames(classes.menu, {}, menuClasses)}>
@@ -51,8 +46,8 @@ export function Dropdown(props: DropdownProps) {
               className={classNames(
                 classes.item,
                 {
-                  [classes.active]: active,
-                  [classes.disabled]: item.disabled,
+                  [popupClasses.active]: active,
+                  [popupClasses.disabled]: item.disabled,
                 },
                 [],
               )}
@@ -63,7 +58,13 @@ export function Dropdown(props: DropdownProps) {
 
           if (item.href) {
             return (
-              <Menu.Item as={AppLink} to={item.href} key={item.value} refName="href">
+              <Menu.Item
+                as={AppLink}
+                to={item.href}
+                key={item.value}
+                refName="href"
+                style={{ width: '100%' }}
+              >
                 {content}
               </Menu.Item>
             );

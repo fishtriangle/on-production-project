@@ -1,0 +1,19 @@
+.NotificationsButton {
+  display: flex;
+}
+
+.notifications {
+  min-height: 150px;
+  max-height: 500px;
+  width: 250px;
+  overflow-y: auto;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+
+  path {
+    fill: var(--inverted-primary-color);
+  }
+}

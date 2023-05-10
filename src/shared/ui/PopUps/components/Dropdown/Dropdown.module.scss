@@ -1,0 +1,29 @@
+.menu {
+  background: var(--bg-color);
+  position: absolute;
+  z-index: 1000;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 4px 12px var(--card-bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 10px 25px;
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--inverted-bg-color);
+    color: var(--inverted-primary-color);
+  }
+}

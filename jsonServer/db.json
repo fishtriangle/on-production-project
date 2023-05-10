@@ -633,5 +633,40 @@
       "roles": ["MANAGER"],
       "avatar": "https://sun6-23.userapi.com/s/v1/if1/OOhoHn_7BlxRjBnKROjlQG9OFgTbqOiMnVxSlD1M_J4kAPHPlTJqqiLmt_D65plnOmQZn1Q7.jpg?size=1080x1080&quality=96&crop=0,0,1080,1080&ava=1"
     }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Notification 1",
+      "description": "Something happened",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Notification 2",
+      "description": "Something happened",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "3",
+      "title": "Notification 3",
+      "description": "Something happened",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "4",
+      "title": "Notification 4",
+      "description": "Something happened",
+      "userId": "1"
+    },
+    {
+      "id": "5",
+      "title": "Notification 5",
+      "description": "Something happened",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    }
   ]
 }

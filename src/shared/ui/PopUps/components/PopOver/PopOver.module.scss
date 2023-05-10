@@ -1,0 +1,11 @@
+.panel {
+  background: var(--bg-color);
+  position: absolute;
+  z-index: 1000;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  padding: 15px;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 4px 12px var(--card-bg);
+}

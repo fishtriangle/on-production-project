@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Dropdown } from './Dropdown';
 
 export default {
-  title: 'shared/Dropdown',
+  title: 'shared/PopUps/Dropdown',
   component: Dropdown,
   argTypes: {
     backgroundColor: { control: 'color' },

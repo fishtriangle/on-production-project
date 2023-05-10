@@ -30,7 +30,7 @@ jobs:
         if: always()
       - name: test unit
         if: always()
-#        run: npm run test:unit
+        run: npm run test:unit
 #      - name: build storybook
 #        if: always()
 #        run: npm run storybook:build
