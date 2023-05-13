@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { articleMock } from 'shared/lib/mock/mock';
+import { articleMock } from '@/shared/lib/mock/mock';
 import { ArticleListItem } from './ArticleListItem';
 
 export default {

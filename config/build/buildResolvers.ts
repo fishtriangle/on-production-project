@@ -10,7 +10,9 @@ export function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
       'node_modules',
     ],
     mainFiles: ['index'],
-    alias: {},
+    alias: {
+      '@': options.paths.src,
+    },
   };
 
   return resolvers;

@@ -1,10 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import {
   memo, ReactNode, useCallback, useEffect,
 } from 'react';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { Portal } from 'shared/ui/Portal/Portal';
-import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { Portal } from '@/shared/ui/Portal/Portal';
+import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import classes from './Drawer.module.scss';
 import { Overlay } from '../Overlay/Overlay';
 

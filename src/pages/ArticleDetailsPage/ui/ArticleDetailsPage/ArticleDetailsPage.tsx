@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom';
 import React, { memo, Suspense } from 'react';
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ArticleDetails } from 'entities/Article';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { PageLoader } from 'widgets/PageLoader';
-import { Page } from 'widgets/Page/ui/Page/Page';
-import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ArticleDetails } from '@/entities/Article';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { PageLoader } from '@/widgets/PageLoader';
+import { Page } from '@/widgets/Page/ui/Page/Page';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 
 import { ArticleDetailsPageComments } from '../ArticleDetailsPageComments/ArticleDetailsPageComments';
 import { articleDetailsPageReducer } from '../../model/slices';

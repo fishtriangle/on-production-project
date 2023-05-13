@@ -1,9 +1,9 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
-import { ArticleList } from 'entities/Article';
-import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { PageLoader } from 'widgets/PageLoader';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ArticleList } from '@/entities/Article';
+import { Text, TextSize, TextTheme } from '@/shared/ui/Text/Text';
+import { PageLoader } from '@/widgets/PageLoader';
 import {
   useGetArticlesRecommendationsListQuery,
 } from '../../api/ArticleRecommendationsListApi';

@@ -1,14 +1,14 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo, Suspense, useCallback } from 'react';
-import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { AddNewComment } from 'features/AddNewComment';
-import { CommentList } from 'entities/Comment';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from 'shared/ui/Stack';
-import { PageLoader } from 'widgets/PageLoader';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { Text, TextSize, TextTheme } from '@/shared/ui/Text/Text';
+import { AddNewComment } from '@/features/AddNewComment';
+import { CommentList } from '@/entities/Comment';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from '@/shared/ui/Stack';
+import { PageLoader } from '@/widgets/PageLoader';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import {
   getArticleCommentsError,

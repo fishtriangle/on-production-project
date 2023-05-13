@@ -1,5 +1,5 @@
-import { userActions } from 'entities/User';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { userActions } from '@/entities/User';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { LoginErrors } from '../../types/loginSchema';
 import { loginByUsername } from './loginByUsername';
 

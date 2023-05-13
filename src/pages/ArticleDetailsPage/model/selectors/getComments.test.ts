@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider'; import {
+import { StateSchema } from '@/app/providers/StoreProvider'; import {
   getArticleCommentsError,
   getArticleCommentsIsLoading,
 } from './getComments';

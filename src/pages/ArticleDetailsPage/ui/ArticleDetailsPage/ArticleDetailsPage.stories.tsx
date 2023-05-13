@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Article } from 'entities/Article';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { articleMock } from 'shared/lib/mock/mock';
+import { Article } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { articleMock } from '@/shared/lib/mock/mock';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const article: Article = articleMock;

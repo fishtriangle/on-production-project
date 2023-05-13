@@ -1,10 +1,10 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Page } from 'widgets/Page';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { Page } from '@/widgets/Page';
 import {
   Text, TextAlign, TextSize, TextTheme,
-} from 'shared/ui/Text/Text';
+} from '@/shared/ui/Text/Text';
 import classes from './ForbiddenPage.module.scss';
 
 interface ForbiddenPageProps {

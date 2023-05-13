@@ -27,11 +27,12 @@
   --sidebar-width-collapsed: -250px;
   --sidebar-translate-width: calc(var(--sidebar-width-collapsed) - var(--sidebar-width));
 
-  // Indexes
-  --modal-z-index: 10;
-
   // Colors
   --overlay-color: rgba(0 0 0 / 60%);
   --red-light: #f00;
   --red-dark: #c00b0b;
+
+  // Z-indexes
+  --modal-z-index: 1000;
+  --overlay-z-index: 100;
 }

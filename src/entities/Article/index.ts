@@ -16,4 +16,4 @@ export type {
 export type {
   ArticleDetailsSchema,
 } from './model/types/articleDetailsSchema';
-export { ArticleType } from 'entities/Article/model/consts/ArticleConsts';
+export { ArticleType } from './model/consts/ArticleConsts';

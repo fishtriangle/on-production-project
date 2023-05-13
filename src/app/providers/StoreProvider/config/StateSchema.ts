@@ -1,19 +1,19 @@
-import { ICounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
 import {
   AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Article';
+import { ICounterSchema } from '@/entities/Counter';
+import { UserSchema } from '@/entities/User';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { ArticleDetailsSchema } from '@/entities/Article';
 import {
   ArticleDetailsPageSchema,
-} from 'pages/ArticleDetailsPage';
-import { AddNewCommentSchema } from 'features/AddNewComment';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { PageSchema } from 'widgets/Page';
-import { rtkApi } from 'shared/api/rtkApi';
-import { ProfileSchema } from 'features/EditableProfileCard';
+} from '@/pages/ArticleDetailsPage';
+import { AddNewCommentSchema } from '@/features/AddNewComment';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { PageSchema } from '@/widgets/Page';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ProfileSchema } from '@/features/EditableProfileCard';
 
 export interface StateSchema {
   counter: ICounterSchema;
