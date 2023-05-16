@@ -1,0 +1,21 @@
+.star {
+  cursor: pointer;
+}
+
+.normal {
+  path {
+    fill: none;
+  }
+}
+
+.hovered {
+  path {
+    fill: var(--inverted-secondary-color);
+  }
+}
+
+.selected {
+  path {
+    fill: var(--primary-color);
+  }
+}
