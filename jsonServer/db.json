@@ -616,21 +616,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://avatars.githubusercontent.com/u/66234622?v=4"
     },
     {
       "id": "2",
       "username": "happyUser",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://sun6-23.userapi.com/s/v1/if1/OOhoHn_7BlxRjBnKROjlQG9OFgTbqOiMnVxSlD1M_J4kAPHPlTJqqiLmt_D65plnOmQZn1Q7.jpg?size=1080x1080&quality=96&crop=0,0,1080,1080&ava=1"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://sun6-23.userapi.com/s/v1/if1/OOhoHn_7BlxRjBnKROjlQG9OFgTbqOiMnVxSlD1M_J4kAPHPlTJqqiLmt_D65plnOmQZn1Q7.jpg?size=1080x1080&quality=96&crop=0,0,1080,1080&ava=1"
     }
   ],
@@ -667,6 +673,115 @@
       "description": "Something happened",
       "userId": "1",
       "href": "http://localhost:3000/admin"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Good article",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 3,
+      "feedback": "Good article",
+      "userId": "2",
+      "articleId": "1"
+    },
+    {
+      "id": "3",
+      "rate": 5,
+      "feedback": "Good article",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 3,
+      "feedback": "new article",
+      "id": "Dxo3Gju"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "new article",
+      "id": "JdFyjJT"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 2,
+      "feedback": "tot jnpsd",
+      "id": "5IQMTSZ"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "new",
+      "id": "dmnTE_i"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 1,
+      "feedback": "new1",
+      "id": "y_asasD"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "hhhh",
+      "id": "7t5dCw9"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 3,
+      "feedback": "ffff",
+      "id": "cYyzydo"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Good article",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 3,
+      "feedback": "Good article",
+      "userId": "2",
+      "profileId": "1"
+    },
+    {
+      "id": "3",
+      "rate": 5,
+      "feedback": "Good article",
+      "userId": "1",
+      "profileId": "2"
+    },
+    {
+      "profileId": "1",
+      "userId": "1",
+      "rate": 2,
+      "feedback": "new feedback",
+      "id": "Zr4XccH"
+    },
+    {
+      "profileId": "1",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "another feedback",
+      "id": "QJ9O79T"
     }
   ]
 }

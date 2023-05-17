@@ -7,6 +7,7 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/Dynam
 import { PageLoader } from '@/widgets/PageLoader';
 import { Page } from '@/widgets/Page/ui/Page/Page';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
+import { ArticleRating } from '@/features/ArticleRating';
 
 import { ArticleDetailsPageComments } from '../ArticleDetailsPageComments/ArticleDetailsPageComments';
 import { articleDetailsPageReducer } from '../../model/slices';
@@ -24,6 +25,10 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams<{id: string}>();
 
+  if (!id) {
+    return null;
+  }
+
   const mods: Mods = {};
 
   return (
@@ -32,6 +37,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         <Page className={classNames(classes.ArticleDetailsPage, mods, [className])}>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
+          <ArticleRating articleId={id} />
           <ArticleRecommendationsList className={classes.recommendations} />
           <ArticleDetailsPageComments id={id} />
         </Page>

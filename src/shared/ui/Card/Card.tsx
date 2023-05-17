@@ -11,12 +11,15 @@ interface CardProps extends HTMLAttributes<HTMLDivElement>{
   className?: string;
   children: ReactNode;
   theme?: CardTheme;
+  maxWidth?: boolean;
 }
 
 export const Card = memo(({
-  className, children, theme = CardTheme.NORMAL, ...otherProps
+  className, children, maxWidth, theme = CardTheme.NORMAL, ...otherProps
 }: CardProps) => {
-  const mods: Mods = {};
+  const mods: Mods = {
+    [classes.maxWidth]: maxWidth,
+  };
 
   return (
     <div

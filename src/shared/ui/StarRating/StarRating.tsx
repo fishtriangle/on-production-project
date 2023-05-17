@@ -18,7 +18,7 @@ export const StarRating = memo((props: StarRatingProps) => {
     className, onSelect, size = 30, selectedStars = 0,
   } = props;
 
-  const [currentStarsCount, setCurrentStarsCount] = useState(0);
+  const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
   const starMods = (starNumber: number): Mods => ({
@@ -45,6 +45,7 @@ export const StarRating = memo((props: StarRatingProps) => {
       setCurrentStarsCount(starsCount);
       setIsSelected(true);
     } else {
+      onSelect?.(0);
       setCurrentStarsCount(0);
       setIsSelected(false);
     }
