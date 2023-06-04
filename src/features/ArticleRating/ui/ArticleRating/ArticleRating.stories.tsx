@@ -40,3 +40,24 @@ Primary.parameters = {
     },
   ],
 };
+
+export const WithoutRate = Template.bind({});
+WithoutRate.args = {
+  articleId: '1',
+};
+WithoutRate.parameters = {
+  mockData: [
+    {
+      url: `${__API_BASE__}/article-ratings?userId=1&articleId=1`,
+      method: 'GET',
+      status: 200,
+      response: [],
+    },
+    {
+      url: `${__API_BASE__}/article-ratings`,
+      method: 'POST',
+      status: 200,
+      response: undefined,
+    },
+  ],
+};

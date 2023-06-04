@@ -87,7 +87,7 @@
     "jest-environment-jsdom": "^29.4.2",
     "jest-html-reporters": "^3.1.4",
     "json-server": "^0.17.2",
-    "loki": "^0.31.1",
+    "loki": "^0.31.2",
     "mini-css-extract-plugin": "^2.5.3",
     "react-refresh": "^0.14.0",
     "react-refresh-typescript": "^2.0.7",
@@ -131,18 +131,16 @@
     "react-virtuoso": "^4.2.1"
   },
   "loki": {
-    "chromeSelector": "#storybook-root > *",
-    "fetchFailIgnore": ".*",
     "configurations": {
       "chrome.laptop": {
-        "target": "chrome.docker",
+        "target": "chrome.app",
         "width": 1366,
         "height": 768,
         "deviceScaleFactor": 1,
         "mobile": false
       },
       "chrome.iphone7": {
-        "target": "chrome.docker",
+        "target": "chrome.app",
         "preset": "iPhone 7"
       }
     }

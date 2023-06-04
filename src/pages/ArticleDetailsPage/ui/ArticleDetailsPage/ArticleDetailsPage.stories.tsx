@@ -52,3 +52,21 @@ Primary.decorators = [
     },
   }),
 ];
+Primary.parameters = {
+  mockData: [
+    {
+      url: `${__API_BASE__}/articles?_limit=3`,
+      method: 'GET',
+      status: 200,
+      response: [
+        article,
+      ],
+    },
+    {
+      url: `${__API_BASE__}/article-ratings?userId=&articleId=1`,
+      method: 'GET',
+      status: 200,
+      response: [],
+    },
+  ],
+};
