@@ -52,7 +52,7 @@ module.exports = {
     'no-undef': 'off',
     'react/jsx-no-useless-fragment': 'off',
     'react/no-array-index-key': 'off',
-    'fish-triangle-eslint-plugin/dependency-path-checker': 'error',
+    'fish-triangle-eslint-plugin/dependency-path-checker': ['error', { alias: '@' }],
   },
   globals: {
     __IS_DEV__: true,
