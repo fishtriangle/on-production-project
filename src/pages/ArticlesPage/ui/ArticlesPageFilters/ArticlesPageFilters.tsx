@@ -5,15 +5,18 @@ import { useSelector } from 'react-redux';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
-  ArticleView, ArticleViewSelector, ArticleSortSelector, ArticleTypeTabs,
+  ArticleView,
+  ArticleViewSelector,
+  ArticleSortSelector,
+  ArticleTypeTabs,
+  ArticleSortField,
+  ArticleType,
 } from '@/entities/Article';
 import { Input } from '@/shared/ui/Input/Input';
 import { Card } from '@/shared/ui/Card/Card';
 import { SortOrder } from '@/shared/types';
-import { ArticleSortField } from '@/entities/Article/model/types/article';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 
-import { ArticleType } from '@/entities/Article/model/consts/ArticleConsts';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import {

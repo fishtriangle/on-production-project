@@ -1,5 +1,5 @@
-import { Article } from '@/entities/Article/model/types/article';
-import { ArticleBlockType, ArticleType } from '@/entities/Article/model/consts/ArticleConsts';
+import type { Article } from '@/entities/Article';
+import { ArticleBlockType, ArticleType } from '@/entities/Article';
 
 export const articleMock = {
   id: '1',
