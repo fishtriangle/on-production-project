@@ -53,7 +53,13 @@ module.exports = {
     'react/jsx-no-useless-fragment': 'off',
     'react/no-array-index-key': 'off',
     'fish-triangle-eslint-plugin/dependency-path-checker': ['error', { alias: '@' }],
-    'fish-triangle-eslint-plugin/public-api-imports': ['error', { alias: '@' }],
+    'fish-triangle-eslint-plugin/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testFiles: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,
