@@ -6,7 +6,7 @@ import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/Dynami
 import { articleDetailsReducer } from '@/entities/Article/testing';
 import { addNewCommentReducer } from '@/features/AddNewComment/testing';
 import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
-import { pageReducer } from '@/widgets/Page';
+import { pageReducer } from '@/widgets/Page/testing';
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
 import { profileReducer } from '@/features/EditableProfileCard/testing';
 

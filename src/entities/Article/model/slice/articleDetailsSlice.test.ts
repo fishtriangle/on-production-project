@@ -1,8 +1,8 @@
-import { articleMock } from '@/shared/lib/mock/mock';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 import { Article } from '../types/article';
 import { fetchArticleById } from '../service/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from './articleDetailsSlice';
+import { articleMock } from '../../test/articleMock';
 
 const article: Article = articleMock;
 

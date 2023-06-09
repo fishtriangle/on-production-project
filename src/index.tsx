@@ -15,14 +15,22 @@ if (!container) {
 
 const root = createRoot(container);
 
-root.render(
-  <BrowserRouter>
-    <StoreProvider>
-      <ErrorBoundary>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </ErrorBoundary>
-    </StoreProvider>
-  </BrowserRouter>,
-);
+if (__PROJECT__ !== 'storybook') {
+  root.render(
+    <BrowserRouter>
+      <StoreProvider>
+        <ErrorBoundary>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </ErrorBoundary>
+      </StoreProvider>
+    </BrowserRouter>,
+  );
+} else {
+  root.render(
+    <div />,
+  );
+}
+
+export { Theme } from '@/shared/const/theme';

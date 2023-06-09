@@ -3,10 +3,10 @@ import React, { memo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { ArticleList } from '@/entities/Article';
 import { Text, TextSize, TextTheme } from '@/shared/ui/Text/Text';
-import { PageLoader } from '@/widgets/PageLoader';
 import {
   useGetArticlesRecommendationsListQuery,
 } from '../../api/ArticleRecommendationsListApi';
+import { Loader } from '@/shared/ui/Loader';
 
 interface ArticleRecommendationsListProps {
   className?: string;
@@ -22,7 +22,7 @@ export const ArticleRecommendationsList = memo(({ className }: ArticleRecommenda
   if (isLoading || !articles) {
     return (
       <div className={classNames('', mods, [className])}>
-        <PageLoader />
+        <Loader />
       </div>
     );
   }

@@ -57,7 +57,17 @@ module.exports = {
       'error',
       {
         alias: '@',
-        testFiles: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+        testFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
+      },
+    ],
+    'fish-triangle-eslint-plugin/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: [
+          '**/testing',
+          '**/StoreProvider',
+        ],
       },
     ],
   },

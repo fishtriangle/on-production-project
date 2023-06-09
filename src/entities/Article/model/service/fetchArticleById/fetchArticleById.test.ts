@@ -1,5 +1,5 @@
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { articleMock } from '@/shared/lib/mock/mock';
+import { articleMock } from '../../../test/articleMock';
 import { Article } from '../../types/article';
 import { fetchArticleById } from './fetchArticleById';
 
