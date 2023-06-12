@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { ArticleList } from '@/entities/Article';
-import { Text, TextSize, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextSize, TextTheme } from '@/shared/ui/Text';
 import {
   useGetArticlesRecommendationsListQuery,
 } from '../../api/ArticleRecommendationsListApi';

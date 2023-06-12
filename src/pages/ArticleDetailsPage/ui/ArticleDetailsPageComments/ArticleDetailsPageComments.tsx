@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import React, { memo, Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextSize, TextTheme } from '@/shared/ui/Text';
 import { AddNewComment } from '@/features/AddNewComment';
 import { CommentList } from '@/entities/Comment';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';

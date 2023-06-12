@@ -7,7 +7,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { getQueryParams } from '@/shared/lib/url/getQueryParams/getQueryParams';
 import { ArticleList } from '@/entities/Article';
 import { Page } from '@/widgets/Page';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import {

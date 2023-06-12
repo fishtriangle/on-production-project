@@ -5,7 +5,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 
 import { HStack } from '@/shared/ui/Stack';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';

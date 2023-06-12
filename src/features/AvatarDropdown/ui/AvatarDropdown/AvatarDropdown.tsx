@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Dropdown } from '@/shared/ui/PopUps';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/Avatar';
 import {
   getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';

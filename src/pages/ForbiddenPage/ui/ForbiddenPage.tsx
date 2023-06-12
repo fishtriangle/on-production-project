@@ -4,7 +4,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 import {
   Text, TextAlign, TextSize, TextTheme,
-} from '@/shared/ui/Text/Text';
+} from '@/shared/ui/Text';
 import classes from './ForbiddenPage.module.scss';
 
 interface ForbiddenPageProps {

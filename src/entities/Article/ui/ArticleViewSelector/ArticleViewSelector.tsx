@@ -3,8 +3,8 @@ import { memo, SVGProps, VFC } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import ListIcon from '@/shared/assets/icons/list.svg';
 import TableIcon from '@/shared/assets/icons/table.svg';
-import { Icon } from '@/shared/ui/Icon/Icon';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 import classes from './ArticleViewSelector.module.scss';
 import { ArticleView } from '../../model/types/article';
