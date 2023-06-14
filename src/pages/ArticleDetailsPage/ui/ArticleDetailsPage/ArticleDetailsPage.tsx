@@ -1,18 +1,19 @@
-import { useParams } from 'react-router-dom';
 import React, { memo, Suspense } from 'react';
 
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { ArticleDetails } from '@/entities/Article';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { PageLoader } from '@/widgets/PageLoader';
-import { Page } from '@/widgets/Page';
-import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
-import { ArticleRating } from '@/features/ArticleRating';
+import { useParams } from 'react-router-dom';
 
-import { ArticleDetailsPageComments } from '../ArticleDetailsPageComments/ArticleDetailsPageComments';
-import { articleDetailsPageReducer } from '../../model/slices';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleDetails } from '@/entities/Article';
+import { ArticleRating } from '@/features/ArticleRating';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from '@/widgets/Page';
+import { PageLoader } from '@/widgets/PageLoader';
+
 import classes from './ArticleDetailsPage.module.scss';
+import { articleDetailsPageReducer } from '../../model/slices';
+import { ArticleDetailsPageComments } from '../ArticleDetailsPageComments/ArticleDetailsPageComments';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
   className?: string;

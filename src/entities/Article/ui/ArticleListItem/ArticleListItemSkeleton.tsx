@@ -3,6 +3,7 @@ import { memo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card';
 import { Skeleton } from '@/shared/ui/Skeleton';
+
 import classes from './ArticleListItem.module.scss';
 import {
   ArticleView,

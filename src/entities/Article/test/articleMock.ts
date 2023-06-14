@@ -1,5 +1,5 @@
-import type { Article } from '../model/types/article';
 import { ArticleBlockType, ArticleType } from '../model/consts/ArticleConsts';
+import type { Article } from '../model/types/article';
 
 export const articleMock = {
   id: '1',

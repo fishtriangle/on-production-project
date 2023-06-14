@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { CurrencySelect } from './CurrencySelect';
 
 export default {

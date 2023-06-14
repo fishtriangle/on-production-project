@@ -1,8 +1,8 @@
-import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
-import { Article } from '../types/article';
-import { fetchArticleById } from '../service/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from './articleDetailsSlice';
 import { articleMock } from '../../test/articleMock';
+import { fetchArticleById } from '../service/fetchArticleById/fetchArticleById';
+import { Article } from '../types/article';
+import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
 const article: Article = articleMock;
 

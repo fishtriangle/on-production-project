@@ -4,14 +4,15 @@ import {
 
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
-import { HStack } from '@/shared/ui/Stack';
-import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import classes from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleListProps {
   className?: string;

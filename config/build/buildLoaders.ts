@@ -1,9 +1,10 @@
 import webpack from 'webpack';
+
 // import ReactRefreshTypeScript from 'react-refresh-typescript';
-import { BuildOptions } from './types/config';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildScssLoader } from './loaders/buildScssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
-import { buildBabelLoader } from './loaders/buildBabelLoader';
+import { BuildOptions } from './types/config';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   const { isDev } = options;

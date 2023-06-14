@@ -1,15 +1,17 @@
-import { useTranslation } from 'react-i18next';
 import React, { memo, Suspense, useCallback } from 'react';
+
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize, TextTheme } from '@/shared/ui/Text';
-import { AddNewComment } from '@/features/AddNewComment';
+
 import { CommentList } from '@/entities/Comment';
+import { AddNewComment } from '@/features/AddNewComment';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';
+import { Text, TextSize, TextTheme } from '@/shared/ui/Text';
 import { PageLoader } from '@/widgets/PageLoader';
-import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+
 import {
   getArticleCommentsError,
   getArticleCommentsIsLoading,
@@ -18,6 +20,7 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 import {
   fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 
 interface ArticleDetailsPageCommentsProps {
   className?: string;

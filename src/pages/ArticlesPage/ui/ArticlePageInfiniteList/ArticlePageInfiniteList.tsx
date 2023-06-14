@@ -1,22 +1,25 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
+
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+
+import { ArticleList } from '@/entities/Article';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { getQueryParams } from '@/shared/lib/url/getQueryParams/getQueryParams';
-import { ArticleList } from '@/entities/Article';
-import { Page } from '@/widgets/Page';
 import { Text, TextTheme } from '@/shared/ui/Text';
-import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { Page } from '@/widgets/Page';
+
+import classes from './ArticlePageInfiniteList.module.scss';
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { getArticles } from '../../model/slices/articlesPageSlice';
-import classes from './ArticlePageInfiniteList.module.scss';
 
 interface ArticlePageInfiniteListProps {
   className?: string;

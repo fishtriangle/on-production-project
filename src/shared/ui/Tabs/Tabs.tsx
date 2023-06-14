@@ -1,6 +1,8 @@
 import { ReactNode, useCallback } from 'react';
+
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Card, CardTheme } from '@/shared/ui/Card';
+
 import classes from './Tabs.module.scss';
 
 export interface TabItem<T extends string> {

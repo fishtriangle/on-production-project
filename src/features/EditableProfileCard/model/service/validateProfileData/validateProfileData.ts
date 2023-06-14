@@ -1,4 +1,5 @@
 import { Profile } from '@/entities/Profile';
+
 import { ValidateProfileErrors } from '../../consts/EditableProfileCardConsts';
 
 export const validateProfileData = (profile?: Profile) => {

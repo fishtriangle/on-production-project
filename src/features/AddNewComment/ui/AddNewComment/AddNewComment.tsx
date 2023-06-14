@@ -1,20 +1,21 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
+
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Input } from '@/shared/ui/Input';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
 import { HStack } from '@/shared/ui/Stack';
-import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
+
+import classes from './AddNewComment.module.scss';
 import {
   // getAddNewCommentError,
   getAddNewCommentText,
 } from '../../model/selectors/addNewCommentSelectors';
-import classes from './AddNewComment.module.scss';
+import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
 
 export interface AddNewCommentProps {
   className?: string;

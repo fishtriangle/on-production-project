@@ -1,6 +1,7 @@
 import webpack from 'webpack';
-import { BuildOptions } from '../types/config';
+
 import babelPluginRemoveProps from '../../babel/babelPluginRemoveProps';
+import { BuildOptions } from '../types/config';
 
 interface BuildBabelLoaderProps extends BuildOptions {
   isTsx?: boolean;

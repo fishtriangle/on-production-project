@@ -1,6 +1,9 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { articleMock } from '@/entities/Article/testing';
+
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 export default {

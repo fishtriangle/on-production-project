@@ -1,8 +1,11 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Page404 } from './Page404';
 import { Theme } from '@/shared/const/theme';
+
+import { Page404 } from './Page404';
 
 export default {
   title: 'pages/Page404',

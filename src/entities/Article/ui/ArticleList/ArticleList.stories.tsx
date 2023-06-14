@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { articleMock } from '../../test/articleMock';
+
 import { ArticleList } from './ArticleList';
+import { articleMock } from '../../test/articleMock';
 
 export default {
   title: 'entities/Article/ArticleList',
