@@ -8,13 +8,18 @@ interface UseModalProps {
   animationDelay?: number;
 }
 
-export function useModal(props: UseModalProps) {
-  const {
-    isOpen,
-    onClose,
-    animationDelay = 0,
-  } = props;
+/**
+ * @description Reused hook for modal (drawer/modal)
+ * @param animationDelay - delay of execution in ms
+ * @param isOpen - is modal opened
+ * @param onClose - on close modal callback
+ */
 
+export function useModal({
+  isOpen,
+  onClose,
+  animationDelay = 0,
+}: UseModalProps) {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;

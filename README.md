@@ -24,6 +24,7 @@ To start project with vite in dev mode:
 ```
 npm run start:dev:vite
 ```
+
 ----
 
 ## Scripts:
@@ -49,16 +50,19 @@ npm run start:dev:vite
  - `npm run storybook:build` - start assembling storybook build
  - `npm run prepare` - start precommit hooks with husky
  - `npm run generate:slice <layer> <sliceName>` - generate FSD slice
+
 ----
 
 ## Architecture
 Feature sliced design is used in the project.
 [Link for the documentation](https://feature-sliced.design)
+
 ----
 
 ## Localization options
 To handle with different translations i18next library is used. Translation files stored at public/locales.
 [Link for the i18next documentation](https://react.i18next.com)
+
 ----
 
 ## Testing
@@ -67,6 +71,7 @@ Tests that are used in the project:
 - `npm run test:ui` - screenshot tests with loki and storybook
 
 About tests - [Documentation](/docs/tests.md)
+
 ----
 
 ## Linting
@@ -83,6 +88,7 @@ It contains 3 rules:
 - `npm run lint:ts:fix` - start eslint check of the typescript files and fix errors
 - `npm run lint:scss` - start stylelint check of scss files
 - `npm run lint:scss:fix` - start stylelint check of scss files and fix errors
+
 ----
 
 ## Storybook
@@ -118,6 +124,7 @@ const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect 
 export const Primary = Template.bind({});
 Primary.args = {};
 ```
+
 ----
 
 ## Project configs
@@ -130,6 +137,7 @@ Main config settings are at ./config:
 - /config/build - webpack
 - /config/jest - for jest tests
 - /config/storybook - storybook
+
 ----
 
 ## Scripts
@@ -138,6 +146,7 @@ At scripts folder there are several scripts for code refactoring and generation 
 2. Generate visual json report - make html report of the screenshot tests errors from json report.
 3. Create public API for shared/ui.
 4. Update imports - add @ alias for absolute imports.
+
 ----
 
 ## CI pipeline and precommit hooks
@@ -154,7 +163,7 @@ Server requests are made with [RTK query](/src/shared/api/rtkApi.ts).
 
 Also, there is async reducers attaching - [DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
 
----
+----
 
 ## FSD
 
