@@ -10,10 +10,11 @@ describe('Sidebar', () => {
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
 
-  // test('toggle', () => {
-  //   ComponentRender(<Sidebar collapsed={false} />);
-  //   const toggleBtn = screen.getByTestId('sidebar-toggle');
-  //   fireEvent.click(toggleBtn);
-  //   expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
-  // });
+  test('toggle', () => {
+    ComponentRender(<Sidebar collapsed={false} />);
+    // const toggleBtn = screen.getByTestId('sidebar-toggle');
+    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+    // fireEvent.click(toggleBtn);
+    // expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
+  });
 });
