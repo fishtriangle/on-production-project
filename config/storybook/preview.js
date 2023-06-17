@@ -14,11 +14,25 @@ export const parameters = {
     },
   },
   layout: 'fullscreen',
+  themes: {
+    default: 'light',
+    list: [
+      { name: 'light', class: Theme.LIGHT, color: '#e8e8ea' },
+      { name: 'dark', class: Theme.DARK, color: '#292d32' },
+      { name: 'brown', class: Theme.BROWN, color: '#8b6431' },
+    ],
+  },
+  backgrounds: {
+    disable: true,
+    grid: {
+      disable: true,
+    },
+  },
 };
 
 export const decorators = [
   StyleDecorator,
-  ThemeDecorator(Theme.LIGHT),
+  ThemeDecorator(Theme.NONE),
   RouterDecorator,
   StoreDecorator({}),
   SuspenseDecorator,

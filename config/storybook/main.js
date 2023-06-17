@@ -5,6 +5,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     'storybook-addon-mock',
+    'storybook-addon-themes',
   ],
   framework: {
     name: '@storybook/react-webpack5',
