@@ -22,7 +22,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
       publicPath: '/',
     },
     plugins: buildPlugins(options),
-    devtool: isDev ? 'inline-source-map' : undefined,
+    devtool: isDev ? 'eval-source-map' : undefined,
     devServer: isDev ? buildDevServer(options) : undefined,
     performance: {
       hints: false,
