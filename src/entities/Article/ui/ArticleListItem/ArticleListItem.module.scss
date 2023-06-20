@@ -55,10 +55,9 @@
   cursor: pointer;
 
   .imageWrapper {
-    width: 200px;
     display: flex;
     flex-direction: column-reverse;
-    align-items: end;
+    align-items: center;
   }
 
   .image {
@@ -76,6 +75,7 @@
     margin-top: 0;
     opacity: 0;
     transition: all 0.2s ease-in;
+    align-self: end;
   }
 
   .infoWrapper {
