@@ -20,7 +20,7 @@ const ForbiddenPage = memo(({ className }: ForbiddenPageProps) => {
   const mods: Mods = {};
 
   return (
-    <Page className={classNames(classes.ForbiddenPage, mods, [className])}>
+    <Page data-testid="ForbiddenPage" className={classNames(classes.ForbiddenPage, mods, [className])}>
       <Text title={t('Access denied')} theme={TextTheme.ERROR} align={TextAlign.CENTER} size={TextSize.L} />
     </Page>
   );

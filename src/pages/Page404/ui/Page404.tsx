@@ -15,7 +15,7 @@ export const Page404 = memo(({ className }: Page404Props) => {
   const { t } = useTranslation();
 
   return (
-    <Page className={classNames(classes.Page404, {}, [className])}>
+    <Page data-testid="Page404" className={classNames(classes.Page404, {}, [className])}>
       {t('Page not found')}
     </Page>
   );
