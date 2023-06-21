@@ -150,6 +150,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint"
+    "**/*.{ts,tsx}": "eslint",
+    "**/*.scss": "npx stylelint"
   }
 }
