@@ -5473,10 +5473,10 @@
     "eslint-utils" "^2.0.0"
     "regexpp" "^3.0.0"
 
-"eslint-plugin-fish-triangle-eslint-plugin@^0.0.8":
-  "integrity" "sha512-iD39Ljsx/hznfS7eSFdcQAXZdHMhGJ+6ilF7/ZzZCGaDBIV4iC9BPQfY3kVQPU4H1pdBArY3135UkBc4EY7F1w=="
-  "resolved" "https://registry.npmjs.org/eslint-plugin-fish-triangle-eslint-plugin/-/eslint-plugin-fish-triangle-eslint-plugin-0.0.8.tgz"
-  "version" "0.0.8"
+"eslint-plugin-fish-triangle-eslint-plugin@^0.0.11":
+  "integrity" "sha512-lerwljzQFgQNfzbA1mrzo2oklVx2WfSyKE0PEpJYlJdYnxB+Mdg6xqq47DRkobzd+8K0XVctAMGFvlka9S+FTw=="
+  "resolved" "https://registry.npmjs.org/eslint-plugin-fish-triangle-eslint-plugin/-/eslint-plugin-fish-triangle-eslint-plugin-0.0.11.tgz"
+  "version" "0.0.11"
   dependencies:
     "micromatch" "^4.0.5"
     "requireindex" "^1.2.0"
