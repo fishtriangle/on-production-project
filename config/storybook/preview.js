@@ -1,4 +1,5 @@
 import { Theme } from '../../src';
+import { I18nDecorator } from '../../src/shared/config/storybook/I18nDecodator/I18nDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from '../../src/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
@@ -31,6 +32,7 @@ export const parameters = {
 };
 
 export const decorators = [
+  I18nDecorator,
   StyleDecorator,
   ThemeDecorator(Theme.NONE),
   RouterDecorator,
