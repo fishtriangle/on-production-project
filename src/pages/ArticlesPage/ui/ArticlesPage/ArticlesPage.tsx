@@ -23,6 +23,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
+        data-testid="ArticlesPage"
         className={classNames(classes.ArticlesPage, mods, [className])}
       >
         <ArticlesPageFilters />

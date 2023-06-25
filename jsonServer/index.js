@@ -1,6 +1,8 @@
 const fs = require('fs');
-const jsonServer = require('json-server');
 const path = require('path');
+
+const cors = require('cors');
+const jsonServer = require('json-server');
 
 const server = jsonServer.create();
 
@@ -10,15 +12,45 @@ server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
-server.use(async (req, res, next) => {
-  await new Promise((res) => {
-    setTimeout(res, 800);
-  });
+// server.use(async (req, res, next) => {
+//   await new Promise((res) => {
+//     setTimeout(res, 800);
+//   });
+//   next();
+// });
+
+server.use(
+  cors({
+    origin: true,
+    credentials: true,
+    preflightContinue: false,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  }),
+);
+server.options('*', cors());
+
+server.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.header('Access-Control-Allow-Headers', '*');
   next();
 });
 
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+// server.options('*', cors(corsOptions), (req, res) => {
+//   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+//   res.header('Access-Control-Allow-Headers', '*');
+//
+//   return res;
+// });
+
 // Эндпоинт для логина
-server.post('/login', (req, res) => {
+server.post('/login', cors(corsOptions), (req, res) => {
+  // res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  // res.header('Access-Control-Allow-Headers', '*');
   try {
     const { username, password } = req.body;
     const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
