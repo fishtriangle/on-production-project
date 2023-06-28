@@ -101,7 +101,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         <HStack justify="center" maxWidth className={classes.avatarWrapper}>
           <Avatar size={200} src={article?.image} className={classes.avatar} />
         </HStack>
-        <VStack gap="4" maxWidth className={classes.header}>
+        <VStack gap="4" maxWidth className={classes.header} data-testid="ArticleDetails.title">
           <Text
             title={article?.title}
             text={article?.subtitle}
@@ -133,6 +133,5 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         {content}
       </VStack>
     </DynamicModuleLoader>
-
   );
 });

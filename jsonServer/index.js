@@ -19,16 +19,6 @@ server.use(jsonServer.bodyParser);
 //   next();
 // });
 
-server.use(
-  cors({
-    origin: true,
-    credentials: true,
-    preflightContinue: false,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  }),
-);
-server.options('*', cors());
-
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Headers', '*');
@@ -36,7 +26,7 @@ server.use((req, res, next) => {
 });
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'http://[::1]:3000'],
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
@@ -46,6 +36,11 @@ const corsOptions = {
 //
 //   return res;
 // });
+
+server.use(
+  cors(corsOptions),
+);
+server.options('*', cors(corsOptions));
 
 // Эндпоинт для логина
 server.post('/login', cors(corsOptions), (req, res) => {

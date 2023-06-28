@@ -83,7 +83,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
   if (!virtualized) {
     return (
-      <HStack gap="32" className={classNames(classes.ArticleList, mods, [className, classes[view]])}>
+      <HStack
+        gap="32"
+        className={classNames(classes.ArticleList, mods, [className, classes[view]])}
+        data-testid="ArticlesList"
+      >
         {articles.length > 0
           ? articles.map((article, index) => renderItems(index, article))
           : null}
@@ -103,6 +107,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         className={classNames(classes.ArticleList, mods, [className, classes[view]])}
         components={{ Footer }}
         endReached={onScrollEnd}
+        data-testid="ArticlesList"
       />
     );
   }
@@ -118,6 +123,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         listClassName={classNames(classes.ArticleList, mods, [className, classes[view]])}
         components={{ Footer }}
         endReached={onScrollEnd}
+        data-testid="ArticlesList"
       />
     );
   }

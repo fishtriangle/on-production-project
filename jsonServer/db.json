@@ -609,6 +609,28 @@
       "city": "Moscow",
       "username": "tester",
       "avatar": "https://sun6-23.userapi.com/s/v1/if1/OOhoHn_7BlxRjBnKROjlQG9OFgTbqOiMnVxSlD1M_J4kAPHPlTJqqiLmt_D65plnOmQZn1Q7.jpg?size=1080x1080&quality=96&crop=0,0,1080,1080&ava=1"
+    },
+    {
+      "id": "3",
+      "first": "Ivan",
+      "lastname": "Tester",
+      "birthYear": 1992,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "manager",
+      "avatar": "https://sun6-23.userapi.com/s/v1/if1/OOhoHn_7BlxRjBnKROjlQG9OFgTbqOiMnVxSlD1M_J4kAPHPlTJqqiLmt_D65plnOmQZn1Q7.jpg?size=1080x1080&quality=96&crop=0,0,1080,1080&ava=1"
+    },
+    {
+      "id": "4",
+      "first": "Ivan",
+      "lastname": "Tester",
+      "birthYear": 1992,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "testuser",
+      "avatar": ""
     }
   ],
   "users": [

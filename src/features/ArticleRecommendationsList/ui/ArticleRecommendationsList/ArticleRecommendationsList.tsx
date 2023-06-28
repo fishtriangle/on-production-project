@@ -31,7 +31,10 @@ export const ArticleRecommendationsList = memo(({ className }: ArticleRecommenda
   }
 
   return (
-    <div className={classNames('', mods, [className])}>
+    <div
+      className={classNames('', mods, [className])}
+      data-testid="ArticleRecommendationsList"
+    >
       <Text
         size={TextSize.L}
         title={t('Recommendations') ?? ''}
