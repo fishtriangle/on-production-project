@@ -37,4 +37,12 @@ describe('User visit Article page', () => {
     cy.setRate(5, 'New feedback');
     cy.get('[data-selected=true]').should('have.length', 5);
   });
+
+  it('Rate for the article with stubs (fixtures)', () => {
+    cy.intercept('GET', '**/articles/**', { fixture: 'article-details.json' });
+    cy.getByTestId('ArticleDetails.title').should('exist');
+    cy.getByTestId('RatingCard').scrollIntoView();
+    cy.setRate(5, 'New feedback');
+    cy.get('[data-selected=true]').should('have.length', 5);
+  });
 });

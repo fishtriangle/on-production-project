@@ -10,4 +10,10 @@ describe('User visit Articles Page', () => {
     cy.getByTestId('ArticlesList').should('exist');
     cy.getByTestId('ArticlesListItem').should('have.length.greaterThan', 3);
   });
+
+  it('Articles successfully load with stubs(fixtures)', () => {
+    cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' });
+    cy.getByTestId('ArticlesList').should('exist');
+    cy.getByTestId('ArticlesListItem').should('have.length.greaterThan', 3);
+  });
 });
