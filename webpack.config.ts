@@ -6,10 +6,10 @@ import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { BuildEnv, BuildPaths } from './config/build/types/config';
 
 export default (env: BuildEnv) => {
-  const mode = env.mode || 'development';
+  const mode = env?.mode || 'development';
   const isDev = mode === 'development';
-  const PORT = env.port || 3001;
-  const apiUrl = env.apiUrl || 'http://localhost:8888';
+  const PORT = env?.port || 3001;
+  const apiUrl = env?.apiUrl || 'http://localhost:8888';
 
   const paths: BuildPaths = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),

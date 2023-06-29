@@ -8,6 +8,14 @@ export default defineConfig({
     baseUrl: 'http://localhost:3000/',
     experimentalOriginDependencies: true,
   },
-  chromeWebSecurity: false,
+
   // experimentalModifyObstructiveThirdPartyCode: true,
+  chromeWebSecurity: false,
+
+  component: {
+    devServer: {
+      framework: 'react',
+      bundler: 'webpack',
+    },
+  },
 });
