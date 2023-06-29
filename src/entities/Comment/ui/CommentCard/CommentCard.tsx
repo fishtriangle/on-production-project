@@ -27,7 +27,10 @@ export const CommentCard = memo((props: CommentCardProps) => {
         data-test-id="CommentCard.loading"
         maxWidth
         gap="8"
-        className={classNames(classes.CommentCard, mods, [classes.loading, className])}
+        className={classNames(classes.CommentCard, mods, [
+          classes.loading,
+          className,
+        ])}
       >
         <div className={classes.header}>
           <Skeleton width={30} height={30} border="50%" />
@@ -45,8 +48,13 @@ export const CommentCard = memo((props: CommentCardProps) => {
       className={classNames(classes.CommentCard, mods, [className])}
       data-testid="CommentCard.content"
     >
-      <AppLink to={getRouteProfile(comment?.user.id || '')} className={classes.header}>
-        {comment?.user.avatar && <Avatar size={30} src={comment?.user.avatar} />}
+      <AppLink
+        to={getRouteProfile(comment?.user.id || '')}
+        className={classes.header}
+      >
+        {comment?.user.avatar && (
+          <Avatar size={30} src={comment?.user.avatar} />
+        )}
         <Text title={comment?.user.username} className={classes.username} />
       </AppLink>
       <Text text={comment?.text} className={classes.text} />

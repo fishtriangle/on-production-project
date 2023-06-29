@@ -10,7 +10,9 @@ describe('getLoginError.test', () => {
         error: LoginErrors.INCORRECT_DATA,
       },
     };
-    expect(getLoginError(state as StateSchema)).toEqual('ErrorInvalidNameOrPassword!');
+    expect(getLoginError(state as StateSchema)).toEqual(
+      'ErrorInvalidNameOrPassword!',
+    );
   });
 
   test('should work with empty state', () => {

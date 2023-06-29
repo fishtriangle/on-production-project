@@ -15,7 +15,9 @@ export default {
   },
 } as ComponentMeta<typeof Page404>;
 
-const Template: ComponentStory<typeof Page404> = (args) => <Page404 {...args} />;
+const Template: ComponentStory<typeof Page404> = (args) => (
+  <Page404 {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};

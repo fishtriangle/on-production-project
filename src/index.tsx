@@ -30,9 +30,7 @@ if (__PROJECT__ !== 'storybook') {
     </BrowserRouter>,
   );
 } else {
-  root.render(
-    <div />,
-  );
+  root.render(<div />);
 }
 
 export { Theme } from '@/shared/const/theme';

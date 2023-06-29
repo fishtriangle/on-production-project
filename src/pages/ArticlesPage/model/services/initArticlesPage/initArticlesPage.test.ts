@@ -7,7 +7,9 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 jest.mock('../fetchArticlesList/fetchArticlesList');
 jest.mock('../../slices/articlesPageSlice');
 
-const searchParamsMock = new URLSearchParams('?sort=createdAt&order=asc&search=&type=ALL');
+const searchParamsMock = new URLSearchParams(
+  '?sort=createdAt&order=asc&search=&type=ALL',
+);
 
 describe('initArticlesPage.test', () => {
   test('success asyncThunk call', async () => {

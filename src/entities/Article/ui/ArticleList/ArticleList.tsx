@@ -1,6 +1,4 @@
-import {
-  HTMLAttributeAnchorTarget, memo, useCallback, useMemo,
-} from 'react';
+import { HTMLAttributeAnchorTarget, memo, useCallback, useMemo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
@@ -28,13 +26,13 @@ const getSkeletons = (view: ArticleView) => {
   const skeletons = new Array(view === 'TABLE' ? 9 : 3)
     .fill(0)
     .map((_, index) => (
-      <ArticleListItemSkeleton className={classes.card} view={view} key={index} />
+      <ArticleListItemSkeleton
+        className={classes.card}
+        view={view}
+        key={index}
+      />
     ));
-  return (
-    <>
-      {skeletons}
-    </>
-  );
+  return <>{skeletons}</>;
 };
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -65,17 +63,28 @@ export const ArticleList = memo((props: ArticleListProps) => {
     [target, view],
   );
 
-  const Footer = useCallback(() => (
-    <div
-      className={classNames(classes.ArticleList, mods, [className, classes[view]])}
-    >
-      {isLoading && getSkeletons(view)}
-    </div>
-  ), [className, isLoading, mods, view]);
+  const Footer = useCallback(
+    () => (
+      <div
+        className={classNames(classes.ArticleList, mods, [
+          className,
+          classes[view],
+        ])}
+      >
+        {isLoading && getSkeletons(view)}
+      </div>
+    ),
+    [className, isLoading, mods, view],
+  );
 
   if (!isLoading && articles.length === 0) {
     return (
-      <div className={classNames(classes.ArticleList, mods, [className, classes[view]])}>
+      <div
+        className={classNames(classes.ArticleList, mods, [
+          className,
+          classes[view],
+        ])}
+      >
         <Text title={t('Articles not found') ?? ''} />
       </div>
     );
@@ -85,7 +94,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return (
       <HStack
         gap="32"
-        className={classNames(classes.ArticleList, mods, [className, classes[view]])}
+        className={classNames(classes.ArticleList, mods, [
+          className,
+          classes[view],
+        ])}
         data-testid="ArticlesList"
       >
         {articles.length > 0
@@ -104,7 +116,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
         data={articles}
         // overscan={200}
         itemContent={renderItems}
-        className={classNames(classes.ArticleList, mods, [className, classes[view]])}
+        className={classNames(classes.ArticleList, mods, [
+          className,
+          classes[view],
+        ])}
         components={{ Footer }}
         endReached={onScrollEnd}
         data-testid="ArticlesList"
@@ -120,7 +135,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
         data={articles}
         // overscan={200}
         itemContent={renderItems}
-        listClassName={classNames(classes.ArticleList, mods, [className, classes[view]])}
+        listClassName={classNames(classes.ArticleList, mods, [
+          className,
+          classes[view],
+        ])}
         components={{ Footer }}
         endReached={onScrollEnd}
         data-testid="ArticlesList"

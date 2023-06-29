@@ -29,38 +29,39 @@ const options = [
   },
 ];
 
-export const CurrencySelect = memo(({
-  className, value, onChange, readonly,
-}: CurrencySelectProps) => {
-  const { t } = useTranslation();
+export const CurrencySelect = memo(
+  ({ className, value, onChange, readonly }: CurrencySelectProps) => {
+    const { t } = useTranslation();
 
-  const mods: Mods = {
+    const mods: Mods = {};
 
-  };
+    const onChangeHandler = useCallback(
+      (value: string) => {
+        onChange?.(value as Currency);
+      },
+      [onChange],
+    );
 
-  const onChangeHandler = useCallback((value: string) => {
-    onChange?.(value as Currency);
-  }, [onChange]);
+    return (
+      <ListBox
+        onChange={onChangeHandler}
+        value={value}
+        className={classNames('', mods, [className])}
+        label={t('Choose currency')}
+        defaultValue={t('Currency is not selected')}
+        items={options}
+        unavailable={readonly}
+        direction="up right"
+      />
 
-  return (
-    <ListBox
-      onChange={onChangeHandler}
-      value={value}
-      className={classNames('', mods, [className])}
-      label={t('Choose currency')}
-      defaultValue={t('Currency is not selected')}
-      items={options}
-      unavailable={readonly}
-      direction="up right"
-    />
-
-  // <Select
-  //   className={classNames(classes.CurrencySelect, mods, [className])}
-  //   label={t('Choose currency')}
-  //   options={options}
-  //   value={value}
-  //   onChange={onChangeHandler}
-  //   readonly={readonly}
-  // />
-  );
-});
+      // <Select
+      //   className={classNames(classes.CurrencySelect, mods, [className])}
+      //   label={t('Choose currency')}
+      //   options={options}
+      //   value={value}
+      //   onChange={onChangeHandler}
+      //   readonly={readonly}
+      // />
+    );
+  },
+);

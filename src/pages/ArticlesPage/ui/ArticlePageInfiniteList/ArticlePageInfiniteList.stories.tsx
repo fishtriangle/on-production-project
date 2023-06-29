@@ -12,7 +12,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticlePageInfiniteList>;
 
-const Template: ComponentStory<typeof ArticlePageInfiniteList> = (args) => <ArticlePageInfiniteList {...args} />;
+const Template: ComponentStory<typeof ArticlePageInfiniteList> = (args) => (
+  <ArticlePageInfiniteList {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};

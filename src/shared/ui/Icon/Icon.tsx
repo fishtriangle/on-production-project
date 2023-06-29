@@ -9,12 +9,13 @@ interface IconProps extends SVGProps<SVGSVGElement> {
   Svg: FC<SVGProps<SVGSVGElement>>;
 }
 
-export const Icon = memo(({
-  className, Svg, ...otherProps
-}: IconProps) => {
+export const Icon = memo(({ className, Svg, ...otherProps }: IconProps) => {
   const mods: Mods = {};
 
   return (
-    <Svg className={classNames(classes.Icon, mods, [className])} {...otherProps} />
+    <Svg
+      className={classNames(classes.Icon, mods, [className])}
+      {...otherProps}
+    />
   );
 });

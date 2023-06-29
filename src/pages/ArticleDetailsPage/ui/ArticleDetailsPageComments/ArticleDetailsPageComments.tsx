@@ -17,55 +17,52 @@ import {
   getArticleCommentsIsLoading,
 } from '../../model/selectors/getComments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import {
-  fetchCommentsByArticleId,
-} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 
 interface ArticleDetailsPageCommentsProps {
   className?: string;
-  id?: string
+  id?: string;
 }
 
-export const ArticleDetailsPageComments = memo(({ className, id }: ArticleDetailsPageCommentsProps) => {
-  const { t } = useTranslation();
+export const ArticleDetailsPageComments = memo(
+  ({ className, id }: ArticleDetailsPageCommentsProps) => {
+    const { t } = useTranslation();
 
-  const mods: Mods = {};
+    const mods: Mods = {};
 
-  const dispatch = useAppDispatch();
-  const comments = useSelector(getArticleComments.selectAll);
-  const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-  const commentsError = useSelector(getArticleCommentsError);
+    const dispatch = useAppDispatch();
+    const comments = useSelector(getArticleComments.selectAll);
+    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+    const commentsError = useSelector(getArticleCommentsError);
 
-  const onSendComment = useCallback(
-    (text: string) => {
-      dispatch(addCommentForArticle(text));
-    },
-    [dispatch],
-  );
+    const onSendComment = useCallback(
+      (text: string) => {
+        dispatch(addCommentForArticle(text));
+      },
+      [dispatch],
+    );
 
-  useInitialEffect(() => {
-    dispatch(fetchCommentsByArticleId(id));
-  });
+    useInitialEffect(() => {
+      dispatch(fetchCommentsByArticleId(id));
+    });
 
-  return (
-    <Suspense fallback={<PageLoader />}>
-      <VStack gap="16" maxWidth className={classNames('', mods, [className])}>
-        <Text
-          size={TextSize.L}
-          title={t('Comments') ?? ''}
-        />
-        <AddNewComment onSendComment={onSendComment} />
-        {!commentsError && (
-          <CommentList
-            comments={comments}
-            isLoading={commentsIsLoading}
-          />
-        )}
-        {commentsError && (
-          <Text theme={TextTheme.ERROR} title={t('Comments loading error!') ?? ''} />
-        ) }
-      </VStack>
-    </Suspense>
-  );
-});
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <VStack gap="16" maxWidth className={classNames('', mods, [className])}>
+          <Text size={TextSize.L} title={t('Comments') ?? ''} />
+          <AddNewComment onSendComment={onSendComment} />
+          {!commentsError && (
+            <CommentList comments={comments} isLoading={commentsIsLoading} />
+          )}
+          {commentsError && (
+            <Text
+              theme={TextTheme.ERROR}
+              title={t('Comments loading error!') ?? ''}
+            />
+          )}
+        </VStack>
+      </Suspense>
+    );
+  },
+);

@@ -21,9 +21,5 @@
       "module": "CommonJS"
     }
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "./config/jest/setupTests.ts"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "./config/jest/setupTests.ts"]
 }

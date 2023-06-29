@@ -11,15 +11,19 @@ interface ArticleImageBlockComponentProps {
   block: ArticleImageBlock;
 }
 
-export const ArticleImageBlockComponent = memo(({ className, block }: ArticleImageBlockComponentProps) => {
-  const mods: Mods = {};
+export const ArticleImageBlockComponent = memo(
+  ({ className, block }: ArticleImageBlockComponentProps) => {
+    const mods: Mods = {};
 
-  return (
-    <div className={classNames(classes.ArticleImageBlockComponent, mods, [className])}>
-      <img src={block.src} className={classes.image} alt={block.title} />
-      {block.title && (
-        <Text text={block.title} align={TextAlign.CENTER} />
-      )}
-    </div>
-  );
-});
+    return (
+      <div
+        className={classNames(classes.ArticleImageBlockComponent, mods, [
+          className,
+        ])}
+      >
+        <img src={block.src} className={classes.image} alt={block.title} />
+        {block.title && <Text text={block.title} align={TextAlign.CENTER} />}
+      </div>
+    );
+  },
+);

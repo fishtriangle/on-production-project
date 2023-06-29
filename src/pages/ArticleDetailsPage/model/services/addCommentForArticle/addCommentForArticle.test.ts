@@ -35,10 +35,7 @@ describe('addCommentForArticle.test', () => {
       },
     };
 
-    const thunk = new TestAsyncThunk(
-      addCommentForArticle,
-      state,
-    );
+    const thunk = new TestAsyncThunk(addCommentForArticle, state);
 
     thunk.api.post.mockReturnValue(Promise.resolve({ data: newComment }));
     const result = await thunk.callThunk('New comment');

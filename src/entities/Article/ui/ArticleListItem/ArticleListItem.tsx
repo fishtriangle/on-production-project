@@ -18,7 +18,9 @@ import { Text } from '@/shared/ui/Text';
 import classes from './ArticleListItem.module.scss';
 import { ArticleBlockType } from '../../model/consts/ArticleConsts';
 import {
-  Article, ArticleTextBlock, ArticleView,
+  Article,
+  ArticleTextBlock,
+  ArticleView,
 } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
@@ -30,15 +32,15 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-  const {
-    className, article, view, target,
-  } = props;
+  const { className, article, view, target } = props;
 
   const { t } = useTranslation();
 
   const mods: Mods = {};
 
-  const types = <Text text={article.type.join(', ')} className={classes.types} />;
+  const types = (
+    <Text text={article.type.join(', ')} className={classes.types} />
+  );
   const views = (
     <>
       <Text text={String(article.views)} className={classes.views} />
@@ -49,13 +51,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   // const [isHover, bindHover] = useHover();
 
   if (view === 'LIST') {
-    const textBlock = article.blocks
-      .find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+    const textBlock = article.blocks.find(
+      (block) => block.type === ArticleBlockType.TEXT,
+    ) as ArticleTextBlock;
 
     return (
       <div
         data-testid="ArticlesListItem"
-        className={classNames(classes.ArticleListItem, mods, [className, classes[view]])}
+        className={classNames(classes.ArticleListItem, mods, [
+          className,
+          classes[view],
+        ])}
       >
         <Card>
           <div className={classes.header}>
@@ -72,13 +78,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             className={classes.image}
           />
           {textBlock && (
-            <ArticleTextBlockComponent block={textBlock} className={classes.textBlock} />
+            <ArticleTextBlockComponent
+              block={textBlock}
+              className={classes.textBlock}
+            />
           )}
           <div className={classes.footer}>
             <AppLink to={getRouteArticleDetails(article.id)}>
-              <Button theme={ButtonTheme.OUTLINE}>
-                {t('Read more...')}
-              </Button>
+              <Button theme={ButtonTheme.OUTLINE}>{t('Read more...')}</Button>
             </AppLink>
             {views}
           </div>
@@ -93,7 +100,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
       target={target}
       /* {...bindHover} */
       to={getRouteArticleDetails(article.id)}
-      className={classNames(classes.ArticleListItem, mods, [className, classes[view]])}
+      className={classNames(classes.ArticleListItem, mods, [
+        className,
+        classes[view],
+      ])}
     >
       <Card className={classes.card}>
         <div className={classes.imageWrapper}>

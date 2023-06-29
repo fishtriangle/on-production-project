@@ -31,17 +31,19 @@ const viewTypes: ViewType[] = [
   },
 ];
 
-export const ArticleViewSelector = memo(({ className, view, onViewClick }: ArticleViewSelectorProps) => {
-  const mods: Mods = {};
+export const ArticleViewSelector = memo(
+  ({ className, view, onViewClick }: ArticleViewSelectorProps) => {
+    const mods: Mods = {};
 
-  const onClick = (newView: ArticleView) => () => {
-    onViewClick?.(newView);
-  };
+    const onClick = (newView: ArticleView) => () => {
+      onViewClick?.(newView);
+    };
 
-  return (
-    <div className={classNames(classes.ArticleViewSelector, mods, [className])}>
-      {
-        viewTypes.map((viewType) => (
+    return (
+      <div
+        className={classNames(classes.ArticleViewSelector, mods, [className])}
+      >
+        {viewTypes.map((viewType) => (
           <Button
             key={viewType.view}
             theme={ButtonTheme.CLEAR}
@@ -49,11 +51,13 @@ export const ArticleViewSelector = memo(({ className, view, onViewClick }: Artic
           >
             <Icon
               Svg={viewType.icon}
-              className={classNames('', { [classes.active]: view === viewType.view })}
+              className={classNames('', {
+                [classes.active]: view === viewType.view,
+              })}
             />
           </Button>
-        ))
-      }
-    </div>
-  );
-});
+        ))}
+      </div>
+    );
+  },
+);

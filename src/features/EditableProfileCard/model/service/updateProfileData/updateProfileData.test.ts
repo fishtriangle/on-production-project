@@ -18,14 +18,11 @@ const data = {
 
 describe('updateProfileData.test', () => {
   test('success asyncThunk call', async () => {
-    const thunk = new TestAsyncThunk(
-      updateProfileData,
-      {
-        profile: {
-          form: data,
-        },
+    const thunk = new TestAsyncThunk(updateProfileData, {
+      profile: {
+        form: data,
       },
-    );
+    });
     thunk.api.put.mockReturnValue(Promise.resolve({ data }));
 
     const result = await thunk.callThunk();
@@ -36,37 +33,27 @@ describe('updateProfileData.test', () => {
   });
 
   test('error asyncThunk call', async () => {
-    const thunk = new TestAsyncThunk(
-      updateProfileData,
-      {
-        profile: {
-          form: data,
-        },
+    const thunk = new TestAsyncThunk(updateProfileData, {
+      profile: {
+        form: data,
       },
-    );
+    });
     thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk();
 
     expect(result.meta.requestStatus).toBe('rejected');
-    expect(result.payload).toEqual([
-      ValidateProfileErrors.UNKNOWN_ERROR,
-    ]);
+    expect(result.payload).toEqual([ValidateProfileErrors.UNKNOWN_ERROR]);
   });
 
   test('validate error', async () => {
-    const thunk = new TestAsyncThunk(
-      updateProfileData,
-      {
-        profile: {
-          form: { ...data, first: '' },
-        },
+    const thunk = new TestAsyncThunk(updateProfileData, {
+      profile: {
+        form: { ...data, first: '' },
       },
-    );
+    });
     const result = await thunk.callThunk();
 
     expect(result.meta.requestStatus).toBe('rejected');
-    expect(result.payload).toEqual([
-      ValidateProfileErrors.INCORRECT_USER_NAME,
-    ]);
+    expect(result.payload).toEqual([ValidateProfileErrors.INCORRECT_USER_NAME]);
   });
 });

@@ -12,38 +12,40 @@ interface NotificationsListProps {
   className?: string;
 }
 
-export const NotificationsList = memo(({ className }: NotificationsListProps) => {
-  const { data, isLoading } = useGetNotificationsListQuery(null, {
-    pollingInterval: 5000,
-  });
+export const NotificationsList = memo(
+  ({ className }: NotificationsListProps) => {
+    const { data, isLoading } = useGetNotificationsListQuery(null, {
+      pollingInterval: 5000,
+    });
 
-  const mods: Mods = {};
+    const mods: Mods = {};
 
-  if (isLoading) {
+    if (isLoading) {
+      return (
+        <VStack
+          gap="16"
+          maxWidth
+          className={classNames(classes.NotificationsList, mods, [className])}
+        >
+          <Skeleton width="100%" border="8px" height="80px" />
+          <Skeleton width="100%" border="8px" height="80px" />
+          <Skeleton width="100%" border="8px" height="80px" />
+        </VStack>
+      );
+    }
+
     return (
       <VStack
         gap="16"
         maxWidth
         className={classNames(classes.NotificationsList, mods, [className])}
       >
-        <Skeleton width="100%" border="8px" height="80px" />
-        <Skeleton width="100%" border="8px" height="80px" />
-        <Skeleton width="100%" border="8px" height="80px" />
+        {data &&
+          data.length > 0 &&
+          data.map((item) => (
+            <NotificationItem key={item.id} notification={item} />
+          ))}
       </VStack>
     );
-  }
-
-  return (
-    <VStack
-      gap="16"
-      maxWidth
-      className={classNames(classes.NotificationsList, mods, [className])}
-    >
-      {data && data.length > 0 && (
-        data.map((item) => (
-          <NotificationItem key={item.id} notification={item} />
-        ))
-      )}
-    </VStack>
-  );
-});
+  },
+);

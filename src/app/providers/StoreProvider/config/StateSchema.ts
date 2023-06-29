@@ -1,5 +1,10 @@
 import {
-  AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject,
+  AnyAction,
+  CombinedState,
+  Dispatch,
+  EnhancedStore,
+  Reducer,
+  ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
@@ -9,9 +14,7 @@ import { UserSchema } from '@/entities/User';
 import { AddNewCommentSchema } from '@/features/AddNewComment';
 import { LoginSchema } from '@/features/AuthByUsername';
 import { ProfileSchema } from '@/features/EditableProfileCard';
-import {
-  ArticleDetailsPageSchema,
-} from '@/pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { PageSchema } from '@/widgets/Page';

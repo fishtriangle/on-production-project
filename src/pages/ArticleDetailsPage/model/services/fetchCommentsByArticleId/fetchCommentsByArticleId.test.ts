@@ -1,11 +1,9 @@
 import { Comment } from '@/entities/Comment';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-import {
-  fetchCommentsByArticleId,
-} from './fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from './fetchCommentsByArticleId';
 
-const data:Comment[] = [
+const data: Comment[] = [
   {
     id: '1',
     text: 'comment 1',
@@ -20,9 +18,7 @@ const data:Comment[] = [
 
 describe('fetchCommentsByArticleId.test', () => {
   test('success asyncThunk call', async () => {
-    const thunk = new TestAsyncThunk(
-      fetchCommentsByArticleId,
-    );
+    const thunk = new TestAsyncThunk(fetchCommentsByArticleId);
     thunk.api.get.mockReturnValue(Promise.resolve({ data }));
 
     const result = await thunk.callThunk('1');

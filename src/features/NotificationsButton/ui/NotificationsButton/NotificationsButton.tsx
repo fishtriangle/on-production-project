@@ -14,43 +14,46 @@ interface NotificationsButtonProps {
   className?: string;
 }
 
-export const NotificationsButton = memo(({ className }: NotificationsButtonProps) => {
-  const mods: Mods = {};
+export const NotificationsButton = memo(
+  ({ className }: NotificationsButtonProps) => {
+    const mods: Mods = {};
 
-  const [isDrawerOpened, setIsDrawerOpened] = useState(false);
+    const [isDrawerOpened, setIsDrawerOpened] = useState(false);
 
-  const isMobile = useDevice();
+    const isMobile = useDevice();
 
-  const onOpenDrawer = useCallback(() => {
-    setIsDrawerOpened(true);
-  }, []);
+    const onOpenDrawer = useCallback(() => {
+      setIsDrawerOpened(true);
+    }, []);
 
-  const onCloseDrawer = useCallback(() => {
-    setIsDrawerOpened(false);
-  }, []);
+    const onCloseDrawer = useCallback(() => {
+      setIsDrawerOpened(false);
+    }, []);
 
-  const trigger = (
-    <div className={classNames(classes.NotificationsButton, mods, [className])} onClick={onOpenDrawer}>
-      <Icon Svg={NotificationIcon} className={classes.icon} />
-    </div>
-  );
+    const trigger = (
+      <div
+        className={classNames(classes.NotificationsButton, mods, [className])}
+        onClick={onOpenDrawer}
+      >
+        <Icon Svg={NotificationIcon} className={classes.icon} />
+      </div>
+    );
 
-  return (
-    <div>
-      {isMobile
-        ? (
+    return (
+      <div>
+        {isMobile ? (
           <>
             {trigger}
             <Drawer isOpen={isDrawerOpened} onClose={onCloseDrawer}>
               <NotificationsList />
             </Drawer>
           </>
-        )
-        : (
+        ) : (
           <PopOver trigger={trigger}>
             <NotificationsList className={classes.notifications} />
           </PopOver>
         )}
-    </div>
-  );
-});
+      </div>
+    );
+  },
+);

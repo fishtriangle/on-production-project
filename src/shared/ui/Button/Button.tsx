@@ -1,13 +1,11 @@
-import {
-  ButtonHTMLAttributes, memo, ReactNode,
-} from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 import classes from './Button.module.scss';
 
 export enum ButtonTheme {
-  PRIMAL= 'primal',
+  PRIMAL = 'primal',
   CLEAR = 'clear',
   CLEAR_INVERTED = 'clearInverted',
   CLEAR_SECONDARY_INVERTED = 'clearSecondaryInverted',
@@ -23,7 +21,7 @@ export enum ButtonSize {
   XL = 'sizeXL',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   theme?: ButtonTheme;
   square?: boolean;

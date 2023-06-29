@@ -9,7 +9,10 @@ export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
 export type FlexGap = '4' | '8' | '16' | '32';
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
 
 export interface FlexProps extends DivProps {
   className?: string;
@@ -18,7 +21,7 @@ export interface FlexProps extends DivProps {
   align?: FlexAlign;
   direction: FlexDirection;
   gap?: FlexGap;
-  maxWidth?: boolean
+  maxWidth?: boolean;
 }
 
 const justifyMap: Record<FlexJustify, string> = {
@@ -72,7 +75,10 @@ export const Flex = (props: FlexProps) => {
   ];
 
   return (
-    <div className={classNames(classes.Flex, mods, flexClasses)} {...otherProps}>
+    <div
+      className={classNames(classes.Flex, mods, flexClasses)}
+      {...otherProps}
+    >
       {children}
     </div>
   );

@@ -10,22 +10,28 @@ interface ArticleTableBlockComponentProps {
   block: ArticleTableBlock;
 }
 
-export const ArticleTableBlockComponent = memo(({ className, block }: ArticleTableBlockComponentProps) => {
-  const mods: Mods = {};
+export const ArticleTableBlockComponent = memo(
+  ({ className, block }: ArticleTableBlockComponentProps) => {
+    const mods: Mods = {};
 
-  return (
-    <table className={classNames(classes.ArticleTableBlockComponent, mods, [className])}>
-      <tbody>
-        {block.rows.map((row, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-          <tr key={index}>
-            {row.map((col, i) => (
+    return (
+      <table
+        className={classNames(classes.ArticleTableBlockComponent, mods, [
+          className,
+        ])}
+      >
+        <tbody>
+          {block.rows.map((row, index) => (
             // eslint-disable-next-line react/no-array-index-key
-              <td key={`${index}-${i}`}>{col}</td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-});
+            <tr key={index}>
+              {row.map((col, i) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <td key={`${index}-${i}`}>{col}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  },
+);

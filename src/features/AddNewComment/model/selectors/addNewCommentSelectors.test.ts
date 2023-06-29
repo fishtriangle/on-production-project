@@ -28,7 +28,9 @@ describe('getAddNewCommentError.test', () => {
         error: 'addNewComment.INCORRECT_DATA',
       },
     };
-    expect(getAddNewCommentError(state as StateSchema)).toEqual('addNewComment.INCORRECT_DATA');
+    expect(getAddNewCommentError(state as StateSchema)).toEqual(
+      'addNewComment.INCORRECT_DATA',
+    );
   });
 
   test('should work with empty state', () => {

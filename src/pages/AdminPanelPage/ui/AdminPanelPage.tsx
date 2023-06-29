@@ -17,7 +17,10 @@ const AdminPanelPage = memo(({ className }: AdminPanelPageProps) => {
   const mods: Mods = {};
 
   return (
-    <Page data-testid="AdminPanelPage" className={classNames(classes.AdminPanelPage, mods, [className])}>
+    <Page
+      data-testid="AdminPanelPage"
+      className={classNames(classes.AdminPanelPage, mods, [className])}
+    >
       {t('Admin panel page')}
     </Page>
   );

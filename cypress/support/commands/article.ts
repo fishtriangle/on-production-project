@@ -7,22 +7,22 @@ const articleMock = {
   views: 1997,
   createdAt: '23.12.2019',
   userId: '1',
-  type: [
-    'Science',
-  ],
+  type: ['Science'],
   blocks: [],
 };
 
 export const createArticle = (article?: Article) => {
   const arg = article || articleMock;
-  return cy.request({
-    method: 'POST',
-    url: 'http://[::1]:8888/articles',
-    headers: {
-      Authorization: 'testuser',
-    },
-    body: arg,
-  }).then((resp) => resp.body.id);
+  return cy
+    .request({
+      method: 'POST',
+      url: 'http://[::1]:8888/articles',
+      headers: {
+        Authorization: 'testuser',
+      },
+      body: arg,
+    })
+    .then((resp) => resp.body.id);
 };
 
 export const removeArticle = (articleId: string) => {

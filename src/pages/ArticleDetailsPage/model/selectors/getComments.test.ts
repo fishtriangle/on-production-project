@@ -14,7 +14,9 @@ describe('getArticleCommentsError.test', () => {
         },
       },
     };
-    expect(getArticleCommentsError(state as StateSchema)).toEqual('ArticleDetailsCommentsErrors.INCORRECT_DATA');
+    expect(getArticleCommentsError(state as StateSchema)).toEqual(
+      'ArticleDetailsCommentsErrors.INCORRECT_DATA',
+    );
   });
 
   test('should work with empty state', () => {

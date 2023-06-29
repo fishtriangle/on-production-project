@@ -4,4 +4,7 @@ export type { PageSchema } from './model/types/PageSchema';
 
 export { pageActions, pageReducer } from './model/slices/pageSlice';
 
-export { getPageScroll, getPageScrollByPath } from './model/selectors/pageSelectors';
+export {
+  getPageScroll,
+  getPageScrollByPath,
+} from './model/selectors/pageSelectors';

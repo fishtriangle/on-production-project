@@ -9,9 +9,15 @@ import { Page404 } from '@/pages/Page404';
 import { ProfilePage } from '@/pages/ProfilePage';
 import {
   AppRoutes,
-  getRouteAbout, getRouteAdminPanel, getRouteArticleCreate, getRouteArticleDetails, getRouteArticleEdit,
-  getRouteArticles, getRouteForbidden,
-  getRouteMain, getRoutePage404,
+  getRouteAbout,
+  getRouteAdminPanel,
+  getRouteArticleCreate,
+  getRouteArticleDetails,
+  getRouteArticleEdit,
+  getRouteArticles,
+  getRouteForbidden,
+  getRouteMain,
+  getRoutePage404,
   getRouteProfile,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';

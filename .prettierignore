@@ -1,0 +1,10 @@
+build
+docs
+reports
+storybook-static
+/node_modules
+.idea
+/extractedTranslations
+*.html
+*.css
+*.scss

@@ -34,29 +34,38 @@ const ProfileRating = memo(({ className, profileId }: ProfileRatingProps) => {
 
   const rating = data?.[data.length - 1];
 
-  const handleRateProfile = useCallback((starsCount: number, feedback?: string) => {
-    try {
-      rateProfileMutation({
-        profileId,
-        userId: userData?.id ?? '',
-        rate: starsCount,
-        feedback: feedback ?? '',
-      });
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
-  }, [profileId, rateProfileMutation, userData?.id]);
+  const handleRateProfile = useCallback(
+    (starsCount: number, feedback?: string) => {
+      try {
+        rateProfileMutation({
+          profileId,
+          userId: userData?.id ?? '',
+          rate: starsCount,
+          feedback: feedback ?? '',
+        });
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      }
+    },
+    [profileId, rateProfileMutation, userData?.id],
+  );
 
-  const onCancel = useCallback((starsCount: number) => {
-    handleRateProfile(starsCount);
-    refetch();
-  }, [handleRateProfile, refetch]);
+  const onCancel = useCallback(
+    (starsCount: number) => {
+      handleRateProfile(starsCount);
+      refetch();
+    },
+    [handleRateProfile, refetch],
+  );
 
-  const onAccept = useCallback((starsCount: number, feedback?: string) => {
-    handleRateProfile(starsCount, feedback);
-    refetch();
-  }, [handleRateProfile, refetch]);
+  const onAccept = useCallback(
+    (starsCount: number, feedback?: string) => {
+      handleRateProfile(starsCount, feedback);
+      refetch();
+    },
+    [handleRateProfile, refetch],
+  );
 
   if (isLoading) {
     return <Skeleton width="100%" height={120} />;
@@ -68,7 +77,11 @@ const ProfileRating = memo(({ className, profileId }: ProfileRatingProps) => {
       onAccept={onAccept}
       rate={rating?.rate}
       className={classNames('', mods, [className])}
-      title={rating?.rate ? t('Your rating for this profile') || undefined : t('Rate the profile') || undefined}
+      title={
+        rating?.rate
+          ? t('Your rating for this profile') || undefined
+          : t('Rate the profile') || undefined
+      }
       feedbackTitle={t('Your feedback') || undefined}
       hasFeedback
     />

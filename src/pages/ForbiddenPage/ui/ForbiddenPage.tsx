@@ -3,9 +3,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import {
-  Text, TextAlign, TextSize, TextTheme,
-} from '@/shared/ui/Text';
+import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
 import classes from './ForbiddenPage.module.scss';
@@ -20,8 +18,16 @@ const ForbiddenPage = memo(({ className }: ForbiddenPageProps) => {
   const mods: Mods = {};
 
   return (
-    <Page data-testid="ForbiddenPage" className={classNames(classes.ForbiddenPage, mods, [className])}>
-      <Text title={t('Access denied')} theme={TextTheme.ERROR} align={TextAlign.CENTER} size={TextSize.L} />
+    <Page
+      data-testid="ForbiddenPage"
+      className={classNames(classes.ForbiddenPage, mods, [className])}
+    >
+      <Text
+        title={t('Access denied')}
+        theme={TextTheme.ERROR}
+        align={TextAlign.CENTER}
+        size={TextSize.L}
+      />
     </Page>
   );
 });

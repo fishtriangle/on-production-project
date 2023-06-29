@@ -1,4 +1,7 @@
-import { addNewCommentActions, addNewCommentReducer } from './addNewCommentSlice';
+import {
+  addNewCommentActions,
+  addNewCommentReducer,
+} from './addNewCommentSlice';
 import { AddNewCommentSchema } from '../types/addNewComment';
 
 describe('addNewCommentSlice.test', () => {

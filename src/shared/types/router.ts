@@ -6,4 +6,4 @@ import { UserRoles } from '@/entities/User';
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
   roles?: UserRoles[];
-}
+};

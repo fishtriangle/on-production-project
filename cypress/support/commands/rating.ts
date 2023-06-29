@@ -1,4 +1,7 @@
-export const setRate = (starsCount: number, feedback: string = 'New feedback') => {
+export const setRate = (
+  starsCount: number,
+  feedback: string = 'New feedback',
+) => {
   cy.getByTestId(`StarRating.${starsCount}`).click();
   cy.getByTestId('RatingCard.input').type(feedback);
   cy.getByTestId('RatingCard.send').click();

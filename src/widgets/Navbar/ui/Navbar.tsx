@@ -3,9 +3,7 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import {
-  getUserAuthData,
-} from '@/entities/User';
+import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { NotificationsButton } from '@/features/NotificationsButton';
@@ -70,10 +68,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         {t('Sign in')}
       </Button>
       {isAuthModal && (
-        <LoginModal
-          isOpen={isAuthModal}
-          onClose={onCloseModal}
-        />
+        <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
       )}
     </header>
   );

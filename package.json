@@ -11,6 +11,7 @@
     "start:dev:server": "node ./jsonServer/index.js",
     "build:prod": "webpack --env mode=production apiUrl=https://react-production-server-olive.vercel.app",
     "build:dev": "webpack --env mode=development",
+    "prettier": "npx prettier --write **/*.{ts,tsx,json}",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
@@ -74,6 +75,7 @@
     "cypress": "^12.15.0",
     "eslint": "^8.22.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-fish-triangle-eslint-plugin": "^0.0.12",
     "eslint-plugin-i18next": "^6.0.0-2",
     "eslint-plugin-import": "^2.27.5",
@@ -94,6 +96,7 @@
     "json-server": "^0.17.2",
     "lint-staged": "^13.2.2",
     "mini-css-extract-plugin": "^2.5.3",
+    "prettier": "2.8.8",
     "react-refresh": "^0.14.0",
     "react-refresh-typescript": "^2.0.7",
     "reg-cli": "^0.17.7",
@@ -153,7 +156,10 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint",
+    "**/*.{ts,tsx}": [
+      "prettier --list-different",
+      "eslint"
+    ],
     "**/*.scss": "npx stylelint"
   }
 }

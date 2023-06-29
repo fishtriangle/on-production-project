@@ -29,38 +29,39 @@ const options = [
   },
 ];
 
-export const CountrySelect = memo(({
-  className, value, onChange, readonly,
-}: CountrySelectProps) => {
-  const { t } = useTranslation();
+export const CountrySelect = memo(
+  ({ className, value, onChange, readonly }: CountrySelectProps) => {
+    const { t } = useTranslation();
 
-  const mods: Mods = {
+    const mods: Mods = {};
 
-  };
+    const onChangeHandler = useCallback(
+      (value: string) => {
+        onChange?.(value as Country);
+      },
+      [onChange],
+    );
 
-  const onChangeHandler = useCallback((value: string) => {
-    onChange?.(value as Country);
-  }, [onChange]);
+    return (
+      <ListBox
+        onChange={onChangeHandler}
+        value={value}
+        className={classNames('', mods, [className])}
+        label={t('Choose country')}
+        defaultValue={t('Country is not selected')}
+        items={options}
+        unavailable={readonly}
+        direction="up right"
+      />
 
-  return (
-    <ListBox
-      onChange={onChangeHandler}
-      value={value}
-      className={classNames('', mods, [className])}
-      label={t('Choose country')}
-      defaultValue={t('Country is not selected')}
-      items={options}
-      unavailable={readonly}
-      direction="up right"
-    />
-
-  // <Select
-  //   className={classNames(classes.CountrySelect, mods, [className])}
-  //   label={t('Choose country')}
-  //   options={options}
-  //   value={value}
-  //   onChange={onChangeHandler}
-  //   readonly={readonly}
-  // />
-  );
-});
+      // <Select
+      //   className={classNames(classes.CountrySelect, mods, [className])}
+      //   label={t('Choose country')}
+      //   options={options}
+      //   value={value}
+      //   onChange={onChangeHandler}
+      //   readonly={readonly}
+      // />
+    );
+  },
+);

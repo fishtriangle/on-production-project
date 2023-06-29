@@ -1,7 +1,10 @@
 import { USER_LOCALSTORAGE_KEY } from '../../../src/shared/const/localStorage';
 import { selectByTestId } from '../../helpers/selectByTestId';
 
-export const login = (username: string = 'testuser', password: string = '123') => {
+export const login = (
+  username: string = 'testuser',
+  password: string = '123',
+) => {
   cy.session([username, password], () => {
     cy.request({
       method: 'POST',

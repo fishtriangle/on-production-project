@@ -30,7 +30,9 @@ export const loginSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(loginByUsername.rejected, (state, action) => {
-        state.error = action.payload ? action.payload as LoginErrors : LoginErrors.UNKNOWN_ERROR;
+        state.error = action.payload
+          ? (action.payload as LoginErrors)
+          : LoginErrors.UNKNOWN_ERROR;
         state.isLoading = false;
       });
   },

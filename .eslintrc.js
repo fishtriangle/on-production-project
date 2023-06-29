@@ -10,6 +10,7 @@ module.exports = {
     'plugin:i18next/recommended',
     'plugin:storybook/recommended',
     'plugin:import/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -19,17 +20,21 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'fish-triangle-eslint-plugin', 'unused-imports'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'i18next',
+    'react-hooks',
+    'fish-triangle-eslint-plugin',
+    'unused-imports',
+  ],
   rules: {
-    indent: [2, 2],
-    'react/jsx-indent': [2, 2, {
-      checkAttributes: true,
-      indentLogicalExpressions: true,
-    }],
-    'react/jsx-indent-props': [2, 2],
-    'react/jsx-filename-extension': [2, {
-      extensions: ['.js', '.jsx', '.tsx'],
-    }],
+    'react/jsx-filename-extension': [
+      2,
+      {
+        extensions: ['.js', '.jsx', '.tsx'],
+      },
+    ],
     'react/function-component-definition': 'off',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
@@ -38,18 +43,24 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
     'import/extensions': 'off',
-    'import/no-extraneous-dependencies': ['error', {
-      devDependencies: true,
-      peerDependencies: true,
-    }],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: true,
+        peerDependencies: true,
+      },
+    ],
     'react/react-in-jsx-scope': 'off',
     'no-underscore-dangle': 'off',
     'no-shadow': 'off',
     'i18next/no-literal-string': ['error'],
-    'max-len': ['error', {
-      ignoreComments: true,
-      code: 120,
-    }],
+    'max-len': [
+      'error',
+      {
+        ignoreComments: true,
+        code: 140,
+      },
+    ],
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
@@ -58,7 +69,11 @@ module.exports = {
     'no-undef': 'off',
     'react/jsx-no-useless-fragment': 'off',
     'react/no-array-index-key': 'off',
-    'fish-triangle-eslint-plugin/dependency-path-checker': ['error', { alias: '@' }],
+    'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
+    'fish-triangle-eslint-plugin/dependency-path-checker': [
+      'error',
+      { alias: '@' },
+    ],
     'fish-triangle-eslint-plugin/public-api-imports': [
       'error',
       {
@@ -70,10 +85,7 @@ module.exports = {
       'error',
       {
         alias: '@',
-        ignoreImportPatterns: [
-          '**/testing',
-          '**/StoreProvider',
-        ],
+        ignoreImportPatterns: ['**/testing', '**/StoreProvider'],
       },
     ],
     'unused-imports/no-unused-imports': 'error',
@@ -108,11 +120,13 @@ module.exports = {
     __PROJECT__: true,
     React: true,
   },
-  overrides: [{
-    files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
-    rules: {
-      'i18next/no-literal-string': 'off',
-      'max-len': 'off',
+  overrides: [
+    {
+      files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+        'max-len': 'off',
+      },
     },
-  }],
+  ],
 };

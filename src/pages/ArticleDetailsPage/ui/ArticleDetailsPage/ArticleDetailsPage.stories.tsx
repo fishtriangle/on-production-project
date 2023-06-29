@@ -24,7 +24,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+  <ArticleDetailsPage {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
@@ -61,9 +63,7 @@ Primary.parameters = {
       url: `${__API_BASE__}/articles?_limit=3`,
       method: 'GET',
       status: 200,
-      response: [
-        article,
-      ],
+      response: [article],
     },
     {
       url: `${__API_BASE__}/article-ratings?userId=&articleId=1`,

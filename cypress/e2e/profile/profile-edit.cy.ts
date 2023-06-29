@@ -6,7 +6,9 @@ describe('User go to Profile page', () => {
   beforeEach(() => {
     cy.visit('/');
     cy.login().then(() => {
-      const data = JSON.parse(window.localStorage.getItem(USER_LOCALSTORAGE_KEY) || '{');
+      const data = JSON.parse(
+        window.localStorage.getItem(USER_LOCALSTORAGE_KEY) || '{',
+      );
       cy.visit(`/profile/${data.id}`);
       profileId = data.id;
     });
@@ -23,7 +25,10 @@ describe('User go to Profile page', () => {
   it('User edit Profile page', () => {
     cy.getByTestId('ProfileCard.firstname').should('have.value', 'Ivan');
     cy.updateProfile('New firstname', 'New lastname');
-    cy.getByTestId('ProfileCard.firstname').should('have.value', 'New firstname');
+    cy.getByTestId('ProfileCard.firstname').should(
+      'have.value',
+      'New firstname',
+    );
     cy.getByTestId('ProfileCard.lastname').should('have.value', 'New lastname');
   });
 });

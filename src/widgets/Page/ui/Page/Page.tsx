@@ -1,6 +1,4 @@
-import {
-  memo, MutableRefObject, ReactNode, useRef, UIEvent,
-} from 'react';
+import { memo, MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
 
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -24,11 +22,7 @@ interface PageProps extends TestProps {
 }
 
 export const Page = memo((props: PageProps) => {
-  const {
-    className,
-    children,
-    onScrollEnd,
-  } = props;
+  const { className, children, onScrollEnd } = props;
 
   const mods: Mods = {};
 
@@ -36,9 +30,10 @@ export const Page = memo((props: PageProps) => {
 
   const location = useLocation();
 
-  const scrollPosition = useSelector(
-    (state: StateSchema) => getPageScrollByPath(state, location.pathname),
-  ) || 0;
+  const scrollPosition =
+    useSelector((state: StateSchema) =>
+      getPageScrollByPath(state, location.pathname),
+    ) || 0;
 
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -54,9 +49,11 @@ export const Page = memo((props: PageProps) => {
   });
 
   const onScroll = useThrottle((event: UIEvent<HTMLElement>) => {
-    dispatch(pageActions.setScrollPosition({
-      [location.pathname]: event.currentTarget.scrollTop,
-    }));
+    dispatch(
+      pageActions.setScrollPosition({
+        [location.pathname]: event.currentTarget.scrollTop,
+      }),
+    );
   }, 500);
 
   return (

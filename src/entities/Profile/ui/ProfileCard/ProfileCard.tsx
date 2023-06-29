@@ -55,7 +55,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (isLoading) {
     return (
-      <HStack justify="center" maxWidth className={classNames(classes.ProfileCard, {}, [className, classes.loading])}>
+      <HStack
+        justify="center"
+        maxWidth
+        className={classNames(classes.ProfileCard, {}, [
+          className,
+          classes.loading,
+        ])}
+      >
         <Loader />
       </HStack>
     );
@@ -63,7 +70,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (error) {
     return (
-      <HStack justify="center" maxWidth className={classNames(classes.ProfileCard, {}, [className, classes.error])}>
+      <HStack
+        justify="center"
+        maxWidth
+        className={classNames(classes.ProfileCard, {}, [
+          className,
+          classes.error,
+        ])}
+      >
         <Text
           title={t('Profile loading error!')}
           text={t('Try to reload page')}
@@ -83,11 +97,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
       >
         {data?.avatar && (
           <HStack justify="center" maxWidth className={classes.avatarWrapper}>
-            <Avatar
-              src={data?.avatar}
-              alt={data?.username}
-              size={120}
-            />
+            <Avatar src={data?.avatar} alt={data?.username} size={120} />
           </HStack>
         )}
         <Input
@@ -147,7 +157,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
           readonly={readonly}
           className={classes.input}
         />
-
       </VStack>
     );
   }

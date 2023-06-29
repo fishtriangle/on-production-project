@@ -16,22 +16,27 @@ interface AvatarProps {
 }
 
 export const Avatar = memo((props: AvatarProps) => {
-  const {
-    className,
-    src,
-    size = 100,
-    alt,
-  } = props;
+  const { className, src, size = 100, alt } = props;
 
   const mods: Mods = {};
 
-  const styles = useMemo<CSSProperties>(() => ({
-    width: size,
-    height: size,
-  }), [size]);
+  const styles = useMemo<CSSProperties>(
+    () => ({
+      width: size,
+      height: size,
+    }),
+    [size],
+  );
 
   const fallback = <Skeleton height={size} width={size} border="50%" />;
-  const errorFallback = <Icon Svg={UserIcon} width={size} height={size} className={classes.errorIcon} />;
+  const errorFallback = (
+    <Icon
+      Svg={UserIcon}
+      width={size}
+      height={size}
+      className={classes.errorIcon}
+    />
+  );
 
   return (
     <AppImage

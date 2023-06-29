@@ -14,7 +14,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleDetailsPageComments>;
 
-const Template: ComponentStory<typeof ArticleDetailsPageComments> = (args) => <ArticleDetailsPageComments {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPageComments> = (args) => (
+  <ArticleDetailsPageComments {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

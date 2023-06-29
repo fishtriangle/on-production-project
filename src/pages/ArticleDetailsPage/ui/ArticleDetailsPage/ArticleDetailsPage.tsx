@@ -6,7 +6,10 @@ import { ArticleDetails } from '@/entities/Article';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 import { PageLoader } from '@/widgets/PageLoader';
 
@@ -24,7 +27,7 @@ const reducers: ReducersList = {
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
-  const { id } = useParams<{id: string}>();
+  const { id } = useParams<{ id: string }>();
 
   if (!id) {
     return null;
@@ -35,7 +38,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Suspense fallback={<PageLoader />}>
-        <Page className={classNames(classes.ArticleDetailsPage, mods, [className])}>
+        <Page
+          className={classNames(classes.ArticleDetailsPage, mods, [className])}
+        >
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
           <ArticleRating articleId={id} />

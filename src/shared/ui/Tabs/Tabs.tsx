@@ -18,15 +18,16 @@ interface TabsProps<T extends string> {
 }
 
 export const Tabs = <T extends string>(props: TabsProps<T>) => {
-  const {
-    className, tabs, value, onTabClick,
-  } = props;
+  const { className, tabs, value, onTabClick } = props;
 
   const mods: Mods = {};
 
-  const clickHandler = useCallback((tab: TabItem<T>) => () => {
-    onTabClick(tab);
-  }, [onTabClick]);
+  const clickHandler = useCallback(
+    (tab: TabItem<T>) => () => {
+      onTabClick(tab);
+    },
+    [onTabClick],
+  );
 
   return (
     <div className={classNames(classes.Tabs, mods, [className])}>

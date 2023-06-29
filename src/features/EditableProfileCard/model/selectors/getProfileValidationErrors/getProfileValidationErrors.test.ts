@@ -5,7 +5,10 @@ import { ValidateProfileErrors } from '../../consts/EditableProfileCardConsts';
 
 describe('getProfileValidationErrors.test', () => {
   test('should return data', () => {
-    const errors = [ValidateProfileErrors.SERVER_ERROR, ValidateProfileErrors.UNKNOWN_ERROR];
+    const errors = [
+      ValidateProfileErrors.SERVER_ERROR,
+      ValidateProfileErrors.UNKNOWN_ERROR,
+    ];
 
     const state: DeepPartial<StateSchema> = {
       profile: {

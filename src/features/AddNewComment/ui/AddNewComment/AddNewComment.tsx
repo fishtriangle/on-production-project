@@ -4,7 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
@@ -15,7 +18,10 @@ import {
   // getAddNewCommentError,
   getAddNewCommentText,
 } from '../../model/selectors/addNewCommentSelectors';
-import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
+import {
+  addNewCommentActions,
+  addNewCommentReducer,
+} from '../../model/slice/addNewCommentSlice';
 
 export interface AddNewCommentProps {
   className?: string;
@@ -37,9 +43,12 @@ const AddNewComment = memo((props: AddNewCommentProps) => {
 
   const mods: Mods = {};
 
-  const onNewCommentTextChange = useCallback((value: string) => {
-    dispatch(addNewCommentActions.setText(value));
-  }, [dispatch]);
+  const onNewCommentTextChange = useCallback(
+    (value: string) => {
+      dispatch(addNewCommentActions.setText(value));
+    },
+    [dispatch],
+  );
 
   const onSendCommentHandler = useCallback(() => {
     onSendComment(text || '');

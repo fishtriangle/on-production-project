@@ -12,20 +12,22 @@ interface LanguageSwitcherProps {
   short?: boolean;
 }
 
-export const LanguageSwitcher = memo(({ className, short }: LanguageSwitcherProps) => {
-  const { t, i18n } = useTranslation();
+export const LanguageSwitcher = memo(
+  ({ className, short }: LanguageSwitcherProps) => {
+    const { t, i18n } = useTranslation();
 
-  const toddleLanguage = () => {
-    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-  };
+    const toddleLanguage = () => {
+      i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+    };
 
-  return (
-    <Button
-      theme={ButtonTheme.CLEAR}
-      onClick={toddleLanguage}
-      className={classNames(classes.LanguageSwitcher, {}, [className])}
-    >
-      {t(short ? 'LanguageShort' : 'Language')}
-    </Button>
-  );
-});
+    return (
+      <Button
+        theme={ButtonTheme.CLEAR}
+        onClick={toddleLanguage}
+        className={classNames(classes.LanguageSwitcher, {}, [className])}
+      >
+        {t(short ? 'LanguageShort' : 'Language')}
+      </Button>
+    );
+  },
+);

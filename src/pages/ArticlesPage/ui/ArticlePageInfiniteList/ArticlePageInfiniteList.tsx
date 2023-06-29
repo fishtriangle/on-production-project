@@ -25,40 +25,45 @@ interface ArticlePageInfiniteListProps {
   className?: string;
 }
 
-export const ArticlePageInfiniteList = memo(({ className }: ArticlePageInfiniteListProps) => {
-  const { t } = useTranslation();
+export const ArticlePageInfiniteList = memo(
+  ({ className }: ArticlePageInfiniteListProps) => {
+    const { t } = useTranslation();
 
-  const mods: Mods = {};
+    const mods: Mods = {};
 
-  const dispatch = useAppDispatch();
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
-  const error = useSelector(getArticlesPageError);
-  const view = useSelector(getArticlesPageView);
+    const dispatch = useAppDispatch();
+    const articles = useSelector(getArticles.selectAll);
+    const isLoading = useSelector(getArticlesPageIsLoading);
+    const error = useSelector(getArticlesPageError);
+    const view = useSelector(getArticlesPageView);
 
-  const onLoadNextPage = useCallback(() => {
-    dispatch(fetchNextArticlesPage());
-  }, [dispatch]);
+    const onLoadNextPage = useCallback(() => {
+      dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
 
-  useInitialEffect(() => {
-    dispatch(initArticlesPage(getQueryParams()));
-  });
+    useInitialEffect(() => {
+      dispatch(initArticlesPage(getQueryParams()));
+    });
 
-  if (error) {
+    if (error) {
+      return (
+        <Page>
+          <Text title={t('Article loading error!')} theme={TextTheme.ERROR} />
+        </Page>
+      );
+    }
+
     return (
-      <Page>
-        <Text title={t('Article loading error!')} theme={TextTheme.ERROR} />
-      </Page>
+      <ArticleList
+        onScrollEnd={onLoadNextPage}
+        isLoading={isLoading}
+        articles={articles}
+        view={view}
+        className={classNames(classes.ArticlePageInfiniteList, mods, [
+          className,
+          classes.list,
+        ])}
+      />
     );
-  }
-
-  return (
-    <ArticleList
-      onScrollEnd={onLoadNextPage}
-      isLoading={isLoading}
-      articles={articles}
-      view={view}
-      className={classNames(classes.ArticlePageInfiniteList, mods, [className, classes.list])}
-    />
-  );
-});
+  },
+);

@@ -1,12 +1,19 @@
 import React, {
-  InputHTMLAttributes, memo, useEffect, useRef, useState,
+  InputHTMLAttributes,
+  memo,
+  useEffect,
+  useRef,
+  useState,
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import classes from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>;
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange' | 'readonly'
+>;
 
 interface InputProps extends HTMLInputProps {
   className?: string;
@@ -68,13 +75,9 @@ export const Input = memo((props: InputProps) => {
 
   return (
     <div className={classNames(classes.InputWrapper, mods, [className])}>
-      {
-        placeholder && (
-          <div className={classes.placeholder}>
-            {`${placeholder}>`}
-          </div>
-        )
-      }
+      {placeholder && (
+        <div className={classes.placeholder}>{`${placeholder}>`}</div>
+      )}
 
       <div className={classes.pointerWrapper}>
         <input
@@ -90,15 +93,12 @@ export const Input = memo((props: InputProps) => {
           {...otherProps}
         />
 
-        {
-          isCaretVisible && (
-            <span
-              className={classes.pointer}
-              style={{ left: `${pointerPosition * 8.8}px` }}
-            />
-          )
-        }
-
+        {isCaretVisible && (
+          <span
+            className={classes.pointer}
+            style={{ left: `${pointerPosition * 8.8}px` }}
+          />
+        )}
       </div>
     </div>
   );

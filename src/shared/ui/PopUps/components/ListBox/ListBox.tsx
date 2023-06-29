@@ -29,12 +29,17 @@ interface ListBoxProps {
 
 export const ListBox = (props: ListBoxProps) => {
   const {
-    items, value, defaultValue, className, onChange, label, unavailable, direction = 'down right',
+    items,
+    value,
+    defaultValue,
+    className,
+    onChange,
+    label,
+    unavailable,
+    direction = 'down right',
   } = props;
 
-  const optionsClasses = [
-    mapDirectionClasses[direction],
-  ];
+  const optionsClasses = [mapDirectionClasses[direction]];
 
   return (
     <HStack gap="8">
@@ -45,12 +50,15 @@ export const ListBox = (props: ListBoxProps) => {
       )}
       <HListBox
         as="div"
-        className={classNames(classes.ListBox, { [classes.unavailable]: unavailable }, [className, popupClasses.popup])}
+        className={classNames(
+          classes.ListBox,
+          { [classes.unavailable]: unavailable },
+          [className, popupClasses.popup],
+        )}
         value={value}
         onChange={onChange}
         disabled={unavailable}
       >
-
         <HListBox.Button
           className={popupClasses.trigger}
           unselectable={unavailable ? 'on' : 'off'}
@@ -59,7 +67,9 @@ export const ListBox = (props: ListBoxProps) => {
           {value ?? defaultValue}
           {/* </Button> */}
         </HListBox.Button>
-        <HListBox.Options className={classNames(classes.options, {}, optionsClasses)}>
+        <HListBox.Options
+          className={classNames(classes.options, {}, optionsClasses)}
+        >
           {items?.map((item) => (
             <HListBox.Option
               key={item.value}
@@ -68,17 +78,18 @@ export const ListBox = (props: ListBoxProps) => {
               as={Fragment}
             >
               {({ active, selected }) => (
-                <li className={classNames(
-                  classes.item,
-                  {
-                    [popupClasses.active]: active,
-                    [popupClasses.selected]: selected,
-                    [popupClasses.disabled]: item.disabled,
-                  },
-                  [],
-                )}
+                <li
+                  className={classNames(
+                    classes.item,
+                    {
+                      [popupClasses.active]: active,
+                      [popupClasses.selected]: selected,
+                      [popupClasses.disabled]: item.disabled,
+                    },
+                    [],
+                  )}
                 >
-                  {selected ? (`✔ ${item.content}`) : item.content}
+                  {selected ? `✔ ${item.content}` : item.content}
                 </li>
               )}
             </HListBox.Option>

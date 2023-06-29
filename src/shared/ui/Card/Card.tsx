@@ -9,26 +9,32 @@ export enum CardTheme {
   OUTLINED = 'outlined',
 }
 
-interface CardProps extends HTMLAttributes<HTMLDivElement>{
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   children: ReactNode;
   theme?: CardTheme;
   maxWidth?: boolean;
 }
 
-export const Card = memo(({
-  className, children, maxWidth, theme = CardTheme.NORMAL, ...otherProps
-}: CardProps) => {
-  const mods: Mods = {
-    [classes.maxWidth]: maxWidth,
-  };
+export const Card = memo(
+  ({
+    className,
+    children,
+    maxWidth,
+    theme = CardTheme.NORMAL,
+    ...otherProps
+  }: CardProps) => {
+    const mods: Mods = {
+      [classes.maxWidth]: maxWidth,
+    };
 
-  return (
-    <div
-      className={classNames(classes.Card, mods, [className, classes[theme]])}
-      {...otherProps}
-    >
-      {children}
-    </div>
-  );
-});
+    return (
+      <div
+        className={classNames(classes.Card, mods, [className, classes[theme]])}
+        {...otherProps}
+      >
+        {children}
+      </div>
+    );
+  },
+);

@@ -8,8 +8,8 @@ type Row = string[];
 
 export interface ArticleBlockBase {
   id: string;
-  type: ArticleBlockType,
-  title?: string,
+  type: ArticleBlockType;
+  title?: string;
 }
 
 export interface ArticleTextBlock extends ArticleBlockBase {
@@ -19,7 +19,7 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 
 export interface ArticleTableBlock extends ArticleBlockBase {
   type: ArticleBlockType.TABLE;
-  rows: Row[]
+  rows: Row[];
 }
 
 export interface ArticleImageBlock extends ArticleBlockBase {
@@ -32,7 +32,8 @@ export interface ArticleCodeBlock extends ArticleBlockBase {
   code: string;
 }
 
-export type ArticleBlock = ArticleTextBlock
+export type ArticleBlock =
+  | ArticleTextBlock
   | ArticleImageBlock
   | ArticleCodeBlock
   | ArticleTableBlock;
