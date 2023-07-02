@@ -1,4 +1,5 @@
 const fs = require('fs');
+const http = require('http');
 const https = require('https');
 const path = require('path');
 
@@ -86,11 +87,18 @@ server.use((req, res, next) => {
 server.use(router);
 
 const httpsServer = https.createServer(options, server);
+const httpServer = http.createServer(server);
 
 // запуск сервера
 const PORT = 8443;
+const HTTP_PORT = 8888;
 
 httpsServer.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`server is running on ${PORT} port`);
+});
+
+httpServer.listen(HTTP_PORT, () => {
+  // eslint-disable-next-line no-console
+  console.log(`server is running on ${HTTP_PORT} port`);
 });
