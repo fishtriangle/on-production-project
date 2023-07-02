@@ -1,4 +1,5 @@
 const fs = require('fs');
+const https = require('https');
 const path = require('path');
 
 const cors = require('cors');
@@ -7,6 +8,11 @@ const jsonServer = require('json-server');
 const server = jsonServer.create();
 
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
+
+const options = {
+  key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
+  cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem')),
+};
 
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
@@ -37,9 +43,7 @@ const corsOptions = {
 //   return res;
 // });
 
-server.use(
-  cors(corsOptions),
-);
+server.use(cors(corsOptions));
 server.options('*', cors(corsOptions));
 
 // Эндпоинт для логина
@@ -48,7 +52,9 @@ server.post('/login', cors(corsOptions), (req, res) => {
   // res.header('Access-Control-Allow-Headers', '*');
   try {
     const { username, password } = req.body;
-    const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+    const db = JSON.parse(
+      fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'),
+    );
     const { users = [] } = db;
 
     const userFromBd = users.find(
@@ -79,8 +85,10 @@ server.use((req, res, next) => {
 
 server.use(router);
 
+const httpsServer = https.createServer(options, server);
+
 // запуск сервера
-server.listen(8888, () => {
+httpsServer.listen(443, () => {
   // eslint-disable-next-line no-console
-  console.log('server is running on 8888 port');
+  console.log('server is running on 443 port');
 });
