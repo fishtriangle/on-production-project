@@ -8,6 +8,7 @@ import {
 import { Page } from '@/widgets/Page';
 
 import classes from './ArticlesPage.module.scss';
+import { useArticleItemById } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import { ArticlePageInfiniteList } from '../ArticlePageInfiniteList/ArticlePageInfiniteList';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
@@ -22,6 +23,8 @@ const reducers: ReducersList = {
 
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const mods: Mods = {};
+  const article = useArticleItemById('1');
+  console.log(article);
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>

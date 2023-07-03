@@ -1,5 +1,6 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { ArticleType } from '@/entities/Article';
+import { buildSelector } from '@/shared/lib/store';
 
 export const getArticlesPageError = (state: StateSchema) =>
   state.articlesPage?.error || false;
@@ -23,3 +24,7 @@ export const getArticlesPageOrder = (state: StateSchema) =>
   state.articlesPage?.order ?? 'asc';
 export const getArticlesPageType = (state: StateSchema) =>
   state.articlesPage?.type ?? ArticleType.ALL;
+
+export const [useArticleItemById] = buildSelector(
+  (state, id: string) => state.articlesPage?.entities?.[id],
+);
