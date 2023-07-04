@@ -3,6 +3,7 @@ import React, { memo, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@/entities/Article';
+import { Counter } from '@/entities/Counter';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
@@ -10,6 +11,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { getFeatureFlags } from '@/shared/lib/features';
 import { Page } from '@/widgets/Page';
 import { PageLoader } from '@/widgets/PageLoader';
 
@@ -28,6 +30,8 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams<{ id: string }>();
+  const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
+  const isCounterEnabled = getFeatureFlags('isCounterEnabled');
 
   if (!id) {
     return null;
@@ -43,7 +47,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         >
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          <ArticleRating articleId={id} />
+          {isCounterEnabled && <Counter />}
+          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
           <ArticleRecommendationsList className={classes.recommendations} />
           <ArticleDetailsPageComments id={id} />
         </Page>
