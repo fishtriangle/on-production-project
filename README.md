@@ -146,6 +146,7 @@ At scripts folder there are several scripts for code refactoring and generation 
 2. Generate visual json report - make html report of the screenshot tests errors from json report.
 3. Create public API for shared/ui.
 4. Update imports - add @ alias for absolute imports.
+5. Remove feature flags by name and state.
 
 ----
 
@@ -162,6 +163,22 @@ The state manager for the project is Redux toolkit. Entities should be normalize
 Server requests are made with [RTK query](/src/shared/api/rtkApi.ts).
 
 Also, there is async reducers attaching - [DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
+
+----
+
+## Feature-flags
+
+Feature-flags are allowed only with helper toggleFeatures, with options:
+
+{
+    name: feature-flag name
+    on: function that will be solved if feature-flag is on
+    off: function that will be solved if feature-flag is off
+}
+
+There is the script to remove unused feature-flags: ./scripts/remove-feature.ts that is called with two arguments:
+1. Feature-flag name.
+2. Feature state.
 
 ----
 

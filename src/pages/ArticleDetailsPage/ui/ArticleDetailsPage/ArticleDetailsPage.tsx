@@ -1,9 +1,9 @@
 import React, { memo, Suspense } from 'react';
 
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@/entities/Article';
-import { Counter } from '@/entities/Counter';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
@@ -11,7 +11,8 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { getFeatureFlags } from '@/shared/lib/features';
+import { toggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/Card';
 import { Page } from '@/widgets/Page';
 import { PageLoader } from '@/widgets/PageLoader';
 
@@ -30,14 +31,19 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams<{ id: string }>();
-  const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
-  const isCounterEnabled = getFeatureFlags('isCounterEnabled');
+  const { t } = useTranslation();
 
   if (!id) {
     return null;
   }
 
   const mods: Mods = {};
+
+  const articleRatingCard = toggleFeatures({
+    name: 'isArticleRatingEnabled',
+    on: () => <ArticleRating articleId={id} />,
+    off: () => <Card>{t('Article rating will be here soon')}</Card>,
+  });
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -47,8 +53,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         >
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          {isCounterEnabled && <Counter />}
-          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+          {articleRatingCard}
           <ArticleRecommendationsList className={classes.recommendations} />
           <ArticleDetailsPageComments id={id} />
         </Page>
