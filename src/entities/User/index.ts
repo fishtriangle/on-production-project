@@ -9,5 +9,6 @@ export {
   getUserRoles,
 } from './model/selectors/getUserRoles/getUserRoles';
 export { saveJsonSettings } from './model/services/saveJsonSettings';
+export { initAuthData } from './model/services/initAuthData';
 
 export { userReducer, userActions } from './model/slice/userSlice';

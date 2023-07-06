@@ -13,13 +13,15 @@ interface ThemeProviderProps {
 const ThemeProvider: FC<ThemeProviderProps> = (props) => {
   const { initialTheme, children } = props;
 
-  const { theme: defaultTheme = Theme.LIGHT } = useUserSettings();
+  const { theme: defaultTheme } = useUserSettings();
 
   const [isThemeInitiated, setIsThemeInitiated] = useState(false);
-  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+  const [theme, setTheme] = useState<Theme>(
+    initialTheme || defaultTheme || Theme.LIGHT,
+  );
 
   useEffect(() => {
-    if (!isThemeInitiated) {
+    if (!isThemeInitiated && defaultTheme) {
       setTheme(defaultTheme);
       setIsThemeInitiated(true);
     }

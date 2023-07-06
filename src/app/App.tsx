@@ -1,9 +1,10 @@
 import React, { Suspense, useEffect, useState } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { getUserIsInitiated, userActions } from '@/entities/User';
+import { getUserIsInitiated, initAuthData } from '@/entities/User';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Navbar } from '@/widgets/Navbar';
 import { PageLoader } from '@/widgets/PageLoader';
@@ -13,14 +14,18 @@ import { AppRouter } from './providers/router';
 
 function App() {
   const { theme } = useTheme();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const isInitiated = useSelector(getUserIsInitiated);
 
   const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
+    dispatch(initAuthData());
   }, [dispatch]);
+
+  if (!isInitiated) {
+    return <PageLoader />;
+  }
 
   const mods: Mods = {
     'content-bar_collapsed': collapsed,
