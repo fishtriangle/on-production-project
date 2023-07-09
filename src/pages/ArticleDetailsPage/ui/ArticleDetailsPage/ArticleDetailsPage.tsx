@@ -11,7 +11,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
 import { Page } from '@/widgets/Page';
 import { PageLoader } from '@/widgets/PageLoader';
@@ -39,11 +39,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   const mods: Mods = {};
 
-  const articleRatingCard = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <Card>{t('Article rating will be here soon')}</Card>,
-  });
+  // const articleRatingCard = toggleFeatures({
+  //   name: 'isArticleRatingEnabled',
+  //   on: () => <ArticleRating articleId={id} />,
+  //   off: () => <Card>{t('Article rating will be here soon')}</Card>,
+  // });
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -53,7 +53,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         >
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          {articleRatingCard}
+          <ToggleFeatures
+            featureName="isArticleRatingEnabled"
+            on={<ArticleRating articleId={id} />}
+            off={<Card>{t('Article rating will be here soon')}</Card>}
+          />
           <ArticleRecommendationsList className={classes.recommendations} />
           <ArticleDetailsPageComments id={id} />
         </Page>
