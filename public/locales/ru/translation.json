@@ -59,5 +59,9 @@
   "Your rating for this profile": "ваша оценка профиля",
   "Rate the profile": "Оцените профиль",
   "Back to article list": "Назад к списку статей",
-  "Edit": "Изменить"
+  "Edit": "Изменить",
+  "Welcome to Articles Page!": "Welcome to Articles Page!",
+  "Here you can find some articles": {
+    "": "Here you can find some articles."
+  }
 }

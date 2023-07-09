@@ -59,5 +59,9 @@
   "Your rating for this profile": "Your rating for this profile",
   "Rate the profile": "Rate the profile",
   "Back to article list": "Back to article list",
-  "Edit": "Edit"
+  "Edit": "Edit",
+  "Welcome to Articles Page!": "Welcome to Articles Page!",
+  "Here you can find some articles": {
+    "": "Here you can find some articles."
+  }
 }

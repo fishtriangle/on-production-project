@@ -1,5 +1,6 @@
 import { memo } from 'react';
 
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
@@ -34,6 +35,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       >
         <ArticlesPageFilters />
         <ArticlePageInfiniteList />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   );
