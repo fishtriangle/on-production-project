@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -56,11 +57,17 @@ export const Page = memo((props: PageProps) => {
     );
   }, 500);
 
+  const mainClass = toggleFeatures({
+    name: 'isSiteRedesigned',
+    on: () => classes.PageRedesigned,
+    off: () => classes.Page,
+  });
+
   return (
     <main
       data-testid={props['data-testid'] ?? 'Page'}
       ref={wrapperRef}
-      className={classNames(classes.Page, mods, [className])}
+      className={classNames(mainClass, mods, [className])}
       onScroll={onScroll}
     >
       {children}

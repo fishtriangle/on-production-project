@@ -11,3 +11,10 @@
   height: 20px;
   margin: 10px;
 }
+
+.PageRedesigned {
+  overflow-y: auto;
+  height: calc(100vh - var(--navbar-height));
+  display: flex;
+  flex-direction: column;
+}

@@ -131,7 +131,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return (
       <VirtuosoGrid
         // useWindowScroll
-        style={{ margin: '10px 0 0 0' }}
+        style={{
+          margin: '10px 0 0 0',
+          // overflowY: 'hidden',
+        }}
         data={articles}
         // overscan={200}
         itemContent={renderItems}

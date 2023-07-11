@@ -4,6 +4,10 @@
 @import "./themes/dark";
 @import "./themes/brown";
 
+body {
+  overflow: hidden;
+}
+
 .app,
 .app_modal,
 .app_drawer {
@@ -14,6 +18,13 @@
 .app {
   min-height: 100vh;
   background-color: var(--bg-color);
+}
+
+.app_redesigned {
+  background-color: var(--bg-redesigned);
+  min-height: 100vh;
+  font: var(--font-m-redesigned);
+  color: var(--text-redesigned);
 }
 
 .content-page {

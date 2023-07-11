@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -9,6 +9,7 @@ import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { NotificationsButton } from '@/features/NotificationsButton';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
@@ -35,26 +36,53 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     setIsAuthModal(true);
   }, []);
 
+  const NavbarDeprecated = () =>
+    useMemo(
+      () => (
+        <header className={classNames(classes.Navbar, {}, [className])}>
+          <Text
+            className={classes.appName}
+            title={t('Blog app')}
+            theme={TextTheme.INVERTED}
+          />
+          <AppLink
+            to={getRouteArticleCreate()}
+            theme={AppLinkTheme.SECONDARY}
+            className={classes.createButton}
+          >
+            {t('Create article')}
+          </AppLink>
+          <HStack gap="16" className={classes.actions}>
+            <NotificationsButton />
+            <AvatarDropdown />
+          </HStack>
+        </header>
+      ),
+      [],
+    );
+
+  const NavbarRedesigned = () =>
+    useMemo(
+      () => (
+        <header
+          className={classNames(classes.NavbarRedesigned, {}, [className])}
+        >
+          <HStack gap="16" className={classes.actions}>
+            <NotificationsButton />
+            <AvatarDropdown />
+          </HStack>
+        </header>
+      ),
+      [],
+    );
+
   if (authData) {
     return (
-      <header className={classNames(classes.Navbar, {}, [className])}>
-        <Text
-          className={classes.appName}
-          title={t('Blog app')}
-          theme={TextTheme.INVERTED}
-        />
-        <AppLink
-          to={getRouteArticleCreate()}
-          theme={AppLinkTheme.SECONDARY}
-          className={classes.createButton}
-        >
-          {t('Create article')}
-        </AppLink>
-        <HStack gap="16" className={classes.actions}>
-          <NotificationsButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+      <ToggleFeatures
+        featureName="isSiteRedesigned"
+        on={<NavbarRedesigned />}
+        off={<NavbarDeprecated />}
+      />
     );
   }
 
