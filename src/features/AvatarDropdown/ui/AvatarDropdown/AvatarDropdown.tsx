@@ -11,8 +11,8 @@ import {
 } from '@/entities/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Dropdown } from '@/shared/ui/PopUps';
+import { Avatar } from '@/shared/ui/depricated/Avatar';
+import { Dropdown } from '@/shared/ui/depricated/PopUps';
 
 interface AvatarDropdownProps {
   className?: string;

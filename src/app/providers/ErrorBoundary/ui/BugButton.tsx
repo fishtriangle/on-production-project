@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/depricated/Button';
 
 export const BugButton = () => {
   const [error, setError] = useState(false);

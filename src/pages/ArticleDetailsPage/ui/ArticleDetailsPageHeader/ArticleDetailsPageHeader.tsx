@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { getArticleDetailsData } from '@/entities/Article';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { HStack } from '@/shared/ui/Stack';
+import { Button, ButtonTheme } from '@/shared/ui/depricated/Button';
+import { HStack } from '@/shared/ui/depricated/Stack';
 
 import { getCanEditArticle } from '../../model/selectors/getArticle';
 

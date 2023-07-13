@@ -8,7 +8,7 @@ import { Theme } from '@/shared/const/theme';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/depricated/Button';
 
 import classes from './ThemeSwitcher.module.scss';
 

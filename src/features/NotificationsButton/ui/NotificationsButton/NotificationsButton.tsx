@@ -4,9 +4,9 @@ import { NotificationsList } from '@/entities/Notification';
 import NotificationIcon from '@/shared/assets/icons/notifications.svg';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
-import { Drawer } from '@/shared/ui/Drawer';
-import { Icon } from '@/shared/ui/Icon';
-import { PopOver } from '@/shared/ui/PopUps';
+import { Drawer } from '@/shared/ui/depricated/Drawer';
+import { Icon } from '@/shared/ui/depricated/Icon';
+import { PopOver } from '@/shared/ui/depricated/PopUps';
 
 import classes from './NotificationsButton.module.scss';
 

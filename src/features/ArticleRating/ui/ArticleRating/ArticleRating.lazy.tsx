@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/depricated/Skeleton';
 
 import { ArticleRatingProps } from './ArticleRating';
 

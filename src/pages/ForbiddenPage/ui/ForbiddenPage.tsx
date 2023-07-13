@@ -3,7 +3,12 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text';
+import {
+  Text,
+  TextAlign,
+  TextSize,
+  TextTheme,
+} from '@/shared/ui/depricated/Text';
 import { Page } from '@/widgets/Page';
 
 import classes from './ForbiddenPage.module.scss';

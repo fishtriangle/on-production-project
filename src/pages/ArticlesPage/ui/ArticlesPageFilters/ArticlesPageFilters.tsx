@@ -11,8 +11,8 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types/sort';
-import { Card } from '@/shared/ui/Card';
-import { Input } from '@/shared/ui/Input';
+import { Card } from '@/shared/ui/depricated/Card';
+import { Input } from '@/shared/ui/depricated/Input';
 
 import classes from './ArticlesPageFilters.module.scss';
 import {

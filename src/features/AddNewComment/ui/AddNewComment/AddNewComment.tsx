@@ -9,15 +9,12 @@ import {
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Input } from '@/shared/ui/Input';
-import { HStack } from '@/shared/ui/Stack';
+import { Button, ButtonTheme } from '@/shared/ui/depricated/Button';
+import { Input } from '@/shared/ui/depricated/Input';
+import { HStack } from '@/shared/ui/depricated/Stack';
 
 import classes from './AddNewComment.module.scss';
-import {
-  // getAddNewCommentError,
-  getAddNewCommentText,
-} from '../../model/selectors/addNewCommentSelectors';
+import { getAddNewCommentText } from '../../model/selectors/addNewCommentSelectors';
 import {
   addNewCommentActions,
   addNewCommentReducer,
