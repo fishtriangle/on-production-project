@@ -4,11 +4,13 @@ import { useSelector } from 'react-redux';
 
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import ArrowIcon from '@/shared/assets/icons/import/arrow-bottom.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLogo } from '@/shared/ui/depricated/AppLogo';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/depricated/Button';
 import { VStack } from '@/shared/ui/depricated/Stack';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import classes from './Sidebar.module.scss';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
@@ -89,11 +91,33 @@ export const Sidebar = memo(
             data-testid="sidebar"
             className={classNames(
               classes.SidebarRedesigned,
-              { [classes.collapsed]: collapsed },
+              { [classes.collapsedRedesigned]: collapsed },
               [className],
             )}
           >
-            <AppLogo className={classes.appLogo} />
+            <AppLogo size={collapsed ? 32 : 50} className={classes.appLogo} />
+            <VStack
+              role="navigation"
+              gap="8"
+              className={classes.list}
+              align={collapsed ? 'end' : 'start'}
+            >
+              {itemsList}
+            </VStack>
+            <Icon
+              data-testid="sidebar-toggle"
+              onClick={handleToggle}
+              className={classes.collapseBtn}
+              Svg={ArrowIcon}
+              clickable
+            />
+            <div className={classes.switchers}>
+              <ThemeSwitcher />
+              <LanguageSwitcher
+                className={classes.languageSwitcher}
+                short={collapsed}
+              />
+            </div>
           </aside>
         }
         off={<DeprecatedSidebar />}

@@ -1,14 +1,17 @@
 import { memo, useCallback } from 'react';
 
 import { saveJsonSettings } from '@/entities/User';
-import BrownIcon from '@/shared/assets/icons/theme-brown.svg';
-import DarkIcon from '@/shared/assets/icons/theme-dark.svg';
-import LightIcon from '@/shared/assets/icons/theme-light.svg';
+import ThemeIcon from '@/shared/assets/icons/import/theme.svg';
+import BrownIconDeprecated from '@/shared/assets/icons/theme-brown.svg';
+import DarkIconDeprecated from '@/shared/assets/icons/theme-dark.svg';
+import LightIconDeprecated from '@/shared/assets/icons/theme-light.svg';
 import { Theme } from '@/shared/const/theme';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Button, ButtonTheme } from '@/shared/ui/depricated/Button';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import classes from './ThemeSwitcher.module.scss';
 
@@ -26,19 +29,30 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     });
   }, [dispatch, toggleTheme]);
 
+  const SwitcherDeprecated = useCallback(
+    () => (
+      <Button
+        theme={ButtonTheme.CLEAR}
+        className={classNames(
+          classes.ThemeSwitcher,
+          { [classes.switched]: theme === Theme.LIGHT },
+          [className],
+        )}
+        onClick={onToggleThemeHandler}
+      >
+        {theme === Theme.LIGHT && <LightIconDeprecated />}
+        {theme === Theme.DARK && <DarkIconDeprecated />}
+        {theme === Theme.BROWN && <BrownIconDeprecated />}
+      </Button>
+    ),
+    [className, onToggleThemeHandler, theme],
+  );
+
   return (
-    <Button
-      theme={ButtonTheme.CLEAR}
-      className={classNames(
-        classes.ThemeSwitcher,
-        { [classes.switched]: theme === Theme.LIGHT },
-        [className],
-      )}
-      onClick={onToggleThemeHandler}
-    >
-      {theme === Theme.LIGHT && <LightIcon />}
-      {theme === Theme.DARK && <DarkIcon />}
-      {theme === Theme.BROWN && <BrownIcon />}
-    </Button>
+    <ToggleFeatures
+      featureName="isSiteRedesigned"
+      on={<Icon Svg={ThemeIcon} clickable onClick={onToggleThemeHandler} />}
+      off={<SwitcherDeprecated />}
+    />
   );
 });

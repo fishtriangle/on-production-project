@@ -8,13 +8,10 @@ import classes from './AppLogo.module.scss';
 
 interface AppLogoProps {
   className?: string;
+  size?: number;
 }
 
-/**
- * Redesigned, use proper component.
- * @deprecated
- */
-export const AppLogo = memo(({ className }: AppLogoProps) => (
+export const AppLogo = memo(({ className, size = 50 }: AppLogoProps) => (
   <HStack
     maxWidth
     justify="center"
@@ -22,6 +19,11 @@ export const AppLogo = memo(({ className }: AppLogoProps) => (
   >
     <div className={classes.gradientLarge} />
     <div className={classes.gradientSmall} />
-    <AppLogoIcon className={classes.appLogoIcon} />
+    <AppLogoIcon
+      width={size}
+      height={size}
+      color="black"
+      className={classes.appLogoIcon}
+    />
   </HStack>
 ));
