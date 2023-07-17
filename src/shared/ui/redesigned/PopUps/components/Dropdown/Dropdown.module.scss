@@ -1,0 +1,21 @@
+.menu {
+  background: var(--dark-bg-redesigned);
+  position: absolute;
+  z-index: 1000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 10px 25px;
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--text-redesigned);
+  cursor: pointer;
+  white-space: nowrap;
+}

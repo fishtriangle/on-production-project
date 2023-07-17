@@ -7,12 +7,17 @@ import {
   getUserAuthData,
   isUserAdmin,
   isUserManager,
+  User,
   userActions,
 } from '@/entities/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/depricated/Avatar';
-import { Dropdown } from '@/shared/ui/depricated/PopUps';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/depricated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/depricated/PopUps';
+import { DropdownItem } from '@/shared/ui/depricated/PopUps/components/Dropdown/Dropdown';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Dropdown } from '@/shared/ui/redesigned/PopUps';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -21,8 +26,6 @@ interface AvatarDropdownProps {
 export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-
-  const mods: Mods = {};
 
   const authData = useSelector(getUserAuthData);
   const isAdmin = useSelector(isUserAdmin);
@@ -34,33 +37,58 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
 
   const isAdminPanelAvailable = Boolean(isAdmin || isManager);
 
-  if (authData) {
-    return (
-      <Dropdown
-        className={classNames('', mods, [className])}
+  interface DropdownDeprecatedProps {
+    items: DropdownItem[];
+    authData: User;
+  }
+
+  const DropdownItemDeprecated = useCallback(
+    ({ items, authData }: DropdownDeprecatedProps) => (
+      <DropdownDeprecated
+        className={classNames('', {}, [className])}
         direction="down right"
-        items={[
-          ...(isAdminPanelAvailable
-            ? [
-                {
-                  value: '1',
-                  content: t('Admin panel'),
-                  href: getRouteAdminPanel(),
-                },
-              ]
-            : []),
-          {
-            value: '2',
-            content: t('Profile'),
-            href: getRouteProfile(authData.id),
-          },
-          {
-            value: '3',
-            content: t('Log out'),
-            onClick: onLogOut,
-          },
-        ]}
-        trigger={<Avatar size={30} src={authData.avatar} />}
+        items={items}
+        trigger={<AvatarDeprecated size={30} src={authData.avatar} />}
+      />
+    ),
+    [className],
+  );
+
+  if (authData) {
+    const items = [
+      ...(isAdminPanelAvailable
+        ? [
+            {
+              value: '1',
+              content: t('Admin panel'),
+              href: getRouteAdminPanel(),
+            },
+          ]
+        : []),
+      {
+        value: '2',
+        content: t('Profile'),
+        href: getRouteProfile(authData.id),
+      },
+      {
+        value: '3',
+        content: t('Log out'),
+        onClick: onLogOut,
+      },
+    ];
+
+    return (
+      <ToggleFeatures
+        featureName="isSiteRedesigned"
+        on={
+          <Dropdown
+            className={classNames('', {}, [className])}
+            direction="down right"
+            items={items}
+            trigger={<Avatar size={40} src={authData.avatar} />}
+          />
+        }
+        off={<DropdownItemDeprecated authData={authData} items={items} />}
       />
     );
   }

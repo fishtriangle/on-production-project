@@ -14,13 +14,13 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Avatar } from '@/shared/ui/depricated/Avatar';
 import { Icon } from '@/shared/ui/depricated/Icon';
 import { Skeleton } from '@/shared/ui/depricated/Skeleton';
-import { HStack, VStack } from '@/shared/ui/depricated/Stack';
 import {
   Text,
   TextAlign,
   TextSize,
   TextTheme,
 } from '@/shared/ui/depricated/Text';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './ArticleDetails.module.scss';
 import { ArticleBlockType } from '../../model/consts/ArticleConsts';

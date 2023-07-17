@@ -3,7 +3,7 @@ const firstCharToUpperCase = require('../firstCharToUpperCase');
 module.exports = (slice) => {
   const typeName = `${firstCharToUpperCase(slice)}Schema`;
 
-  return (`import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+  return `import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import { ${typeName} } from '../types/${slice}Schema';
 
 const initialState: ${typeName} = {
@@ -42,5 +42,5 @@ export const ${slice}Slice = createSlice({
 
 export const {actions: ${slice}Actions} = ${slice}Slice;
 export const {reducer: ${slice}Reducer} = ${slice}Slice;
-`);
+`;
 };

@@ -8,8 +8,8 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/depricated/Avatar';
 import { Input } from '@/shared/ui/depricated/Input';
 import { Loader } from '@/shared/ui/depricated/Loader';
-import { HStack, VStack } from '@/shared/ui/depricated/Stack';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/depricated/Text';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';

@@ -50,10 +50,6 @@ const gapMap: Record<'4' | '8' | '16' | '32', string> = {
   32: classes['gap-32'],
 };
 
-/**
- * Redesigned, use proper component.
- * @deprecated
- */
 export const Flex = (props: FlexProps) => {
   const {
     className,

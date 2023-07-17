@@ -1,3 +1,3 @@
-module.exports = (component) => (`.${component} {
+module.exports = (component) => `.${component} {
 
-}`);
+}`;

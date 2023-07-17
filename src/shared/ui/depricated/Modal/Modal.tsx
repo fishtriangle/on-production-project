@@ -3,8 +3,8 @@ import React, { ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { Overlay } from '@/shared/ui/depricated/Overlay';
-import { Portal } from '@/shared/ui/depricated/Portal';
+import { Overlay } from '@/shared/ui/redesigned/Overlay';
+import { Portal } from '@/shared/ui/redesigned/Portal';
 
 import classes from './Modal.module.scss';
 

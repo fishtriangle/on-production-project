@@ -11,7 +11,7 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/depricated/Button';
 import { Input } from '@/shared/ui/depricated/Input';
-import { HStack } from '@/shared/ui/depricated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './AddNewComment.module.scss';
 import { getAddNewCommentText } from '../../model/selectors/addNewCommentSelectors';

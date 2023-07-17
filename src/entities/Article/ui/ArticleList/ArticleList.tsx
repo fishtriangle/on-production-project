@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { HStack } from '@/shared/ui/depricated/Stack';
 import { Text } from '@/shared/ui/depricated/Text';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';

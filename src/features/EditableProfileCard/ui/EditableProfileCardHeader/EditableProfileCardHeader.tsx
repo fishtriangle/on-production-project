@@ -7,8 +7,8 @@ import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/depricated/Button';
-import { HStack } from '@/shared/ui/depricated/Stack';
 import { Text } from '@/shared/ui/depricated/Text';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';

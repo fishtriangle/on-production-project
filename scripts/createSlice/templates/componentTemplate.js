@@ -1,6 +1,8 @@
 const interfaceStr = 'interface';
 
-module.exports = (component) => (`import {classNames, Mods} from "shared/lib/classNames/classNames";
+module.exports = (
+  component,
+) => `import {classNames, Mods} from "shared/lib/classNames/classNames";
 import classes from '.${component}.module.scss';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
@@ -21,4 +23,4 @@ export const ${component} = memo(({className}: ${component}Props) => {
       Lorem
     </div>
   );
-});`);
+});`;

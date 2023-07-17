@@ -1,4 +1,4 @@
-module.exports = (component) => (`import React from 'react';
+module.exports = (component) => `import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ${component} } from './${component}';
 
@@ -15,4 +15,4 @@ const Template: ComponentStory<typeof ${component}> = (args) => <${component} {.
 export const Primary = Template.bind({});
 Primary.args = {};
 
-`);
+`;

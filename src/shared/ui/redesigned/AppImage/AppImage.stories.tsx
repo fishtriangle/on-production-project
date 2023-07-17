@@ -5,7 +5,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { AppImage } from './AppImage';
 
 export default {
-  title: 'component/AppImage',
+  title: 'shared/redesigned/AppImage',
   component: AppImage,
   argTypes: {
     backgroundColor: { control: 'color' },

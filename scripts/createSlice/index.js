@@ -3,11 +3,7 @@ const createTemplate = require('./templates/createTemplate.js');
 const layer = process.argv[2];
 const slice = process.argv[3];
 
-const layers = [
-  'features',
-  'entities',
-  'pages',
-];
+const layers = ['features', 'entities', 'pages'];
 
 if (!layer) {
   console.error('Missing layer name');
@@ -15,7 +11,9 @@ if (!layer) {
 }
 
 if (!layers.includes(layer)) {
-  console.error(`Invalid layer: ${layer}. Must be one of: ${layers.join(', ')}`);
+  console.error(
+    `Invalid layer: ${layer}. Must be one of: ${layers.join(', ')}`,
+  );
   process.exit(1);
 }
 

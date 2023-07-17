@@ -7,10 +7,6 @@ interface PortalProps {
   element?: HTMLBRElement;
 }
 
-/**
- * Redesigned, use proper component.
- * @deprecated
- */
 export const Portal = (props: PortalProps) => {
   const { children, element = document.body } = props;
 

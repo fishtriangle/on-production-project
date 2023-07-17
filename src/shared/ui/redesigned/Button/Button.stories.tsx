@@ -8,7 +8,7 @@ import { Theme } from '@/shared/const/theme';
 import { Button } from './Button';
 
 export default {
-  title: 'redesigned/shared/Button',
+  title: 'shared/redesigned/Button',
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },

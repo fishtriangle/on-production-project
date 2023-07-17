@@ -8,7 +8,7 @@ import { Theme } from '@/shared/const/theme';
 import { AppLink } from './AppLink';
 
 export default {
-  title: 'redesigned/shared/AppLogo',
+  title: 'shared/redesigned/AppLogo',
   component: AppLink,
   argTypes: {
     backgroundColor: { control: 'color' },

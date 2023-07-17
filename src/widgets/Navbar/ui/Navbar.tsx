@@ -12,8 +12,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { AppLink, AppLinkTheme } from '@/shared/ui/depricated/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/depricated/Button';
-import { HStack } from '@/shared/ui/depricated/Stack';
 import { Text, TextTheme } from '@/shared/ui/depricated/Text';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './Navbar.module.scss';
 

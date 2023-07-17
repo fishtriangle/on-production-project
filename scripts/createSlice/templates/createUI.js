@@ -1,12 +1,14 @@
 const fs = require('fs/promises');
-const resolveRoot = require('../resolveRoot');
-const firstCharToUpperCase = require('../firstCharToUpperCase');
+
 const componentTemplate = require('./componentTemplate');
 const storyTemplate = require('./storyTemplate');
 const styleTemplate = require('./styleTemplate');
+const firstCharToUpperCase = require('../firstCharToUpperCase');
+const resolveRoot = require('../resolveRoot');
 
 module.exports = async (layer, slice) => {
-  const resolveUIPath = (...segments) => resolveRoot('src', layer, slice, 'ui', ...segments);
+  const resolveUIPath = (...segments) =>
+    resolveRoot('src', layer, slice, 'ui', ...segments);
 
   const createUIStructure = async () => {
     try {
