@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 
 import { ArticleType } from '@/entities/Article';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { TabItem, Tabs } from '@/shared/ui/depricated/Tabs';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { TabItem, Tabs as TabsDeprecated } from '@/shared/ui/depricated/Tabs';
+import { Tabs } from '@/shared/ui/redesigned/Tabs';
 
 import classes from './ArticleTypeTabs.module.scss';
 
@@ -43,11 +45,25 @@ export const ArticleTypeTabs = memo(
     const mods: Mods = {};
 
     return (
-      <Tabs
-        tabs={tabs}
-        value={value}
-        onTabClick={(tab: TabItem<ArticleType>) => onChangeType(tab.value)}
-        className={classNames(classes.ArticleTypeTabs, mods, [className])}
+      <ToggleFeatures
+        featureName="isSiteRedesigned"
+        on={
+          <Tabs
+            direction="column"
+            tabs={tabs}
+            value={value}
+            onTabClick={(tab: TabItem<ArticleType>) => onChangeType(tab.value)}
+            className={classNames(classes.ArticleTypeTabs, mods, [className])}
+          />
+        }
+        off={
+          <TabsDeprecated
+            tabs={tabs}
+            value={value}
+            onTabClick={(tab: TabItem<ArticleType>) => onChangeType(tab.value)}
+            className={classNames(classes.ArticleTypeTabs, mods, [className])}
+          />
+        }
       />
     );
   },

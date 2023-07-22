@@ -6,17 +6,19 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
-import { Navbar } from './Navbar';
+import { ArticlesFilter } from './ArticlesFilter';
 
 export default {
   title: 'widget/ArticlesFilter',
-  component: Navbar,
+  component: ArticlesFilter,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Navbar>;
+} as ComponentMeta<typeof ArticlesFilter>;
 
-const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
+const Template: ComponentStory<typeof ArticlesFilter> = (args) => (
+  <ArticlesFilter {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};
@@ -25,15 +27,3 @@ Light.decorators = [StoreDecorator({})];
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
-
-export const UserAuthorised = Template.bind({});
-UserAuthorised.args = {};
-UserAuthorised.decorators = [
-  StoreDecorator({
-    user: {
-      authData: {
-        username: 'user',
-      },
-    },
-  }),
-];

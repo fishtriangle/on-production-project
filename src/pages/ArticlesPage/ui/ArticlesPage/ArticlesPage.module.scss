@@ -1,8 +1,14 @@
 .ArticlesPage {
   min-height: 100%;
+
+  .list {
+    margin-top: 30px;
+    padding: 0 !important;
+  }
 }
 
-.list {
-  margin-top: 30px;
-  padding: 0 !important;
+.ArticlesPageRedesigned {
+  .ViewSelectorContainer {
+    margin-top: 15px;
+  }
 }

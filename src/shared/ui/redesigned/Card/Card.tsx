@@ -5,7 +5,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import classes from './Card.module.scss';
 
 export type CardVariant = 'normal' | 'outlined' | 'light';
-
+export type CardBorder = 'round' | 'normal';
 export type CardPaddings = '0' | '8' | '16' | '24';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
@@ -14,6 +14,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   variant?: CardVariant;
   maxWidth?: boolean;
   paddings?: CardPaddings;
+  border?: CardBorder;
 }
 
 const mapPaddingsToClassName: Record<CardPaddings, string> = {
@@ -30,6 +31,7 @@ export const Card = memo(
     maxWidth,
     variant = 'normal',
     paddings = '8',
+    border = 'normal',
     ...otherProps
   }: CardProps) => {
     const mods: Mods = {
@@ -42,6 +44,7 @@ export const Card = memo(
           className,
           classes[variant],
           mapPaddingsToClassName[paddings],
+          classes[`${border}Radius`],
         ])}
         {...otherProps}
       >

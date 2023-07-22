@@ -2,7 +2,7 @@ import { User } from '@/entities/User';
 
 import { ArticleBlockType, ArticleType } from '../consts/ArticleConsts';
 
-export type ArticleSortField = 'createdAt' | 'views' | 'title' | '';
+export type ArticleSortField = 'createdAt' | 'views' | 'title';
 
 type Row = string[];
 

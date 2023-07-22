@@ -37,7 +37,7 @@ export const articlesPageSlice = createSlice({
     hasMore: true,
     _isInitiated: false,
     limit: 9,
-    sort: '',
+    sort: 'createdAt',
     search: '',
     order: 'desc',
     type: ArticleType.ALL,

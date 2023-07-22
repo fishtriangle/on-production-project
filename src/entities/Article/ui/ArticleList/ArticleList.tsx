@@ -112,7 +112,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return (
       <Virtuoso
         // useWindowScroll
-        // style={{ height: '100%' }}
+        style={{ margin: 0 }}
         data={articles}
         // overscan={200}
         itemContent={renderItems}

@@ -4,8 +4,12 @@ import { useTranslation } from 'react-i18next';
 
 import { ArticleSortField } from '@/entities/Article';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { SortOrder } from '@/shared/types/sort';
 import { Select, SelectOptions } from '@/shared/ui/depricated/Select';
+import { ListBox } from '@/shared/ui/redesigned/PopUps';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import classes from './ArticleSortSelector.module.scss';
 
@@ -33,7 +37,6 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 
   const sortFieldOptions = useMemo<SelectOptions<ArticleSortField>[]>(
     () => [
-      { value: '', content: t('Without sort') },
       { value: 'createdAt', content: t('CreatedAt') },
       { value: 'views', content: t('Views') },
       { value: 'title', content: t('Title') },
@@ -42,20 +45,49 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   );
 
   return (
-    <div className={classNames(classes.ArticleSortSelector, mods, [className])}>
-      <Select<ArticleSortField>
-        label={t('Sort by')}
-        options={sortFieldOptions}
-        value={sort}
-        onChange={onChangeSort}
-      />
-      <Select<SortOrder>
-        label={t('Order')}
-        options={orderOptions}
-        value={order}
-        onChange={onChangeOrder}
-        className={classes.order}
-      />
-    </div>
+    <ToggleFeatures
+      featureName="isSiteRedesigned"
+      on={
+        <VStack
+          gap="8"
+          className={classNames(classes.ArticleSortSelectorRedesigned, mods, [
+            className,
+          ])}
+        >
+          <Text text={t('Sort by')} />
+          <ListBox
+            items={sortFieldOptions}
+            value={sort}
+            onChange={onChangeSort}
+            direction="down left"
+          />
+          <ListBox
+            items={orderOptions}
+            value={order}
+            onChange={onChangeOrder}
+            direction="down left"
+          />
+        </VStack>
+      }
+      off={
+        <div
+          className={classNames(classes.ArticleSortSelector, mods, [className])}
+        >
+          <Select<ArticleSortField>
+            label={t('Sort by')}
+            options={sortFieldOptions}
+            value={sort}
+            onChange={onChangeSort}
+          />
+          <Select<SortOrder>
+            label={t('Order')}
+            options={orderOptions}
+            value={order}
+            onChange={onChangeOrder}
+            className={classes.order}
+          />
+        </div>
+      }
+    />
   );
 });

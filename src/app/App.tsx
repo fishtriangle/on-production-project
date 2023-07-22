@@ -37,7 +37,7 @@ function App() {
     <ToggleFeatures
       featureName="isSiteRedesigned"
       on={
-        <div className={classNames('app', {}, [theme])}>
+        <div className={classNames('app_redesigned', {}, [theme])}>
           <Suspense fallback={<PageLoader />}>
             <MainLayout
               header={<Navbar />}

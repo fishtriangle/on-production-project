@@ -24,6 +24,10 @@
   background: var(--light-bg-redesigned);
 }
 
+.selected {
+  background: var(--accent-redesigned);
+}
+
 .disabled,
 .unavailable {
   opacity: 0.7;
