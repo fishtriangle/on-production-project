@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode, useState } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
@@ -16,6 +16,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   children?: ReactNode;
   fullWidth?: boolean;
+  addonLeft?: ReactNode;
+  addonRight?: ReactNode;
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -27,13 +29,28 @@ export const Button = memo((props: ButtonProps) => {
     size = 'sizeM',
     disabled,
     fullWidth,
+    addonLeft,
+    addonRight,
     ...otherProps
   } = props;
+
+  const [isFocused, setIsFocused] = useState(false);
+
+  const onFocus = () => {
+    setIsFocused(true);
+  };
+
+  const onUnFocus = () => {
+    setIsFocused(false);
+  };
 
   const mods: Mods = {
     [classes.square]: square,
     [classes.disabled]: disabled,
     [classes.fullWidth]: fullWidth,
+    [classes.withAddonLeft]: Boolean(addonLeft),
+    [classes.withAddonRight]: Boolean(addonRight),
+    [classes.focused]: isFocused,
   };
 
   return (
@@ -45,9 +62,13 @@ export const Button = memo((props: ButtonProps) => {
         classes[size],
       ])}
       disabled={disabled}
+      onFocus={onFocus}
+      onBlur={onUnFocus}
       {...otherProps}
     >
+      <div className={classes.addonLeft}>{addonLeft}</div>
       {children}
+      <div className={classes.addonRight}>{addonRight}</div>
     </button>
   );
 });
