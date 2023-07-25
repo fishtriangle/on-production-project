@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { EditableProfileCard } from '@/features/EditableProfileCard';
 import { ProfileRating } from '@/features/ProfileRating';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '@/widgets/Page';
 
@@ -23,7 +24,11 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     <Page data-testid="ProfilePage" className={classNames('', {}, [className])}>
       <VStack gap="16" maxWidth>
         <EditableProfileCard id={id} />
-        <ProfileRating profileId={id} />
+        <ToggleFeatures
+          featureName="isSiteRedesigned"
+          on={<div />}
+          off={<ProfileRating profileId={id} />}
+        />
       </VStack>
     </Page>
   );

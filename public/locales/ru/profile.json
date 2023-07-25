@@ -22,5 +22,12 @@
   "No data to validate": "Нет данных для проверки!",
   "Unknown error": "Неизвестная ошибка!",
   "error": "ошибка",
-  "Error! No profile found": "Error! No profile found"
+  "Error! No profile found": "Error! No profile found",
+  "Avatar image": "Avatar image",
+  "Avatar": "Avatar",
+  "Username": "Username",
+  "City": "City",
+  "Birth year": "Birth year",
+  "Lastname": "Lastname",
+  "Name": "Name"
 }

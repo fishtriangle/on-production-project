@@ -7,7 +7,7 @@ import classes from './Flex.module.scss';
 export type FlexJustify = 'start' | 'center' | 'end' | 'between' | 'around';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
-export type FlexGap = '4' | '8' | '16' | '32';
+export type FlexGap = '4' | '8' | '16' | '24' | '32';
 
 type DivProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -43,10 +43,11 @@ const directionMap: Record<FlexDirection, string> = {
   column: classes['direction-column'],
 };
 
-const gapMap: Record<'4' | '8' | '16' | '32', string> = {
+const gapMap: Record<FlexGap, string> = {
   4: classes['gap-4'],
   8: classes['gap-8'],
   16: classes['gap-16'],
+  24: classes['gap-24'],
   32: classes['gap-32'],
 };
 
