@@ -1,8 +1,11 @@
 import { memo } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/depricated/Card';
-import { Skeleton } from '@/shared/ui/depricated/Skeleton';
+import { toggleFeatures } from '@/shared/lib/features';
+import { Card as CardDeprecated } from '@/shared/ui/depricated/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/depricated/Skeleton';
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 
 import classes from './ArticleListItem.module.scss';
 import { ArticleView } from '../../model/types/article';
@@ -15,6 +18,18 @@ interface ArticleListItemSkeletonProps {
 export const ArticleListItemSkeleton = memo(
   ({ className, view }: ArticleListItemSkeletonProps) => {
     const mods: Mods = {};
+
+    const Skeleton = toggleFeatures({
+      name: 'isSiteRedesigned',
+      on: () => SkeletonRedesigned,
+      off: () => SkeletonDeprecated,
+    });
+
+    const Card = toggleFeatures({
+      name: 'isSiteRedesigned',
+      on: () => CardRedesigned,
+      off: () => CardDeprecated,
+    });
 
     if (view === 'LIST') {
       return (

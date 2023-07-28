@@ -17,6 +17,7 @@ interface TextProps {
   variant?: TextVariant;
   align?: TextAlign;
   size?: TextSize;
+  bold?: boolean;
 
   'data-testid'?: string;
 }
@@ -37,12 +38,15 @@ export const Text = memo((props: TextProps) => {
     variant = 'primary',
     align = 'left',
     size = 'size_m',
+    bold = false,
     'data-testid': dataTestId = 'Text',
   } = props;
 
   const HeaderTag = mapSizeToHeaderTag[size];
 
-  const mods: Record<string, boolean> = {};
+  const mods: Record<string, boolean> = {
+    [classes.bold]: bold,
+  };
 
   return (
     <div

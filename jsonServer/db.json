@@ -614,7 +614,7 @@
         "isSiteRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_brown_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpened": false,
         "isArticlesPageWasOpened": true
