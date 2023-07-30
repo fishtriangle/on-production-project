@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Text } from '@/shared/ui/depricated/Text';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 
@@ -43,7 +44,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     view = 'TABLE',
     target,
     onScrollEnd,
-    virtualized = true,
+    virtualized = false,
   } = props;
 
   const { t } = useTranslation();
@@ -92,19 +93,37 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
   if (!virtualized) {
     return (
-      <HStack
-        gap="32"
-        className={classNames(classes.ArticleList, mods, [
-          className,
-          classes[view],
-        ])}
-        data-testid="ArticlesList"
-      >
-        {articles.length > 0
-          ? articles.map((article, index) => renderItems(index, article))
-          : null}
-        {isLoading && getSkeletons(view)}
-      </HStack>
+      <ToggleFeatures
+        featureName="isSiteRedesigned"
+        on={
+          <HStack
+            gap="16"
+            className={classNames(classes.ArticleListRedesigned, mods, [])}
+            data-testid="ArticlesList"
+            wrap="wrap"
+          >
+            {articles.length > 0
+              ? articles.map((article, index) => renderItems(index, article))
+              : null}
+            {isLoading && getSkeletons(view)}
+          </HStack>
+        }
+        off={
+          <HStack
+            gap="32"
+            className={classNames(classes.ArticleList, mods, [
+              className,
+              classes[view],
+            ])}
+            data-testid="ArticlesList"
+          >
+            {articles.length > 0
+              ? articles.map((article, index) => renderItems(index, article))
+              : null}
+            {isLoading && getSkeletons(view)}
+          </HStack>
+        }
+      />
     );
   }
 

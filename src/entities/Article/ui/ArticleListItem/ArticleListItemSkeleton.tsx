@@ -19,6 +19,12 @@ export const ArticleListItemSkeleton = memo(
   ({ className, view }: ArticleListItemSkeletonProps) => {
     const mods: Mods = {};
 
+    const mainClass = toggleFeatures({
+      name: 'isSiteRedesigned',
+      on: () => classes.ArticleListItemRedesigned,
+      off: () => classes.ArticleListItem,
+    });
+
     const Skeleton = toggleFeatures({
       name: 'isSiteRedesigned',
       on: () => SkeletonRedesigned,
@@ -34,10 +40,7 @@ export const ArticleListItemSkeleton = memo(
     if (view === 'LIST') {
       return (
         <div
-          className={classNames(classes.ArticleListItem, mods, [
-            className,
-            classes[view],
-          ])}
+          className={classNames(mainClass, mods, [className, classes[view]])}
         >
           <Card>
             <div className={classes.header}>
@@ -56,12 +59,7 @@ export const ArticleListItemSkeleton = memo(
     }
 
     return (
-      <div
-        className={classNames(classes.ArticleListItem, mods, [
-          className,
-          classes[view],
-        ])}
-      >
+      <div className={classNames(mainClass, mods, [className, classes[view]])}>
         <Card>
           <div className={classes.imageWrapper}>
             <Skeleton width={200} height={200} className={classes.image} />

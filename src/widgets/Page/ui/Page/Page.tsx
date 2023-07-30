@@ -44,7 +44,7 @@ export const Page = memo((props: PageProps) => {
     triggerRef,
     wrapperRef: toggleFeatures({
       name: 'isSiteRedesigned',
-      on: () => undefined,
+      on: () => wrapperRef,
       off: () => wrapperRef,
     }),
   });
@@ -75,7 +75,8 @@ export const Page = memo((props: PageProps) => {
       onScroll={onScroll}
     >
       {children}
-      {onScrollEnd && <div ref={triggerRef} className={classes.trigger} />}
+      {/* {onScrollEnd && <div ref={triggerRef} className={classes.trigger} />} */}
+      <div ref={triggerRef} className={classes.trigger} />
     </main>
   );
 });
