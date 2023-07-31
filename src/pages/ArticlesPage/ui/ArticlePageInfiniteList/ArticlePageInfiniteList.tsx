@@ -8,7 +8,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { getQueryParams } from '@/shared/lib/url/getQueryParams/getQueryParams';
-import { Text, TextTheme } from '@/shared/ui/depricated/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { Page } from '@/widgets/Page';
 
 import classes from './ArticlePageInfiniteList.module.scss';

@@ -5,14 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { CountrySelect } from '@/entities/Country';
 import { CurrencySelect } from '@/entities/Currency';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Avatar as AvatarDeprecated } from '@/shared/ui/depricated/Avatar';
-import { Input as InputDeprecated } from '@/shared/ui/depricated/Input';
-import { Loader } from '@/shared/ui/depricated/Loader';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 import {
   Text as TextDeprecated,
   TextAlign,
   TextTheme,
-} from '@/shared/ui/depricated/Text';
+} from '@/shared/ui/deprecated/Text';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './ProfileCardDeprecated.module.scss';

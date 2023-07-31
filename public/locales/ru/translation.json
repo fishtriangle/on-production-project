@@ -63,5 +63,9 @@
   "Welcome to Articles Page!": "Welcome to Articles Page!",
   "Here you can find some articles": {
     "": "Here you can find some articles."
-  }
+  },
+  "Settings": "Settings",
+  "New": "New",
+  "Old": "Old",
+  "UI variant ": "UI variant "
 }

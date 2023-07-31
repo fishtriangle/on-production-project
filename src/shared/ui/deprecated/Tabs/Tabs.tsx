@@ -1,7 +1,7 @@
 import { ReactNode, useCallback } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Card, CardTheme } from '@/shared/ui/depricated/Card';
+import { Card, CardTheme } from '@/shared/ui/deprecated/Card';
 
 import classes from './Tabs.module.scss';
 

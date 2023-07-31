@@ -8,7 +8,7 @@ import { AddNewComment } from '@/features/AddNewComment';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextSize, TextTheme } from '@/shared/ui/depricated/Text';
+import { Text, TextSize, TextTheme } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { PageLoader } from '@/widgets/PageLoader';
 

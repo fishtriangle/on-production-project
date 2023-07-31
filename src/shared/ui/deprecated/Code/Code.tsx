@@ -2,8 +2,8 @@ import { memo, useCallback } from 'react';
 
 import CopyIcon from '@/shared/assets/icons/copy-icon.svg';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/depricated/Button';
-import { Icon } from '@/shared/ui/depricated/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 
 import classes from './Code.module.scss';
 

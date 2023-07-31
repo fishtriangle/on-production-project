@@ -6,8 +6,8 @@ import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/depricated/Card';
-import { Input } from '@/shared/ui/depricated/Input';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Input } from '@/shared/ui/deprecated/Input';
 
 import classes from './ArticlesPageFilters.module.scss';
 import { useArticleFilters } from '../../lib/hooks/useArticleFilters';

@@ -6,9 +6,9 @@ import NotificationIconDeprecated from '@/shared/assets/icons/notifications.svg'
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
-import { Drawer } from '@/shared/ui/depricated/Drawer';
-import { Icon as IconDeprecated } from '@/shared/ui/depricated/Icon';
-import { PopOver as PopOverDeprecated } from '@/shared/ui/depricated/PopUps';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { PopOver as PopOverDeprecated } from '@/shared/ui/deprecated/PopUps';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { PopOver } from '@/shared/ui/redesigned/PopUps';
 

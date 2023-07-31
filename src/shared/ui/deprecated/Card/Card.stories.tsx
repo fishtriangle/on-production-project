@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Text } from '@/shared/ui/depricated/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 import { Card } from './Card';
 

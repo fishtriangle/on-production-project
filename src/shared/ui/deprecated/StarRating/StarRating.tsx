@@ -2,7 +2,7 @@ import { memo, useState } from 'react';
 
 import StarIcon from '@/shared/assets/icons/star.svg';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Icon } from '@/shared/ui/depricated/Icon';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 
 import classes from './StarRating.module.scss';
 

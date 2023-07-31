@@ -1,7 +1,9 @@
 import { memo } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Skeleton } from '@/shared/ui/depricated/Skeleton';
+import { toggleFeatures } from '@/shared/lib/features';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './NotificationsList.module.scss';
@@ -19,6 +21,12 @@ export const NotificationsList = memo(
     });
 
     const mods: Mods = {};
+
+    const Skeleton = toggleFeatures({
+      name: 'isSiteRedesigned',
+      on: () => SkeletonRedesigned,
+      off: () => SkeletonDeprecated,
+    });
 
     if (isLoading) {
       return (

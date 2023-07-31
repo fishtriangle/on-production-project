@@ -8,7 +8,7 @@ import {
   TextAlign,
   TextSize,
   TextTheme,
-} from '@/shared/ui/depricated/Text';
+} from '@/shared/ui/deprecated/Text';
 import { Page } from '@/widgets/Page';
 
 import classes from './ForbiddenPage.module.scss';

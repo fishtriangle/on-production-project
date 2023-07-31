@@ -10,8 +10,8 @@ import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import {
   Button as ButtonDeprecated,
   ButtonTheme,
-} from '@/shared/ui/depricated/Button';
-import { Icon as IconDeprecated } from '@/shared/ui/depricated/Icon';
+} from '@/shared/ui/deprecated/Button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { HStack } from '@/shared/ui/redesigned/Stack';

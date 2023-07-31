@@ -2,10 +2,10 @@ import { memo } from 'react';
 
 import { getRouteProfile } from '@/shared/const/router';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '@/shared/ui/depricated/AppLink';
-import { Avatar } from '@/shared/ui/depricated/Avatar';
-import { Skeleton } from '@/shared/ui/depricated/Skeleton';
-import { Text } from '@/shared/ui/depricated/Text';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './CommentCard.module.scss';

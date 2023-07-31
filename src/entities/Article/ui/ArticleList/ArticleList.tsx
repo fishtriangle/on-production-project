@@ -5,7 +5,7 @@ import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Text } from '@/shared/ui/depricated/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './ArticleList.module.scss';

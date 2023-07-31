@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { Button, ButtonTheme } from '@/shared/ui/depricated/Button/index';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/index';
 
 describe('Button test', () => {
   test('Render test', () => {

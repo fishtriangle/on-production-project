@@ -1,5 +1,12 @@
 .ThemeSwitcher {
-  height: 40px;
+  svg {
+    height: 40px;
+    width: 40px;
+
+    path {
+      fill: var(--inverted-primary-color);
+    }
+  }
 }
 
 .switched {

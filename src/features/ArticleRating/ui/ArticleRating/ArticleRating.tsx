@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { RatingCard } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Skeleton } from '@/shared/ui/depricated/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 import {
   useGetArticleRatingsQuery,

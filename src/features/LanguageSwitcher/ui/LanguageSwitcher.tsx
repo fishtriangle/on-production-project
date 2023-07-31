@@ -7,7 +7,7 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import {
   Button as ButtonDeprecated,
   ButtonTheme,
-} from '@/shared/ui/depricated/Button';
+} from '@/shared/ui/deprecated/Button';
 import { Button } from '@/shared/ui/redesigned/Button';
 
 import classes from './LanguageSwitcher.module.scss';

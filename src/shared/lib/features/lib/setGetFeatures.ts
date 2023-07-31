@@ -15,3 +15,11 @@ export const getFeatureFlags = (flag: keyof FeatureFlags) => {
 
   return featureFlags[flag];
 };
+
+export const getAllFeatureFlags = () => {
+  if (!featureFlags) {
+    return false;
+  }
+
+  return featureFlags;
+};

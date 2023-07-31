@@ -5,9 +5,9 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import {
   AppLink as AppLinkDeprecated,
   AppLinkTheme,
-} from '@/shared/ui/depricated/AppLink';
-import { Card as CardDeprecated, CardTheme } from '@/shared/ui/depricated/Card';
-import { Text as TextDeprecated } from '@/shared/ui/depricated/Text';
+} from '@/shared/ui/deprecated/AppLink';
+import { Card as CardDeprecated, CardTheme } from '@/shared/ui/deprecated/Card';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Text } from '@/shared/ui/redesigned/Text';
 

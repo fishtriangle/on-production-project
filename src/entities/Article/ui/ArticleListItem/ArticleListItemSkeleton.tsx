@@ -2,8 +2,8 @@ import { memo } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { toggleFeatures } from '@/shared/lib/features';
-import { Card as CardDeprecated } from '@/shared/ui/depricated/Card';
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/depricated/Skeleton';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 

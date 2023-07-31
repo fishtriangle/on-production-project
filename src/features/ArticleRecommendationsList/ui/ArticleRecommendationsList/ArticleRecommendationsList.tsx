@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { ArticleList } from '@/entities/Article';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Loader } from '@/shared/ui/depricated/Loader';
-import { Text, TextSize, TextTheme } from '@/shared/ui/depricated/Text';
+import { Loader } from '@/shared/ui/deprecated/Loader';
+import { Text, TextSize, TextTheme } from '@/shared/ui/deprecated/Text';
 
 import { useGetArticlesRecommendationsListQuery } from '../../api/ArticleRecommendationsListApi';
 
