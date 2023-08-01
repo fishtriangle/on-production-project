@@ -18,8 +18,10 @@ import {
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
-import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/PopUps';
-import { DropdownItem } from '@/shared/ui/deprecated/PopUps/components/Dropdown/Dropdown';
+import {
+  Dropdown as DropdownDeprecated,
+  DropdownItem,
+} from '@/shared/ui/deprecated/PopUps';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Dropdown } from '@/shared/ui/redesigned/PopUps';
 

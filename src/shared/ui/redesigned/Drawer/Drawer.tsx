@@ -5,11 +5,12 @@ import {
   AnimationProvider,
   useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider';
+import { toggleFeatures } from '@/shared/lib/features';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Portal } from '@/shared/ui/redesigned/Portal';
 
 import classes from './Drawer.module.scss';
-import { Overlay } from '../../redesigned/Overlay/Overlay';
+import { Overlay } from '../Overlay/Overlay';
 
 interface DrawerProps {
   className?: string;
@@ -90,12 +91,17 @@ const DrawerContent = memo((props: DrawerProps) => {
   const display = y.to((py) => (py < height ? 'block' : 'none'));
 
   return (
-    <Portal>
+    <Portal element={document.getElementById('app') ?? document.body}>
       <div
         className={classNames(classes.Drawer, {}, [
           className,
           theme,
           'app_drawer',
+          toggleFeatures({
+            name: 'isSiteRedesigned',
+            on: () => classes.drawerNew,
+            off: () => classes.drawerOld,
+          }),
         ])}
       >
         <Overlay onClick={() => close()} />
@@ -121,10 +127,6 @@ const DrawerAsync = (props: DrawerProps) => {
   return <DrawerContent {...props} />;
 };
 
-/**
- * Redesigned, use proper component.
- * @deprecated
- */
 export const Drawer = (props: DrawerProps) => (
   <AnimationProvider>
     <DrawerAsync {...props} />

@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Loader } from '@/shared/ui/deprecated/Loader';
-import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 
 import { LoginFormLazy } from '../LoginForm/LoginForm.lazy';
 
