@@ -10,10 +10,10 @@ export const setFeatureFlags = (newFeatureFlags?: FeatureFlags) => {
 
 export const getFeatureFlags = (flag: keyof FeatureFlags) => {
   if (!featureFlags) {
-    return true;
+    return false;
   }
 
-  return featureFlags[flag] ?? true;
+  return featureFlags[flag];
 };
 
 export const getAllFeatureFlags = () => {

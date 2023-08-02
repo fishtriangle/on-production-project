@@ -15,9 +15,9 @@ export const StickyContentLayout = (props: StickyContentLayoutProps) => {
   const { className, left, content, right } = props;
   return (
     <div className={classNames(classes.StickyContentLayout, {}, [className])}>
-      {right && <div className={classes.right}>{right}</div>}
-      <div className={classes.content}>{content}</div>
       {left && <div className={classes.left}>{left}</div>}
+      <div className={classes.content}>{content}</div>
+      {right && <div className={classes.right}>{right}</div>}
     </div>
   );
 };

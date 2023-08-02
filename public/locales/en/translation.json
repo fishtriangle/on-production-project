@@ -67,5 +67,8 @@
   "Settings": "Settings",
   "New": "New",
   "Old": "Old",
-  "UI variant ": "UI variant "
+  "UI variant ": "UI variant ",
+  "{{count}} views_zero": "{{count}} views",
+  "{{count}} views_one": "{{count}} view",
+  "{{count}} views_other": "{{count}} views"
 }

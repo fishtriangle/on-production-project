@@ -13,6 +13,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   variant?: CardVariant;
   maxWidth?: boolean;
+  maxHeight?: boolean;
   paddings?: CardPaddings;
   border?: CardBorder;
 }
@@ -29,6 +30,7 @@ export const Card = memo(
     className,
     children,
     maxWidth,
+    maxHeight,
     variant = 'normal',
     paddings = '8',
     border = 'normal',
@@ -36,6 +38,7 @@ export const Card = memo(
   }: CardProps) => {
     const mods: Mods = {
       [classes.maxWidth]: maxWidth,
+      [classes.maxHeight]: maxHeight,
     };
 
     return (
