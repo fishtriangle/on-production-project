@@ -17,3 +17,13 @@
   width: 35px;
   height: 35px;
 }
+
+.CodeRedesigned {
+  border: 1px solid var(--accent-redesigned);
+  padding: 20px;
+  position: relative;
+  background: var(--light-bg-redesigned);
+  min-height: 80px;
+  overflow: auto;
+  border-radius: 16px;
+}

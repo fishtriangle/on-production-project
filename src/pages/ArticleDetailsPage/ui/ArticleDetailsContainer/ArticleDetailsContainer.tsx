@@ -5,12 +5,12 @@ import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
 import { Card } from '@/shared/ui/redesigned/Card';
 
-interface ArticleDetailsConteinerProps {
+interface ArticleDetailsContainerProps {
   className?: string;
 }
 
 export const ArticleDetailsContainer = memo(
-  (props: ArticleDetailsConteinerProps) => {
+  (props: ArticleDetailsContainerProps) => {
     const { className } = props;
     const { id } = useParams<{ id: string }>();
 
