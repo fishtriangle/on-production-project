@@ -2,9 +2,11 @@ import { memo, useState } from 'react';
 
 import StarIcon from '@/shared/assets/icons/star.svg';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Icon } from '@/shared/ui/deprecated/Icon';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 
 import classes from './StarRating.module.scss';
+import { Icon } from '../Icon';
 
 interface StarRatingProps {
   className?: string;
@@ -15,10 +17,6 @@ interface StarRatingProps {
 
 const stars = [1, 2, 3, 4, 5];
 
-/**
- * Redesigned, use proper component.
- * @deprecated
- */
 export const StarRating = memo((props: StarRatingProps) => {
   const { className, onSelect, size = 30, selectedStars = 0 } = props;
 
@@ -56,21 +54,38 @@ export const StarRating = memo((props: StarRatingProps) => {
   };
 
   return (
-    <div className={classNames(classes.StarRating, {}, [className])}>
-      {stars.map((star) => (
-        <Icon
-          Svg={StarIcon}
-          key={star}
-          className={classNames(classes.star, starMods(star), [])}
-          width={size}
-          height={size}
-          onMouseLeave={onLeaveHover}
-          onMouseEnter={onHover(star)}
-          onClick={onClick(star)}
-          data-testid={`StarRating.${star}`}
-          data-selected={currentStarsCount >= star}
-        />
-      ))}
+    <div
+      className={classNames(
+        toggleFeatures({
+          name: 'isSiteRedesigned',
+          on: () => classes.StarRatingRedesigned,
+          off: () => classes.StarRating,
+        }),
+        {},
+        [className],
+      )}
+    >
+      {stars.map((star) => {
+        const commonProps = {
+          Svg: StarIcon,
+          key: star,
+          className: classNames(classes.star, starMods(star), []),
+          width: size,
+          height: size,
+          onMouseLeave: onLeaveHover,
+          onMouseEnter: onHover(star),
+          onClick: onClick(star),
+          'data-testid': `StarRating.${star}`,
+          'data-selected': currentStarsCount >= star,
+        };
+        return (
+          <ToggleFeatures
+            featureName="isSiteRedesigned"
+            on={<Icon clickable {...commonProps} />}
+            off={<IconDeprecated {...commonProps} />}
+          />
+        );
+      })}
     </div>
   );
 });

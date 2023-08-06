@@ -10,7 +10,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ToggleFeatures } from '@/shared/lib/features';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Icon } from '@/shared/ui/deprecated/Icon';
@@ -22,7 +22,7 @@ import {
   TextTheme,
 } from '@/shared/ui/deprecated/Text';
 import { AppImage } from '@/shared/ui/redesigned/AppImage/AppImage';
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 
@@ -92,7 +92,9 @@ const ArticleDetailsRedesigned = () => {
       <Text title={article?.subtitle} />
       <AppImage
         src={article?.image}
-        fallback={<Skeleton width="100%" height={420} border="16px" />}
+        fallback={
+          <SkeletonRedesigned width="100%" height={420} border="16px" />
+        }
         className={classes.image}
       />
 
@@ -123,39 +125,41 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   const mods: Mods = {};
 
+  const Skeleton = toggleFeatures({
+    name: 'isSiteRedesigned',
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated,
+  });
+
   if (isLoading) {
     content = (
-      <VStack gap="16">
-        <SkeletonDeprecated
+      <VStack gap="16" maxWidth>
+        <Skeleton
           width={200}
           height={200}
           border="50%"
           className={classes.avatar}
         />
-        <SkeletonDeprecated width={300} height={32} className={classes.title} />
-        <SkeletonDeprecated
-          width={600}
-          height={24}
-          className={classes.skeleton}
-        />
-        <SkeletonDeprecated
-          width="100%"
-          height={200}
-          className={classes.skeleton}
-        />
-        <SkeletonDeprecated
-          width="100%"
-          height={200}
-          className={classes.skeleton}
-        />
+        <Skeleton width={300} height={32} className={classes.title} />
+        <Skeleton width={600} height={24} className={classes.skeleton} />
+        <Skeleton width="100%" height={200} className={classes.skeleton} />
+        <Skeleton width="100%" height={200} className={classes.skeleton} />
       </VStack>
     );
   } else if (error) {
     content = (
-      <TextDeprecated
-        title={t('Error!')}
-        theme={TextTheme.ERROR}
-        align={TextAlign.CENTER}
+      <ToggleFeatures
+        featureName="isSiteRedesigned"
+        on={
+          <Text title={t('Error!')} variant="error" align={TextAlign.CENTER} />
+        }
+        off={
+          <TextDeprecated
+            title={t('Error!')}
+            theme={TextTheme.ERROR}
+            align={TextAlign.CENTER}
+          />
+        }
       />
     );
   } else {

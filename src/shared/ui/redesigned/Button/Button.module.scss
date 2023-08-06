@@ -1,6 +1,6 @@
 .Button {
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 6px 16px;
   color: var(--text-redesigned);
   display: flex;
   align-items: center;
@@ -48,7 +48,7 @@
 }
 
 .outline {
-  border: 1px solid var(--icon-redesigned);
+  border: 2px solid var(--icon-redesigned);
   border-radius: 34px;
   background: none;
 

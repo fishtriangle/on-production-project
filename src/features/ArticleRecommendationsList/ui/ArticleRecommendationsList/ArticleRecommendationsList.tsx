@@ -4,8 +4,15 @@ import { useTranslation } from 'react-i18next';
 
 import { ArticleList } from '@/entities/Article';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Loader } from '@/shared/ui/deprecated/Loader';
-import { Text, TextSize, TextTheme } from '@/shared/ui/deprecated/Text';
+import {
+  Text as TextDeprecated,
+  TextSize,
+  TextTheme,
+} from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import { useGetArticlesRecommendationsListQuery } from '../../api/ArticleRecommendationsListApi';
 
@@ -34,30 +41,49 @@ export const ArticleRecommendationsList = memo(
     }
 
     return (
-      <div
+      <VStack
+        gap="8"
         className={classNames('', mods, [className])}
         data-testid="ArticleRecommendationsList"
       >
-        <Text size={TextSize.L} title={t('Recommendations') ?? ''} />
+        <ToggleFeatures
+          featureName="isSiteRedesigned"
+          on={<Text size="size_l" title={t('Recommendations') ?? ''} />}
+          off={
+            <TextDeprecated
+              size={TextSize.L}
+              title={t('Recommendations') ?? ''}
+            />
+          }
+        />
 
         {!error && (
-          <div style={{ height: '350px' }}>
-            <ArticleList
-              articles={articles}
-              isLoading={isLoading}
-              target="_blank"
-              view="TABLE"
-              virtualized={false}
-            />
-          </div>
-        )}
-        {error && (
-          <Text
-            theme={TextTheme.ERROR}
-            title={t('Recommendations loading error!') ?? ''}
+          <ArticleList
+            articles={articles}
+            isLoading={isLoading}
+            target="_blank"
+            view="TABLE"
+            virtualized={false}
           />
         )}
-      </div>
+        {error && (
+          <ToggleFeatures
+            featureName="isSiteRedesigned"
+            on={
+              <Text
+                variant="error"
+                title={t('Recommendations loading error!') ?? ''}
+              />
+            }
+            off={
+              <TextDeprecated
+                theme={TextTheme.ERROR}
+                title={t('Recommendations loading error!') ?? ''}
+              />
+            }
+          />
+        )}
+      </VStack>
     );
   },
 );

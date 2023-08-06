@@ -1,0 +1,37 @@
+.star {
+  cursor: pointer;
+}
+
+.normal {
+  path {
+    fill: none;
+  }
+}
+
+.StarRating {
+  .hovered {
+    path {
+      fill: var(--inverted-secondary-color);
+    }
+  }
+
+  .selected {
+    path {
+      fill: var(--primary-color);
+    }
+  }
+}
+
+.StarRatingRedesigned {
+  .hovered {
+    path {
+      fill: var(--icon-redesigned);
+    }
+  }
+
+  .selected {
+    path {
+      fill: var(--icon-redesigned);
+    }
+  }
+}

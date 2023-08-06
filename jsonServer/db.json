@@ -553,6 +553,12 @@
       "userId": "1",
       "text": "sbdbhd",
       "id": "gq1ODyC"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam beatae doloremque illum, impedit incidunt ipsa nam natus neque praesentium veniam. A ad delectus iure magnam perspiciatis sapiente ullam voluptas voluptatum.",
+      "id": "KKPdUEQ"
     }
   ],
   "profile": [
@@ -614,7 +620,7 @@
         "isSiteRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpened": false,
         "isArticlesPageWasOpened": true
@@ -776,6 +782,20 @@
       "rate": 3,
       "feedback": "ffff",
       "id": "cYyzydo"
+    },
+    {
+      "articleId": "10",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "",
+      "id": "vL9Zx2u"
+    },
+    {
+      "articleId": "10",
+      "userId": "1",
+      "rate": 3,
+      "feedback": "",
+      "id": "BESy_tX"
     }
   ],
   "profile-ratings": [

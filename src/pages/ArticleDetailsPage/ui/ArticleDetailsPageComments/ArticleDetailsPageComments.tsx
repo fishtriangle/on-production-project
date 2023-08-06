@@ -6,10 +6,16 @@ import { useSelector } from 'react-redux';
 import { CommentList } from '@/entities/Comment';
 import { AddNewComment } from '@/features/AddNewComment';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextSize, TextTheme } from '@/shared/ui/deprecated/Text';
+import {
+  Text as TextDeprecated,
+  TextSize,
+  TextTheme,
+} from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { PageLoader } from '@/widgets/PageLoader';
 
 import {
@@ -50,15 +56,33 @@ export const ArticleDetailsPageComments = memo(
     return (
       <Suspense fallback={<PageLoader />}>
         <VStack gap="16" maxWidth className={classNames('', mods, [className])}>
-          <Text size={TextSize.L} title={t('Comments') ?? ''} />
+          <ToggleFeatures
+            featureName="isSiteRedesigned"
+            on={<Text size="size_l" title={t('Comments') ?? ''} />}
+            off={
+              <TextDeprecated size={TextSize.L} title={t('Comments') ?? ''} />
+            }
+          />
+
           <AddNewComment onSendComment={onSendComment} />
           {!commentsError && (
             <CommentList comments={comments} isLoading={commentsIsLoading} />
           )}
           {commentsError && (
-            <Text
-              theme={TextTheme.ERROR}
-              title={t('Comments loading error!') ?? ''}
+            <ToggleFeatures
+              featureName="isSiteRedesigned"
+              on={
+                <Text
+                  variant="error"
+                  title={t('Comments loading error!') ?? ''}
+                />
+              }
+              off={
+                <TextDeprecated
+                  theme={TextTheme.ERROR}
+                  title={t('Comments loading error!') ?? ''}
+                />
+              }
             />
           )}
         </VStack>

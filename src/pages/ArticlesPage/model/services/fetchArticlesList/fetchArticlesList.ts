@@ -6,7 +6,6 @@ import { Article, ArticleType } from '@/entities/Article';
 import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
 
 import {
-  getArticlesPageLimit,
   getArticlesPageNum,
   getArticlesPageOrder,
   getArticlesPageSearch,
@@ -29,7 +28,7 @@ export const fetchArticlesList = createAsyncThunk<
     getState,
   } = thunkAPI;
 
-  const limit = getArticlesPageLimit(getState());
+  // const limit = getArticlesPageLimit(getState());
   const sort = getArticlesPageSort(getState());
   const order = getArticlesPageOrder(getState());
   const search = getArticlesPageSearch(getState());
@@ -47,7 +46,7 @@ export const fetchArticlesList = createAsyncThunk<
     const response = await api.get<Article[]>('/articles', {
       params: {
         _expand: 'user',
-        _limit: limit,
+        // _limit: limit,
         _page: page,
         _sort: sort,
         _order: order,
