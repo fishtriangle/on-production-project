@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { getFeatureFlags, updateFeatureFlags } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 import { ListBox } from '@/shared/ui/redesigned/PopUps';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack } from '@/shared/ui/redesigned/Stack';
@@ -20,6 +21,8 @@ export const UiDesignSwitcher = memo(({ className }: UiDesignSwitcherProps) => {
   const dispatch = useAppDispatch();
   const authData = useSelector(getUserAuthData);
   const [isLoading, setIsLoading] = useState(false);
+
+  const forceUpdate = useForceUpdate();
 
   const isSiteRedesigned = getFeatureFlags('isSiteRedesigned');
 
@@ -46,6 +49,8 @@ export const UiDesignSwitcher = memo(({ className }: UiDesignSwitcherProps) => {
         }),
       ).unwrap();
       setIsLoading(false);
+      forceUpdate();
+      // window.location.reload();
     }
   };
 

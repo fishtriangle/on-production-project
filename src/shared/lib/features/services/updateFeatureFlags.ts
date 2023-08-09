@@ -4,7 +4,7 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { FeatureFlags } from '@/shared/types/featureFlags';
 
 import { updateFeatureFlagsMutation } from '../api/featureFlagsApi';
-import { getAllFeatureFlags } from '../lib/setGetFeatures';
+import { getAllFeatureFlags, setFeatureFlags } from '../lib/setGetFeatures';
 
 interface UpdateFeatureFlagsOptions {
   userId: string;
@@ -18,19 +18,23 @@ export const updateFeatureFlags = createAsyncThunk<
 >('user/saveJsonSettings', async ({ userId, features }, thunkAPI) => {
   const { rejectWithValue, dispatch } = thunkAPI;
 
+  const featureFlags = {
+    ...getAllFeatureFlags(),
+    ...features,
+  };
+
   try {
     await dispatch(
       updateFeatureFlagsMutation({
         userId,
-        features: {
-          ...getAllFeatureFlags(),
-          ...features,
-        },
+        features: featureFlags,
       }),
     );
 
-    window.location.reload();
+    setFeatureFlags(featureFlags);
+
+    return undefined;
   } catch (error) {
-    rejectWithValue(String(error));
+    return rejectWithValue(String(error));
   }
 });

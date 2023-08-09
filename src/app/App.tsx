@@ -22,8 +22,10 @@ function App() {
   const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
-    dispatch(initAuthData());
-  }, [dispatch]);
+    if (!isInitiated) {
+      dispatch(initAuthData());
+    }
+  }, [dispatch, isInitiated]);
 
   if (!isInitiated) {
     return <PageLoader />;

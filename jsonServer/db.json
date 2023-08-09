@@ -30,7 +30,9 @@
       "views": 1705,
       "createdAt": "26.12.2022",
       "userId": "1",
-      "type": ["JavaScript"],
+      "type": [
+        "JavaScript"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -85,7 +87,13 @@
         {
           "id": "4",
           "type": "TABLE",
-          "rows": [["Основной поток", "Микрозадачи", "Макрозадачи"]]
+          "rows": [
+            [
+              "Основной поток",
+              "Микрозадачи",
+              "Макрозадачи"
+            ]
+          ]
         },
         {
           "id": "7",
@@ -110,7 +118,9 @@
       "views": 997,
       "createdAt": "22.11.2022",
       "userId": "1",
-      "type": ["JavaScript"],
+      "type": [
+        "JavaScript"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -143,7 +153,9 @@
       "views": 10658,
       "createdAt": "07.09.2022",
       "userId": "1",
-      "type": ["JavaScript"],
+      "type": [
+        "JavaScript"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -176,7 +188,9 @@
       "views": 5436,
       "createdAt": "20.03.2022",
       "userId": "1",
-      "type": ["Economics"],
+      "type": [
+        "Economics"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -209,7 +223,9 @@
       "views": 568,
       "createdAt": "15.12.2021",
       "userId": "1",
-      "type": ["Science"],
+      "type": [
+        "Science"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -242,7 +258,9 @@
       "views": 2997,
       "createdAt": "19.11.2022",
       "userId": "1",
-      "type": ["JavaScript"],
+      "type": [
+        "JavaScript"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -275,7 +293,9 @@
       "views": 106580,
       "createdAt": "04.10.2021",
       "userId": "1",
-      "type": ["JavaScript"],
+      "type": [
+        "JavaScript"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -308,7 +328,9 @@
       "views": 257,
       "createdAt": "15.08.2021",
       "userId": "1",
-      "type": ["Economics"],
+      "type": [
+        "Economics"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -341,7 +363,9 @@
       "views": 8754,
       "createdAt": "28.03.2022",
       "userId": "1",
-      "type": ["Economics"],
+      "type": [
+        "Economics"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -374,7 +398,9 @@
       "views": 8765,
       "createdAt": "04.04.2021",
       "userId": "1",
-      "type": ["JavaScript"],
+      "type": [
+        "JavaScript"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -407,7 +433,9 @@
       "views": 458,
       "createdAt": "25.12.2020",
       "userId": "1",
-      "type": ["Economics"],
+      "type": [
+        "Economics"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -440,7 +468,9 @@
       "views": 1997,
       "createdAt": "23.12.2019",
       "userId": "1",
-      "type": ["Science"],
+      "type": [
+        "Science"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -473,7 +503,9 @@
       "views": 7881,
       "createdAt": "12.12.2018",
       "userId": "1",
-      "type": ["JavaScript"],
+      "type": [
+        "JavaScript"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -612,7 +644,9 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://avatars.githubusercontent.com/u/66234622?v=4",
       "features": {
         "isArticleRatingEnabled": true,
@@ -630,10 +664,13 @@
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": false
+        "isCounterEnabled": false,
+        "isSiteRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_light_theme",
@@ -647,7 +684,9 @@
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": true
@@ -664,7 +703,9 @@
       "id": "4",
       "username": "testuser",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": false
