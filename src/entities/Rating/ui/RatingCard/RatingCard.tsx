@@ -207,7 +207,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
     <ToggleFeatures
       featureName="isSiteRedesigned"
       on={
-        <Card data-testid="RatingCard" paddings="24" border="round" maxWidth>
+        <Card data-testid="RatingCard" paddings="24" border="semi" maxWidth>
           {content}
         </Card>
       }

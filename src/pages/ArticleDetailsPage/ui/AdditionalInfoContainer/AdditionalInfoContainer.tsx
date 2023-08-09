@@ -35,7 +35,7 @@ export const AdditionalInfoContainer = memo(
       <Card
         className={classNames(classes.AdditionalInfoContainer, {}, [className])}
         paddings="24"
-        border="round"
+        border="semi"
       >
         <ArticleAdditionalInfo
           onEdit={onEditArticle}

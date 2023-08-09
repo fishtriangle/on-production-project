@@ -48,7 +48,7 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
             })}
             key={tab.value}
             onClick={clickHandler(tab)}
-            border="round"
+            border="semi"
             paddings={isSelected ? '16' : '8'}
           >
             {tab.content}

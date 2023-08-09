@@ -48,12 +48,23 @@
 }
 
 .outline {
-  border: 2px solid var(--icon-redesigned);
   border-radius: 34px;
   background: none;
 
+  &.color_normal {
+    border: 2px solid var(--icon-redesigned);
+  }
+
+  &.color_success {
+    border: 2px solid var(--save-redesigned);
+  }
+
+  &.color_error {
+    border: 2px solid var(--cancel-redesigned);
+  }
+
   &:hover {
-    border: 1px solid var(--accent-redesigned);
+    border: 2px solid var(--accent-redesigned);
   }
 }
 

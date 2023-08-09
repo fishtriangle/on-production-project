@@ -6,11 +6,14 @@ import classes from './Button.module.scss';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
 
+export type ButtonColor = 'normal' | 'success' | 'error';
+
 export type ButtonSize = 'sizeM' | 'sizeL' | 'sizeXL';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: ButtonVariant;
+  color?: ButtonColor;
   square?: boolean;
   size?: ButtonSize;
   disabled?: boolean;
@@ -25,6 +28,7 @@ export const Button = memo((props: ButtonProps) => {
     className,
     children,
     variant = 'outline',
+    color = 'normal',
     square,
     size = 'sizeM',
     disabled,
@@ -60,6 +64,7 @@ export const Button = memo((props: ButtonProps) => {
         className,
         classes[variant],
         classes[size],
+        classes[`color_${color}`],
       ])}
       disabled={disabled}
       onFocus={onFocus}

@@ -14,7 +14,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { ProfileCardProps } from '../ProfileCard/ProfileCard';
 
 export const ProfileCardRedesignedSkeleton = () => (
-  <Card paddings="24" maxWidth>
+  <Card paddings="24" maxWidth border="semi">
     <VStack gap="32">
       <HStack maxWidth justify="center">
         <Skeleton border="100%" width={128} height={128} />
@@ -70,7 +70,7 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
   const { t } = useTranslation('profile');
 
   return (
-    <Card paddings="24" maxWidth className={className}>
+    <Card border="semi" paddings="24" maxWidth className={className}>
       <VStack gap="32">
         {data?.avatar && (
           <HStack justify="center" maxWidth>
