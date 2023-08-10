@@ -12,7 +12,7 @@ export interface ArticlesPageSchema extends EntityState<Article> {
   isLoading?: boolean;
   error?: string;
   page: number;
-  limit: number;
+  limit?: number;
   hasMore: boolean;
   view: ArticleView;
   order: SortOrder;

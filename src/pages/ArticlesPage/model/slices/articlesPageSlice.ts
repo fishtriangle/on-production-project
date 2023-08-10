@@ -36,7 +36,7 @@ export const articlesPageSlice = createSlice({
     page: 1,
     hasMore: true,
     _isInitiated: false,
-    limit: 9,
+    limit: undefined,
     sort: 'createdAt',
     search: '',
     order: 'desc',
@@ -45,7 +45,7 @@ export const articlesPageSlice = createSlice({
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
       state.view = action.payload;
-      state.limit = state.view === 'TABLE' ? 9 : 4;
+      // state.limit = state.view === 'TABLE' ? 9 : 4;
       localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
     },
     setPage: (state, action: PayloadAction<number>) => {
@@ -68,7 +68,7 @@ export const articlesPageSlice = createSlice({
         ARTICLES_VIEW_LOCALSTORAGE_KEY,
       ) as ArticleView;
       state.view = view;
-      state.limit = view === 'TABLE' ? 9 : 4;
+      // state.limit = view === 'TABLE' ? 9 : 4;
       state._isInitiated = true;
     },
   },
@@ -85,7 +85,9 @@ export const articlesPageSlice = createSlice({
       .addCase(fetchArticlesList.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = undefined;
-        state.hasMore = action.payload.length >= state.limit;
+        state.hasMore = state.limit
+          ? action.payload.length >= state.limit
+          : false;
 
         if (action.meta.arg.needReplaceData) {
           articlesAdapter.setAll(state, action.payload);

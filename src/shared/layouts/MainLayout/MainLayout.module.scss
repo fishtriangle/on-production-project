@@ -4,6 +4,7 @@
   grid-template-areas: "sidebar content rightbar";
   grid-template-columns: min-content 1fr 100px;
   overflow-y: auto;
+  position: inherit;
 }
 
 .sidebar {
