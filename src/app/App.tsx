@@ -3,6 +3,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getUserIsInitiated, initAuthData } from '@/entities/User';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
@@ -28,7 +29,17 @@ function App() {
   }, [dispatch, isInitiated]);
 
   if (!isInitiated) {
-    return <PageLoader />;
+    return (
+      <ToggleFeatures
+        featureName="isSiteRedesigned"
+        on={
+          <div id="app" className={classNames('app_redesigned', {}, [theme])}>
+            <AppLoaderLayout />
+          </div>
+        }
+        off={<PageLoader />}
+      />
+    );
   }
 
   const mods: Mods = {
