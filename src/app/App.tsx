@@ -13,12 +13,15 @@ import { Navbar } from '@/widgets/Navbar';
 import { PageLoader } from '@/widgets/PageLoader';
 import { Sidebar } from '@/widgets/Sidebar';
 
+import { useToolbar } from './lib/useToolbar';
 import { AppRouter } from './providers/router';
 
 function App() {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const isInitiated = useSelector(getUserIsInitiated);
+
+  const toolbar = useToolbar();
 
   const [collapsed, setCollapsed] = useState(false);
 
@@ -58,7 +61,7 @@ function App() {
               sidebar={
                 <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
               }
-              // toolbar={<div>sdjfhbvskjhb</div>}
+              toolbar={toolbar}
             />
           </Suspense>
         </div>
