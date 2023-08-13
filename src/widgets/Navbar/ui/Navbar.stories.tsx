@@ -9,7 +9,7 @@ import { Theme } from '@/shared/const/theme';
 import { Navbar } from './Navbar';
 
 export default {
-  title: 'widget/ArticlesFilter',
+  title: 'widget/Navbar',
   component: Navbar,
   argTypes: {
     backgroundColor: { control: 'color' },

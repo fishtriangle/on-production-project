@@ -1,4 +1,5 @@
 import { Theme } from '../../src';
+import { FeatureFlagDecorator } from '../../src/shared/config/storybook/FeatureFlagDecorator/FeatureFlagDecorator';
 import { I18nDecorator } from '../../src/shared/config/storybook/I18nDecodator/I18nDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from '../../src/shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -38,4 +39,7 @@ export const decorators = [
   RouterDecorator,
   StoreDecorator({}),
   SuspenseDecorator,
+  FeatureFlagDecorator({
+    isSiteRedesigned: false,
+  }),
 ];

@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { memo, Suspense, useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
 
@@ -15,8 +15,9 @@ import { Sidebar } from '@/widgets/Sidebar';
 
 import { useToolbar } from './lib/useToolbar';
 import { AppRouter } from './providers/router';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
-function App() {
+const App = memo(() => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const isInitiated = useSelector(getUserIsInitiated);
@@ -81,6 +82,6 @@ function App() {
       }
     />
   );
-}
+});
 
-export default App;
+export default withTheme(App);

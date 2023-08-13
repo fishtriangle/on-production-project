@@ -2,6 +2,8 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { RedesignDecorator } from '@/shared/config/storybook/RedesingDecorator/RedesignDecorator';
+
 import { CommentCard } from './CommentCard';
 
 export default {
@@ -16,8 +18,7 @@ const Template: ComponentStory<typeof CommentCard> = (args) => (
   <CommentCard {...args} />
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
+const primaryArgs = {
   comment: {
     id: '1',
     user: {
@@ -29,6 +30,13 @@ Primary.args = {
     text: 'Check 1',
   },
 };
+
+export const Primary = Template.bind({});
+Primary.args = primaryArgs;
+
+export const PrimaryRedesigned = Template.bind({});
+PrimaryRedesigned.args = primaryArgs;
+PrimaryRedesigned.decorators = [RedesignDecorator];
 
 export const Loading = Template.bind({});
 Loading.args = {
