@@ -28,7 +28,7 @@ export function PopOver(props: PopOverProps) {
         popupClasses.popup,
       ])}
     >
-      <Popover.Button className={popupClasses.trigger}>
+      <Popover.Button className={popupClasses.trigger} as="div">
         {trigger}
       </Popover.Button>
 
